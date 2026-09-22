@@ -1,0 +1,1865 @@
+{
+  "project": "CodeVault",
+  "platform": "PC/Laptop",
+  "file": "pc_commands.json",
+  "schema_version": "1.0",
+  "last_reviewed": "2026-09-22",
+  "supported_platforms": [
+    "Windows 10",
+    "Windows 11"
+  ],
+  "lookup_flow": [
+    "platform",
+    "operating_system",
+    "category",
+    "search",
+    "exact_command",
+    "details"
+  ],
+  "notes": [
+    "CMD means Windows Command Prompt.",
+    "PowerShell commands are different from traditional CMD commands.",
+    "Some commands require Administrator privileges.",
+    "Commands marked high risk can interrupt programs, restart Windows, or change system state.",
+    "Commands using placeholders such as <PID>, <path>, <username>, or <host> require the user to replace the placeholder.",
+    "Legacy commands may not exist on every modern Windows installation."
+  ],
+  "categories": [
+    {
+      "id": "basics",
+      "name": "Command Line Basics",
+      "commands": [
+        {
+          "id": "pc-001",
+          "title": "Show all CMD commands",
+          "command": "help",
+          "shell": "CMD",
+          "description": "Displays a list of available Command Prompt commands.",
+          "example": "help",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["help", "commands", "cmd"]
+        },
+        {
+          "id": "pc-002",
+          "title": "Get help for a command",
+          "command": "help ipconfig",
+          "shell": "CMD",
+          "description": "Displays detailed help and syntax for a specified CMD command.",
+          "example": "help ipconfig",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["help", "syntax", "learning"]
+        },
+        {
+          "id": "pc-003",
+          "title": "Clear CMD screen",
+          "command": "cls",
+          "shell": "CMD",
+          "description": "Clears the Command Prompt window.",
+          "example": "cls",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["terminal", "clear"]
+        },
+        {
+          "id": "pc-004",
+          "title": "Show Windows version",
+          "command": "ver",
+          "shell": "CMD",
+          "description": "Displays the Windows version string.",
+          "example": "ver",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["windows", "version"]
+        },
+        {
+          "id": "pc-005",
+          "title": "Show current user",
+          "command": "whoami",
+          "shell": "CMD",
+          "description": "Displays the account currently being used.",
+          "example": "whoami",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["user", "account", "identity"]
+        },
+        {
+          "id": "pc-006",
+          "title": "Show computer name",
+          "command": "hostname",
+          "shell": "CMD",
+          "description": "Displays the computer's host name.",
+          "example": "hostname",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["hostname", "computer", "name"]
+        },
+        {
+          "id": "pc-007",
+          "title": "Show current directory",
+          "command": "cd",
+          "shell": "CMD",
+          "description": "Displays the current working directory.",
+          "example": "cd",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["directory", "folder", "path"]
+        },
+        {
+          "id": "pc-008",
+          "title": "Show command history",
+          "command": "doskey /history",
+          "shell": "CMD",
+          "description": "Displays commands entered during the current CMD session.",
+          "example": "doskey /history",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["history", "terminal"]
+        }
+      ]
+    },
+    {
+      "id": "files",
+      "name": "Files and Folders",
+      "commands": [
+        {
+          "id": "pc-009",
+          "title": "List files and folders",
+          "command": "dir",
+          "shell": "CMD",
+          "description": "Lists files and directories in the current location.",
+          "example": "dir",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["files", "folders", "directory"]
+        },
+        {
+          "id": "pc-010",
+          "title": "List a specific folder",
+          "command": "dir C:\\Users",
+          "shell": "CMD",
+          "description": "Lists the contents of a specified folder.",
+          "example": "dir C:\\Users",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["files", "folder", "list"]
+        },
+        {
+          "id": "pc-011",
+          "title": "Change directory",
+          "command": "cd <path>",
+          "shell": "CMD",
+          "description": "Moves CMD into another directory.",
+          "example": "cd C:\\Users\\Public",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["cd", "directory", "navigation"]
+        },
+        {
+          "id": "pc-012",
+          "title": "Go to the root of the current drive",
+          "command": "cd \\",
+          "shell": "CMD",
+          "description": "Moves to the root directory of the current drive.",
+          "example": "cd \\",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["directory", "root"]
+        },
+        {
+          "id": "pc-013",
+          "title": "Create a folder",
+          "command": "mkdir <folder>",
+          "shell": "CMD",
+          "description": "Creates a new directory.",
+          "example": "mkdir Projects",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["mkdir", "folder", "create"]
+        },
+        {
+          "id": "pc-014",
+          "title": "Remove a folder",
+          "command": "rmdir <folder>",
+          "shell": "CMD",
+          "description": "Removes a directory when its contents permit removal.",
+          "example": "rmdir OldFolder",
+          "requires_admin": false,
+          "risk": "medium",
+          "reversible": false,
+          "tags": ["rmdir", "folder", "remove"]
+        },
+        {
+          "id": "pc-015",
+          "title": "Copy a file",
+          "command": "copy <source> <destination>",
+          "shell": "CMD",
+          "description": "Copies a file from one location to another.",
+          "example": "copy report.txt D:\\Backup\\",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["copy", "file", "backup"]
+        },
+        {
+          "id": "pc-016",
+          "title": "Move a file",
+          "command": "move <source> <destination>",
+          "shell": "CMD",
+          "description": "Moves a file or folder to another location.",
+          "example": "move report.txt D:\\Backup\\",
+          "requires_admin": false,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["move", "file", "folder"]
+        },
+        {
+          "id": "pc-017",
+          "title": "Rename a file",
+          "command": "ren <old> <new>",
+          "shell": "CMD",
+          "description": "Renames a file or directory.",
+          "example": "ren draft.txt final.txt",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["rename", "file"]
+        },
+        {
+          "id": "pc-018",
+          "title": "Display text file",
+          "command": "type <file>",
+          "shell": "CMD",
+          "description": "Displays the contents of a text file in the terminal.",
+          "example": "type notes.txt",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["type", "text", "file"]
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "name": "File and Text Search",
+      "commands": [
+        {
+          "id": "pc-019",
+          "title": "Search for text in files",
+          "command": "findstr /s /i \"error\" *.log",
+          "shell": "CMD",
+          "description": "Searches files for matching text without requiring a separate editor.",
+          "example": "findstr /s /i \"error\" *.log",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["findstr", "search", "logs"]
+        },
+        {
+          "id": "pc-020",
+          "title": "Find a program",
+          "command": "where python",
+          "shell": "CMD",
+          "description": "Shows the executable locations found through the PATH environment variable.",
+          "example": "where python",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["where", "path", "python"]
+        },
+        {
+          "id": "pc-021",
+          "title": "Compare files",
+          "command": "fc old.txt new.txt",
+          "shell": "CMD",
+          "description": "Compares two text files and reports differences.",
+          "example": "fc old.txt new.txt",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["fc", "compare", "files"]
+        },
+        {
+          "id": "pc-022",
+          "title": "Show file attributes",
+          "command": "attrib <file>",
+          "shell": "CMD",
+          "description": "Displays attributes such as read-only, hidden and system.",
+          "example": "attrib notes.txt",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["attrib", "hidden", "files"]
+        },
+        {
+          "id": "pc-023",
+          "title": "Show directory tree",
+          "command": "tree",
+          "shell": "CMD",
+          "description": "Displays a graphical representation of folder structure.",
+          "example": "tree",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["tree", "folders", "structure"]
+        },
+        {
+          "id": "pc-024",
+          "title": "Show all items in PowerShell",
+          "command": "Get-ChildItem",
+          "shell": "PowerShell",
+          "description": "Lists files and folders in the current PowerShell location.",
+          "example": "Get-ChildItem",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "files", "folders"]
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "name": "Networking",
+      "commands": [
+        {
+          "id": "pc-025",
+          "title": "Find IP address",
+          "command": "ipconfig",
+          "shell": "CMD",
+          "description": "Displays basic IP configuration for network adapters.",
+          "example": "ipconfig",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["ip", "ipv4", "network"]
+        },
+        {
+          "id": "pc-026",
+          "title": "Show complete IP configuration",
+          "command": "ipconfig /all",
+          "shell": "CMD",
+          "description": "Displays detailed IP, DHCP, DNS, adapter and gateway information.",
+          "example": "ipconfig /all",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["ip", "dns", "dhcp", "gateway"]
+        },
+        {
+          "id": "pc-027",
+          "title": "Release DHCP address",
+          "command": "ipconfig /release",
+          "shell": "CMD",
+          "description": "Releases the DHCP-assigned address on applicable adapters.",
+          "example": "ipconfig /release",
+          "requires_admin": true,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["dhcp", "release", "network"]
+        },
+        {
+          "id": "pc-028",
+          "title": "Renew DHCP address",
+          "command": "ipconfig /renew",
+          "shell": "CMD",
+          "description": "Requests a new DHCP lease.",
+          "example": "ipconfig /renew",
+          "requires_admin": true,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["dhcp", "renew"]
+        },
+        {
+          "id": "pc-029",
+          "title": "Flush DNS cache",
+          "command": "ipconfig /flushdns",
+          "shell": "CMD",
+          "description": "Clears the local DNS resolver cache.",
+          "example": "ipconfig /flushdns",
+          "requires_admin": true,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["dns", "cache", "internet"]
+        },
+        {
+          "id": "pc-030",
+          "title": "Display DNS cache",
+          "command": "ipconfig /displaydns",
+          "shell": "CMD",
+          "description": "Displays entries currently stored in the DNS resolver cache.",
+          "example": "ipconfig /displaydns",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["dns", "cache"]
+        },
+        {
+          "id": "pc-031",
+          "title": "Show MAC address",
+          "command": "getmac /v",
+          "shell": "CMD",
+          "description": "Displays MAC addresses and adapter information.",
+          "example": "getmac /v",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["mac", "adapter", "network"]
+        },
+        {
+          "id": "pc-032",
+          "title": "Show routing table",
+          "command": "route print",
+          "shell": "CMD",
+          "description": "Displays IPv4 and IPv6 routing tables.",
+          "example": "route print",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["route", "routing", "network"]
+        },
+        {
+          "id": "pc-033",
+          "title": "Show ARP table",
+          "command": "arp -a",
+          "shell": "CMD",
+          "description": "Displays IP-to-MAC mappings currently in the ARP cache.",
+          "example": "arp -a",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["arp", "mac", "network"]
+        },
+        {
+          "id": "pc-034",
+          "title": "Show active network connections",
+          "command": "netstat -ano",
+          "shell": "CMD",
+          "description": "Displays active connections, listening ports and associated process IDs.",
+          "example": "netstat -ano",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["netstat", "ports", "connections"]
+        }
+      ]
+    },
+    {
+      "id": "internet",
+      "name": "Internet Diagnostics",
+      "commands": [
+        {
+          "id": "pc-035",
+          "title": "Test Internet connectivity by IP",
+          "command": "ping 1.1.1.1",
+          "shell": "CMD",
+          "description": "Sends ICMP echo requests to test basic reachability and latency.",
+          "example": "ping 1.1.1.1",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["ping", "internet", "latency"]
+        },
+        {
+          "id": "pc-036",
+          "title": "Test a hostname",
+          "command": "ping example.com",
+          "shell": "CMD",
+          "description": "Tests hostname resolution and ICMP reachability.",
+          "example": "ping example.com",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["ping", "dns", "host"]
+        },
+        {
+          "id": "pc-037",
+          "title": "Trace network path",
+          "command": "tracert example.com",
+          "shell": "CMD",
+          "description": "Shows network hops between the computer and a destination.",
+          "example": "tracert example.com",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["tracert", "network", "route"]
+        },
+        {
+          "id": "pc-038",
+          "title": "Detailed path diagnostics",
+          "command": "pathping example.com",
+          "shell": "CMD",
+          "description": "Combines route tracing with packet-loss and latency measurements.",
+          "example": "pathping example.com",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["pathping", "packet-loss", "latency"]
+        },
+        {
+          "id": "pc-039",
+          "title": "Query DNS",
+          "command": "nslookup example.com",
+          "shell": "CMD",
+          "description": "Queries DNS and shows the resulting records.",
+          "example": "nslookup example.com",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["nslookup", "dns"]
+        },
+        {
+          "id": "pc-040",
+          "title": "Check a TCP port",
+          "command": "Test-NetConnection example.com -Port 443",
+          "shell": "PowerShell",
+          "description": "Tests whether a TCP connection can be established to a host and port.",
+          "example": "Test-NetConnection example.com -Port 443",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["tcp", "port", "https"]
+        }
+      ]
+    },
+    {
+      "id": "wifi",
+      "name": "Wi-Fi",
+      "commands": [
+        {
+          "id": "pc-041",
+          "title": "Show Wi-Fi interface",
+          "command": "netsh wlan show interfaces",
+          "shell": "CMD",
+          "description": "Displays Wi-Fi connection details such as SSID, signal and interface state.",
+          "example": "netsh wlan show interfaces",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["wifi", "ssid", "signal"]
+        },
+        {
+          "id": "pc-042",
+          "title": "Show Wi-Fi driver capabilities",
+          "command": "netsh wlan show drivers",
+          "shell": "CMD",
+          "description": "Displays installed Wi-Fi driver information and supported capabilities.",
+          "example": "netsh wlan show drivers",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["wifi", "driver", "adapter"]
+        },
+        {
+          "id": "pc-043",
+          "title": "List saved Wi-Fi profiles",
+          "command": "netsh wlan show profiles",
+          "shell": "CMD",
+          "description": "Lists wireless network profiles stored on the computer.",
+          "example": "netsh wlan show profiles",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["wifi", "profiles", "ssid"]
+        },
+        {
+          "id": "pc-044",
+          "title": "Show network adapters",
+          "command": "Get-NetAdapter",
+          "shell": "PowerShell",
+          "description": "Lists network adapters and their current status.",
+          "example": "Get-NetAdapter",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["adapter", "wifi", "ethernet"]
+        },
+        {
+          "id": "pc-045",
+          "title": "Show complete network configuration",
+          "command": "Get-NetIPConfiguration",
+          "shell": "PowerShell",
+          "description": "Gets IP addresses, interfaces and DNS configuration for connected adapters.",
+          "example": "Get-NetIPConfiguration",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["ip", "dns", "powershell"]
+        },
+        {
+          "id": "pc-046",
+          "title": "Show TCP connections",
+          "command": "Get-NetTCPConnection",
+          "shell": "PowerShell",
+          "description": "Lists current TCP connections and listening endpoints.",
+          "example": "Get-NetTCPConnection",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["tcp", "connections", "ports"]
+        }
+      ]
+    },
+    {
+      "id": "system",
+      "name": "System Information",
+      "commands": [
+        {
+          "id": "pc-047",
+          "title": "Full system information",
+          "command": "systeminfo",
+          "shell": "CMD",
+          "description": "Displays operating system, hardware and configuration information.",
+          "example": "systeminfo",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["system", "info", "hardware"]
+        },
+        {
+          "id": "pc-048",
+          "title": "Open System Information",
+          "command": "msinfo32",
+          "shell": "Run / CMD",
+          "description": "Opens the Windows System Information application.",
+          "example": "msinfo32",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["msinfo32", "system"]
+        },
+        {
+          "id": "pc-049",
+          "title": "Open DirectX Diagnostic Tool",
+          "command": "dxdiag",
+          "shell": "Run / CMD",
+          "description": "Opens DirectX Diagnostic Tool for graphics, audio and system information.",
+          "example": "dxdiag",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["dxdiag", "graphics", "audio"]
+        },
+        {
+          "id": "pc-050",
+          "title": "Show Windows build",
+          "command": "winver",
+          "shell": "Run / CMD",
+          "description": "Opens the Windows version and build dialog.",
+          "example": "winver",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["windows", "build", "version"]
+        },
+        {
+          "id": "pc-051",
+          "title": "List installed drivers",
+          "command": "driverquery",
+          "shell": "CMD",
+          "description": "Lists installed device drivers.",
+          "example": "driverquery",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["drivers", "hardware"]
+        },
+        {
+          "id": "pc-052",
+          "title": "Get consolidated computer information",
+          "command": "Get-ComputerInfo",
+          "shell": "PowerShell",
+          "description": "Returns a consolidated object containing system and operating-system properties.",
+          "example": "Get-ComputerInfo",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "computer", "system"]
+        }
+      ]
+    },
+    {
+      "id": "hardware",
+      "name": "Hardware Diagnostics",
+      "commands": [
+        {
+          "id": "pc-053",
+          "title": "CPU information",
+          "command": "Get-CimInstance Win32_Processor",
+          "shell": "PowerShell",
+          "description": "Displays information about installed processors.",
+          "example": "Get-CimInstance Win32_Processor",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["cpu", "processor", "hardware"]
+        },
+        {
+          "id": "pc-054",
+          "title": "RAM information",
+          "command": "Get-CimInstance Win32_PhysicalMemory",
+          "shell": "PowerShell",
+          "description": "Displays information about physical memory modules.",
+          "example": "Get-CimInstance Win32_PhysicalMemory",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["ram", "memory", "hardware"]
+        },
+        {
+          "id": "pc-055",
+          "title": "BIOS information",
+          "command": "Get-CimInstance Win32_BIOS",
+          "shell": "PowerShell",
+          "description": "Displays BIOS or UEFI SMBIOS information exposed through Windows.",
+          "example": "Get-CimInstance Win32_BIOS",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["bios", "uefi", "firmware"]
+        },
+        {
+          "id": "pc-056",
+          "title": "Windows operating system information",
+          "command": "Get-CimInstance Win32_OperatingSystem",
+          "shell": "PowerShell",
+          "description": "Displays operating-system properties such as version and build.",
+          "example": "Get-CimInstance Win32_OperatingSystem",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["os", "windows", "system"]
+        },
+        {
+          "id": "pc-057",
+          "title": "List Plug and Play devices",
+          "command": "Get-PnpDevice",
+          "shell": "PowerShell",
+          "description": "Lists hardware devices detected by Windows and their status.",
+          "example": "Get-PnpDevice",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["pnp", "devices", "drivers"]
+        },
+        {
+          "id": "pc-058",
+          "title": "Open Device Manager",
+          "command": "devmgmt.msc",
+          "shell": "Run / CMD",
+          "description": "Opens Device Manager for hardware and driver inspection.",
+          "example": "devmgmt.msc",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["device-manager", "hardware", "drivers"]
+        }
+      ]
+    },
+    {
+      "id": "processes",
+      "name": "Processes and Performance",
+      "commands": [
+        {
+          "id": "pc-059",
+          "title": "List running processes",
+          "command": "tasklist",
+          "shell": "CMD",
+          "description": "Lists currently running processes.",
+          "example": "tasklist",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["processes", "task", "running"]
+        },
+        {
+          "id": "pc-060",
+          "title": "Show processes and services",
+          "command": "tasklist /svc",
+          "shell": "CMD",
+          "description": "Shows services associated with running processes where applicable.",
+          "example": "tasklist /svc",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["processes", "services"]
+        },
+        {
+          "id": "pc-061",
+          "title": "Stop a process by PID",
+          "command": "taskkill /PID <PID> /F",
+          "shell": "CMD",
+          "description": "Forcibly terminates a process by process ID.",
+          "example": "taskkill /PID 1234 /F",
+          "requires_admin": true,
+          "risk": "high",
+          "reversible": false,
+          "tags": ["taskkill", "pid", "process"]
+        },
+        {
+          "id": "pc-062",
+          "title": "List processes in PowerShell",
+          "command": "Get-Process",
+          "shell": "PowerShell",
+          "description": "Lists running processes as PowerShell objects.",
+          "example": "Get-Process",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "process"]
+        },
+        {
+          "id": "pc-063",
+          "title": "Stop a process in PowerShell",
+          "command": "Stop-Process -Id <PID>",
+          "shell": "PowerShell",
+          "description": "Stops a process using its process ID.",
+          "example": "Stop-Process -Id 1234",
+          "requires_admin": false,
+          "risk": "high",
+          "reversible": false,
+          "tags": ["powershell", "process", "pid"]
+        },
+        {
+          "id": "pc-064",
+          "title": "Open Task Manager",
+          "command": "taskmgr.exe",
+          "shell": "Run / CMD",
+          "description": "Opens Windows Task Manager for processes, performance and startup management.",
+          "example": "taskmgr.exe",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["task-manager", "performance"]
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "name": "Windows Services",
+      "commands": [
+        {
+          "id": "pc-065",
+          "title": "List services",
+          "command": "sc query",
+          "shell": "CMD",
+          "description": "Displays Windows services and their status.",
+          "example": "sc query",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["services", "sc"]
+        },
+        {
+          "id": "pc-066",
+          "title": "Inspect a service",
+          "command": "sc qc <service>",
+          "shell": "CMD",
+          "description": "Displays configuration information for a Windows service.",
+          "example": "sc qc Spooler",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["services", "configuration"]
+        },
+        {
+          "id": "pc-067",
+          "title": "List services in PowerShell",
+          "command": "Get-Service",
+          "shell": "PowerShell",
+          "description": "Lists Windows services and their states.",
+          "example": "Get-Service",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "services"]
+        },
+        {
+          "id": "pc-068",
+          "title": "Start a service",
+          "command": "Start-Service -Name <service>",
+          "shell": "PowerShell",
+          "description": "Starts a specified Windows service.",
+          "example": "Start-Service -Name Spooler",
+          "requires_admin": true,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["services", "start"]
+        },
+        {
+          "id": "pc-069",
+          "title": "Stop a service",
+          "command": "Stop-Service -Name <service>",
+          "shell": "PowerShell",
+          "description": "Stops a specified Windows service.",
+          "example": "Stop-Service -Name Spooler",
+          "requires_admin": true,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["services", "stop"]
+        },
+        {
+          "id": "pc-070",
+          "title": "Open Services manager",
+          "command": "services.msc",
+          "shell": "Run / CMD",
+          "description": "Opens the graphical Windows Services management console.",
+          "example": "services.msc",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["services", "management"]
+        }
+      ]
+    },
+    {
+      "id": "storage",
+      "name": "Storage and Drives",
+      "commands": [
+        {
+          "id": "pc-071",
+          "title": "Check a drive",
+          "command": "chkdsk C:",
+          "shell": "CMD",
+          "description": "Checks the file system on the specified volume and reports errors.",
+          "example": "chkdsk C:",
+          "requires_admin": true,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["chkdsk", "disk", "filesystem"]
+        },
+        {
+          "id": "pc-072",
+          "title": "Repair file-system errors",
+          "command": "chkdsk C: /f",
+          "shell": "CMD",
+          "description": "Attempts to correct file-system errors on the specified volume.",
+          "example": "chkdsk C: /f",
+          "requires_admin": true,
+          "risk": "high",
+          "reversible": false,
+          "tags": ["chkdsk", "repair", "disk"]
+        },
+        {
+          "id": "pc-073",
+          "title": "Check drive free space",
+          "command": "fsutil volume diskfree C:",
+          "shell": "CMD",
+          "description": "Reports free-space information for a volume.",
+          "example": "fsutil volume diskfree C:",
+          "requires_admin": true,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["storage", "space"]
+        },
+        {
+          "id": "pc-074",
+          "title": "List volumes",
+          "command": "Get-Volume",
+          "shell": "PowerShell",
+          "description": "Lists Windows volumes, sizes, file systems and status information.",
+          "example": "Get-Volume",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["volume", "storage", "powershell"]
+        },
+        {
+          "id": "pc-075",
+          "title": "List physical disks",
+          "command": "Get-Disk",
+          "shell": "PowerShell",
+          "description": "Lists physical disks visible to Windows.",
+          "example": "Get-Disk",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["disk", "storage", "powershell"]
+        },
+        {
+          "id": "pc-076",
+          "title": "List disk partitions",
+          "command": "Get-Partition",
+          "shell": "PowerShell",
+          "description": "Lists partitions on disks visible to Windows.",
+          "example": "Get-Partition",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["partition", "disk"]
+        }
+      ]
+    },
+    {
+      "id": "repair",
+      "name": "Windows Repair",
+      "commands": [
+        {
+          "id": "pc-077",
+          "title": "Scan and repair Windows system files",
+          "command": "sfc /scannow",
+          "shell": "CMD",
+          "description": "Scans protected Windows system files and attempts to repair corruption.",
+          "example": "sfc /scannow",
+          "requires_admin": true,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["sfc", "repair", "system-files"]
+        },
+        {
+          "id": "pc-078",
+          "title": "Check Windows component store",
+          "command": "DISM /Online /Cleanup-Image /CheckHealth",
+          "shell": "CMD",
+          "description": "Performs a quick check of the Windows component store.",
+          "example": "DISM /Online /Cleanup-Image /CheckHealth",
+          "requires_admin": true,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["dism", "health", "repair"]
+        },
+        {
+          "id": "pc-079",
+          "title": "Scan Windows component store",
+          "command": "DISM /Online /Cleanup-Image /ScanHealth",
+          "shell": "CMD",
+          "description": "Performs a more detailed scan of the Windows component store.",
+          "example": "DISM /Online /Cleanup-Image /ScanHealth",
+          "requires_admin": true,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["dism", "scan", "repair"]
+        },
+        {
+          "id": "pc-080",
+          "title": "Repair Windows component store",
+          "command": "DISM /Online /Cleanup-Image /RestoreHealth",
+          "shell": "CMD",
+          "description": "Attempts to repair the Windows component store.",
+          "example": "DISM /Online /Cleanup-Image /RestoreHealth",
+          "requires_admin": true,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["dism", "restorehealth", "repair"]
+        },
+        {
+          "id": "pc-081",
+          "title": "Open Windows Memory Diagnostic",
+          "command": "mdsched.exe",
+          "shell": "Run / CMD",
+          "description": "Opens Windows Memory Diagnostic for testing RAM.",
+          "example": "mdsched.exe",
+          "requires_admin": false,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["memory", "ram", "diagnostics"]
+        },
+        {
+          "id": "pc-082",
+          "title": "Open Resource Monitor",
+          "command": "resmon.exe",
+          "shell": "Run / CMD",
+          "description": "Opens Resource Monitor for CPU, RAM, disk and network activity.",
+          "example": "resmon.exe",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["resource-monitor", "performance"]
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "name": "Power and Battery",
+      "commands": [
+        {
+          "id": "pc-083",
+          "title": "Generate battery report",
+          "command": "powercfg /batteryreport",
+          "shell": "CMD",
+          "description": "Generates a battery report in HTML format on supported systems.",
+          "example": "powercfg /batteryreport",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["battery", "laptop", "power"]
+        },
+        {
+          "id": "pc-084",
+          "title": "Generate energy report",
+          "command": "powercfg /energy",
+          "shell": "CMD",
+          "description": "Analyzes common power-efficiency and energy configuration issues.",
+          "example": "powercfg /energy",
+          "requires_admin": true,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["battery", "energy", "diagnostics"]
+        },
+        {
+          "id": "pc-085",
+          "title": "Show active power requests",
+          "command": "powercfg /requests",
+          "shell": "CMD",
+          "description": "Shows applications, drivers or services preventing certain power-state changes.",
+          "example": "powercfg /requests",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["sleep", "power", "diagnostics"]
+        },
+        {
+          "id": "pc-086",
+          "title": "Show available sleep states",
+          "command": "powercfg /a",
+          "shell": "CMD",
+          "description": "Displays power and sleep states available on the computer.",
+          "example": "powercfg /a",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["sleep", "hibernate", "power"]
+        },
+        {
+          "id": "pc-087",
+          "title": "List power plans",
+          "command": "powercfg /list",
+          "shell": "CMD",
+          "description": "Lists Windows power schemes and identifies the active plan.",
+          "example": "powercfg /list",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["power-plan", "battery"]
+        },
+        {
+          "id": "pc-088",
+          "title": "Open Power Options",
+          "command": "powercfg.cpl",
+          "shell": "Run / CMD",
+          "description": "Opens the classic Power Options control panel.",
+          "example": "powercfg.cpl",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["power", "battery", "laptop"]
+        }
+      ]
+    },
+    {
+      "id": "users",
+      "name": "Users and Accounts",
+      "commands": [
+        {
+          "id": "pc-089",
+          "title": "List local users",
+          "command": "net user",
+          "shell": "CMD",
+          "description": "Lists local user accounts.",
+          "example": "net user",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["users", "accounts"]
+        },
+        {
+          "id": "pc-090",
+          "title": "Inspect a local user",
+          "command": "net user <username>",
+          "shell": "CMD",
+          "description": "Displays information about a specified local user.",
+          "example": "net user Student",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["user", "account"]
+        },
+        {
+          "id": "pc-091",
+          "title": "List local groups",
+          "command": "net localgroup",
+          "shell": "CMD",
+          "description": "Lists local security groups.",
+          "example": "net localgroup",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["groups", "accounts"]
+        },
+        {
+          "id": "pc-092",
+          "title": "Show current username",
+          "command": "$env:USERNAME",
+          "shell": "PowerShell",
+          "description": "Returns the username for the current PowerShell session.",
+          "example": "$env:USERNAME",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "username"]
+        },
+        {
+          "id": "pc-093",
+          "title": "List local users in PowerShell",
+          "command": "Get-LocalUser",
+          "shell": "PowerShell",
+          "description": "Lists local Windows user accounts.",
+          "example": "Get-LocalUser",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "users"]
+        },
+        {
+          "id": "pc-094",
+          "title": "List local groups in PowerShell",
+          "command": "Get-LocalGroup",
+          "shell": "PowerShell",
+          "description": "Lists local security groups.",
+          "example": "Get-LocalGroup",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "groups"]
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "name": "Logs and Scheduled Tasks",
+      "commands": [
+        {
+          "id": "pc-095",
+          "title": "Open Event Viewer",
+          "command": "eventvwr.msc",
+          "shell": "Run / CMD",
+          "description": "Opens Windows Event Viewer for system and application logs.",
+          "example": "eventvwr.msc",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["event-viewer", "logs"]
+        },
+        {
+          "id": "pc-096",
+          "title": "Read recent System events",
+          "command": "Get-WinEvent -LogName System -MaxEvents 20",
+          "shell": "PowerShell",
+          "description": "Displays the most recent System event log entries.",
+          "example": "Get-WinEvent -LogName System -MaxEvents 20",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["event-log", "system", "powershell"]
+        },
+        {
+          "id": "pc-097",
+          "title": "List scheduled tasks",
+          "command": "schtasks /query",
+          "shell": "CMD",
+          "description": "Displays scheduled tasks registered with Windows.",
+          "example": "schtasks /query",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["scheduled", "tasks"]
+        },
+        {
+          "id": "pc-098",
+          "title": "List scheduled tasks in PowerShell",
+          "command": "Get-ScheduledTask",
+          "shell": "PowerShell",
+          "description": "Lists scheduled tasks as PowerShell objects.",
+          "example": "Get-ScheduledTask",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["scheduled", "tasks", "powershell"]
+        },
+        {
+          "id": "pc-099",
+          "title": "Open Performance Monitor",
+          "command": "perfmon.msc",
+          "shell": "Run / CMD",
+          "description": "Opens Windows Performance Monitor.",
+          "example": "perfmon.msc",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["performance", "monitor"]
+        },
+        {
+          "id": "pc-100",
+          "title": "Open System Configuration",
+          "command": "msconfig",
+          "shell": "Run / CMD",
+          "description": "Opens System Configuration for startup and boot troubleshooting.",
+          "example": "msconfig",
+          "requires_admin": true,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["msconfig", "startup", "boot"]
+        }
+      ]
+    },
+    {
+      "id": "firewall",
+      "name": "Firewall and Security",
+      "commands": [
+        {
+          "id": "pc-101",
+          "title": "Show firewall profiles",
+          "command": "netsh advfirewall show allprofiles",
+          "shell": "CMD",
+          "description": "Displays Windows Defender Firewall profile status and configuration.",
+          "example": "netsh advfirewall show allprofiles",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["firewall", "security"]
+        },
+        {
+          "id": "pc-102",
+          "title": "List enabled firewall rules",
+          "command": "Get-NetFirewallRule -Enabled True",
+          "shell": "PowerShell",
+          "description": "Lists enabled Windows firewall rules.",
+          "example": "Get-NetFirewallRule -Enabled True",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["firewall", "rules", "powershell"]
+        },
+        {
+          "id": "pc-103",
+          "title": "Show firewall profiles in PowerShell",
+          "command": "Get-NetFirewallProfile",
+          "shell": "PowerShell",
+          "description": "Displays firewall profile configuration for Domain, Private and Public networks.",
+          "example": "Get-NetFirewallProfile",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["firewall", "profiles"]
+        },
+        {
+          "id": "pc-104",
+          "title": "Show Microsoft Defender status",
+          "command": "Get-MpComputerStatus",
+          "shell": "PowerShell",
+          "description": "Reports Microsoft Defender Antivirus status information when the Defender module is available.",
+          "example": "Get-MpComputerStatus",
+          "requires_admin": true,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["defender", "antivirus", "security"]
+        },
+        {
+          "id": "pc-105",
+          "title": "Open Windows Security",
+          "command": "windowsdefender:",
+          "shell": "Run / CMD",
+          "description": "Attempts to open the Windows Security interface on supported Windows installations.",
+          "example": "windowsdefender:",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["windows-security", "defender"]
+        },
+        {
+          "id": "pc-106",
+          "title": "Open Windows Defender settings",
+          "command": "Get-MpPreference",
+          "shell": "PowerShell",
+          "description": "Displays Microsoft Defender preference information when the module is available.",
+          "example": "Get-MpPreference",
+          "requires_admin": true,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["defender", "security"]
+        }
+      ]
+    },
+    {
+      "id": "powershell",
+      "name": "PowerShell Essentials",
+      "commands": [
+        {
+          "id": "pc-107",
+          "title": "Find PowerShell commands",
+          "command": "Get-Command",
+          "shell": "PowerShell",
+          "description": "Finds commands available in the current PowerShell environment.",
+          "example": "Get-Command",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "commands", "learning"]
+        },
+        {
+          "id": "pc-108",
+          "title": "Get PowerShell help",
+          "command": "Get-Help Get-Process",
+          "shell": "PowerShell",
+          "description": "Displays help for a PowerShell command.",
+          "example": "Get-Help Get-Process",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "help"]
+        },
+        {
+          "id": "pc-109",
+          "title": "Inspect PowerShell object members",
+          "command": "Get-Process | Get-Member",
+          "shell": "PowerShell",
+          "description": "Shows properties and methods available on process objects.",
+          "example": "Get-Process | Get-Member",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "objects", "pipeline"]
+        },
+        {
+          "id": "pc-110",
+          "title": "Get current PowerShell location",
+          "command": "Get-Location",
+          "shell": "PowerShell",
+          "description": "Displays the current working location.",
+          "example": "Get-Location",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "directory"]
+        },
+        {
+          "id": "pc-111",
+          "title": "Change PowerShell location",
+          "command": "Set-Location <path>",
+          "shell": "PowerShell",
+          "description": "Changes the current PowerShell working location.",
+          "example": "Set-Location C:\\Users",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "cd", "navigation"]
+        },
+        {
+          "id": "pc-112",
+          "title": "Get environment variables",
+          "command": "Get-ChildItem Env:",
+          "shell": "PowerShell",
+          "description": "Displays environment variables available to the current PowerShell process.",
+          "example": "Get-ChildItem Env:",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "environment", "variables"]
+        }
+      ]
+    },
+    {
+      "id": "powershell_files",
+      "name": "PowerShell Files and Text",
+      "commands": [
+        {
+          "id": "pc-113",
+          "title": "Create a folder in PowerShell",
+          "command": "New-Item -ItemType Directory Projects",
+          "shell": "PowerShell",
+          "description": "Creates a new directory.",
+          "example": "New-Item -ItemType Directory Projects",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "folder", "create"]
+        },
+        {
+          "id": "pc-114",
+          "title": "Create a text file",
+          "command": "New-Item -ItemType File notes.txt",
+          "shell": "PowerShell",
+          "description": "Creates a new empty file.",
+          "example": "New-Item -ItemType File notes.txt",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "file", "create"]
+        },
+        {
+          "id": "pc-115",
+          "title": "Copy an item",
+          "command": "Copy-Item <source> <destination>",
+          "shell": "PowerShell",
+          "description": "Copies files or directories.",
+          "example": "Copy-Item report.txt D:\\Backup\\",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "copy", "backup"]
+        },
+        {
+          "id": "pc-116",
+          "title": "Move an item",
+          "command": "Move-Item <source> <destination>",
+          "shell": "PowerShell",
+          "description": "Moves files or directories.",
+          "example": "Move-Item report.txt D:\\Backup\\",
+          "requires_admin": false,
+          "risk": "medium",
+          "reversible": true,
+          "tags": ["powershell", "move"]
+        },
+        {
+          "id": "pc-117",
+          "title": "Read a text file",
+          "command": "Get-Content <file>",
+          "shell": "PowerShell",
+          "description": "Reads the contents of a text file.",
+          "example": "Get-Content .\\app.log",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "logs", "text"]
+        },
+        {
+          "id": "pc-118",
+          "title": "Search for text",
+          "command": "Select-String -Path <file> -Pattern \"error\"",
+          "shell": "PowerShell",
+          "description": "Searches files for a specified text pattern.",
+          "example": "Select-String -Path .\\app.log -Pattern \"error\"",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["powershell", "search", "logs"]
+        }
+      ]
+    },
+    {
+      "id": "run_tools",
+      "name": "Important Windows Run Commands",
+      "commands": [
+        {
+          "id": "pc-119",
+          "title": "Open Computer Management",
+          "command": "compmgmt.msc",
+          "shell": "Run",
+          "description": "Opens the Computer Management console.",
+          "example": "compmgmt.msc",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["run", "management"]
+        },
+        {
+          "id": "pc-120",
+          "title": "Open Disk Management",
+          "command": "diskmgmt.msc",
+          "shell": "Run",
+          "description": "Opens Windows Disk Management.",
+          "example": "diskmgmt.msc",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["disk", "storage", "run"]
+        },
+        {
+          "id": "pc-121",
+          "title": "Open Network Connections",
+          "command": "ncpa.cpl",
+          "shell": "Run",
+          "description": "Opens the classic Network Connections interface.",
+          "example": "ncpa.cpl",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["network", "adapter", "run"]
+        },
+        {
+          "id": "pc-122",
+          "title": "Open System Properties",
+          "command": "sysdm.cpl",
+          "shell": "Run",
+          "description": "Opens classic System Properties.",
+          "example": "sysdm.cpl",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["system", "properties", "run"]
+        },
+        {
+          "id": "pc-123",
+          "title": "Open Internet Properties",
+          "command": "inetcpl.cpl",
+          "shell": "Run",
+          "description": "Opens the classic Internet Properties interface.",
+          "example": "inetcpl.cpl",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["internet", "browser", "run"]
+        },
+        {
+          "id": "pc-124",
+          "title": "Open Programs and Features",
+          "command": "appwiz.cpl",
+          "shell": "Run",
+          "description": "Opens the classic installed-programs interface.",
+          "example": "appwiz.cpl",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["programs", "software", "run"]
+        }
+      ]
+    },
+    {
+      "id": "shutdown",
+      "name": "Shutdown and Restart",
+      "commands": [
+        {
+          "id": "pc-125",
+          "title": "Restart Windows",
+          "command": "shutdown /r /t 0",
+          "shell": "CMD",
+          "description": "Restarts Windows immediately.",
+          "example": "shutdown /r /t 0",
+          "requires_admin": false,
+          "risk": "high",
+          "reversible": false,
+          "tags": ["restart", "shutdown"]
+        },
+        {
+          "id": "pc-126",
+          "title": "Shut down Windows",
+          "command": "shutdown /s /t 0",
+          "shell": "CMD",
+          "description": "Shuts down Windows immediately.",
+          "example": "shutdown /s /t 0",
+          "requires_admin": false,
+          "risk": "high",
+          "reversible": false,
+          "tags": ["shutdown", "power"]
+        },
+        {
+          "id": "pc-127",
+          "title": "Cancel pending shutdown",
+          "command": "shutdown /a",
+          "shell": "CMD",
+          "description": "Cancels a pending shutdown or restart initiated by the shutdown command.",
+          "example": "shutdown /a",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["shutdown", "cancel"]
+        },
+        {
+          "id": "pc-128",
+          "title": "Log off current user",
+          "command": "shutdown /l",
+          "shell": "CMD",
+          "description": "Logs off the current Windows user.",
+          "example": "shutdown /l",
+          "requires_admin": false,
+          "risk": "high",
+          "reversible": false,
+          "tags": ["logoff", "session"]
+        },
+        {
+          "id": "pc-129",
+          "title": "Restart from PowerShell",
+          "command": "Restart-Computer",
+          "shell": "PowerShell",
+          "description": "Restarts the computer.",
+          "example": "Restart-Computer",
+          "requires_admin": true,
+          "risk": "high",
+          "reversible": false,
+          "tags": ["powershell", "restart"]
+        },
+        {
+          "id": "pc-130",
+          "title": "Shut down from PowerShell",
+          "command": "Stop-Computer",
+          "shell": "PowerShell",
+          "description": "Shuts down the computer.",
+          "example": "Stop-Computer",
+          "requires_admin": true,
+          "risk": "high",
+          "reversible": false,
+          "tags": ["powershell", "shutdown"]
+        }
+      ]
+    },
+    {
+      "id": "developer",
+      "name": "Developer Setup Commands",
+      "commands": [
+        {
+          "id": "pc-131",
+          "title": "Check Git version",
+          "command": "git --version",
+          "shell": "CMD / PowerShell",
+          "description": "Displays the installed Git version when Git is installed and available on PATH.",
+          "example": "git --version",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["git", "developer"]
+        },
+        {
+          "id": "pc-132",
+          "title": "Check Python version",
+          "command": "python --version",
+          "shell": "CMD / PowerShell",
+          "description": "Displays the Python version when Python is installed.",
+          "example": "python --version",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["python", "developer"]
+        },
+        {
+          "id": "pc-133",
+          "title": "Check Node.js version",
+          "command": "node --version",
+          "shell": "CMD / PowerShell",
+          "description": "Displays the installed Node.js version.",
+          "example": "node --version",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["node", "javascript", "developer"]
+        },
+        {
+          "id": "pc-134",
+          "title": "Check npm version",
+          "command": "npm --version",
+          "shell": "CMD / PowerShell",
+          "description": "Displays the installed npm version.",
+          "example": "npm --version",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["npm", "node", "developer"]
+        },
+        {
+          "id": "pc-135",
+          "title": "Check WinGet",
+          "command": "winget --version",
+          "shell": "CMD / PowerShell",
+          "description": "Displays the installed Windows Package Manager version when available.",
+          "example": "winget --version",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["winget", "packages", "developer"]
+        },
+        {
+          "id": "pc-136",
+          "title": "Search for a package",
+          "command": "winget search <term>",
+          "shell": "CMD / PowerShell",
+          "description": "Searches available Windows Package Manager sources.",
+          "example": "winget search vscode",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["winget", "software", "packages"]
+        }
+      ]
+    },
+    {
+      "id": "operators",
+      "name": "Command-Line Operators",
+      "commands": [
+        {
+          "id": "pc-137",
+          "title": "Pipe output",
+          "command": "command1 | command2",
+          "shell": "CMD / PowerShell",
+          "description": "Passes the output of one command into another command.",
+          "example": "ipconfig | findstr IPv4",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["pipe", "pipeline"]
+        },
+        {
+          "id": "pc-138",
+          "title": "Save command output",
+          "command": "command > output.txt",
+          "shell": "CMD / PowerShell",
+          "description": "Redirects standard output into a file and replaces existing contents.",
+          "example": "ipconfig > network.txt",
+          "requires_admin": false,
+          "risk": "medium",
+          "reversible": false,
+          "tags": ["output", "redirect", "file"]
+        },
+        {
+          "id": "pc-139",
+          "title": "Append output to a file",
+          "command": "command >> output.txt",
+          "shell": "CMD / PowerShell",
+          "description": "Appends command output to an existing file.",
+          "example": "echo Test >> log.txt",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["output", "append", "logs"]
+        },
+        {
+          "id": "pc-140",
+          "title": "Run second command only after success",
+          "command": "command1 && command2",
+          "shell": "CMD",
+          "description": "Runs the second command only when the first command succeeds.",
+          "example": "ipconfig && ping 1.1.1.1",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["operators", "cmd", "automation"]
+        },
+        {
+          "id": "pc-141",
+          "title": "Run commands regardless of first result",
+          "command": "command1 & command2",
+          "shell": "CMD",
+          "description": "Runs multiple commands on one command line without requiring the first to succeed.",
+          "example": "cd C:\\ & dir",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["operators", "cmd"]
+        },
+        {
+          "id": "pc-142",
+          "title": "Page long command output",
+          "command": "command | more",
+          "shell": "CMD",
+          "description": "Displays long command output page by page.",
+          "example": "driverquery | more",
+          "requires_admin": false,
+          "risk": "low",
+          "reversible": true,
+          "tags": ["more", "output", "paging"]
+        }
+      ]
+    }
+  ]
+}

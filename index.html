@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+>
+
+<meta name="theme-color" content="#02040b">
+
+<meta
+    name="description"
+    content="CodeVault — Discover Your Device"
+>
+
+<title>CodeVault</title>
+
+<style>
+
+/* =========================================================
+   CODEVAULT — ADVANCED SPLASH SYSTEM
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            #101a38 0%,
+            #080d1d 30%,
+            #03050d 62%,
+            #010207 100%
+        );
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.splash {
+    position: relative;
+
+    width: 100%;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+   ========================================================= */
+
+.grid {
+    position: absolute;
+    inset: -30%;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 229, 255, .055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(168, 85, 247, .055) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+
+    transform:
+        perspective(600px)
+        rotateX(62deg)
+        translateY(15%);
+
+    transform-origin: center bottom;
+
+    animation:
+        gridMove 8s linear infinite;
+
+    opacity: .65;
+
+    mask-image:
+        linear-gradient(
+            to top,
+            black 0%,
+            rgba(0,0,0,.7) 35%,
+            transparent 80%
+        );
+
+    z-index: -6;
+}
+
+@keyframes gridMove {
+
+    from {
+        transform:
+            perspective(600px)
+            rotateX(62deg)
+            translateY(0);
+    }
+
+    to {
+        transform:
+            perspective(600px)
+            rotateX(62deg)
+            translateY(42px);
+    }
+}
+
+
+/* =========================================================
+   RADIAL ATMOSPHERE
+   ========================================================= */
+
+.atmosphere {
+    position: absolute;
+
+    width: 75vw;
+    height: 75vw;
+
+    max-width: 520px;
+    max-height: 520px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,229,255,.13),
+            rgba(87,54,255,.09) 35%,
+            rgba(168,85,247,.04) 55%,
+            transparent 72%
+        );
+
+    filter: blur(8px);
+
+    animation:
+        atmospherePulse 4s ease-in-out infinite;
+
+    z-index: -5;
+}
+
+@keyframes atmospherePulse {
+
+    0%,
+    100% {
+        transform: scale(.88);
+        opacity: .55;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   VERTICAL LIGHT BEAMS
+   ========================================================= */
+
+.beam {
+    position: absolute;
+
+    width: 1px;
+    height: 70%;
+
+    top: -10%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,229,255,.35),
+            transparent
+        );
+
+    filter: blur(.5px);
+
+    opacity: .5;
+
+    transform: rotate(24deg);
+
+    animation: beamMove 6s linear infinite;
+
+    z-index: -4;
+}
+
+.beam:nth-of-type(2) {
+    background:
+        linear-gradient(
+            transparent,
+            rgba(168,85,247,.35),
+            transparent
+        );
+
+    transform: rotate(-24deg);
+
+    animation-delay: -2s;
+}
+
+@keyframes beamMove {
+
+    from {
+        transform:
+            translateY(-30%)
+            rotate(24deg);
+    }
+
+    to {
+        transform:
+            translateY(150%)
+            rotate(24deg);
+    }
+}
+
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+.particles {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -3;
+}
+
+.particle {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: #8beeff;
+
+    box-shadow:
+        0 0 8px rgba(0,229,255,.8);
+
+    animation:
+        particleFloat linear infinite;
+}
+
+.particle:nth-child(1) {
+    left: 12%;
+    top: 25%;
+    animation-duration: 5s;
+}
+
+.particle:nth-child(2) {
+    left: 78%;
+    top: 19%;
+    animation-duration: 7s;
+}
+
+.particle:nth-child(3) {
+    left: 87%;
+    top: 63%;
+    animation-duration: 6s;
+}
+
+.particle:nth-child(4) {
+    left: 18%;
+    top: 72%;
+    animation-duration: 8s;
+}
+
+.particle:nth-child(5) {
+    left: 48%;
+    top: 14%;
+    animation-duration: 5.5s;
+}
+
+.particle:nth-child(6) {
+    left: 65%;
+    top: 80%;
+    animation-duration: 7.5s;
+}
+
+.particle:nth-child(7) {
+    left: 30%;
+    top: 48%;
+    animation-duration: 6.5s;
+}
+
+.particle:nth-child(8) {
+    left: 92%;
+    top: 34%;
+    animation-duration: 5.8s;
+}
+
+@keyframes particleFloat {
+
+    0% {
+        transform:
+            translateY(30px)
+            scale(.4);
+
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: .8;
+    }
+
+    100% {
+        transform:
+            translateY(-90px)
+            scale(1.3);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   TOP STATUS BAR
+   ========================================================= */
+
+.top-status {
+    position: absolute;
+
+    top: 22px;
+
+    width: calc(100% - 34px);
+    max-width: 480px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    opacity: 0;
+
+    animation:
+        fadeIn .8s ease .2s forwards;
+}
+
+.system-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 2.2px;
+
+    color: rgba(203,213,225,.58);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #00e5ff;
+
+    box-shadow:
+        0 0 10px rgba(0,229,255,.9);
+
+    animation:
+        statusPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: .4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.secure {
+    padding: 6px 9px;
+
+    border: 1px solid rgba(0,229,255,.14);
+
+    border-radius: 999px;
+
+    background:
+        rgba(5,10,25,.45);
+
+    backdrop-filter: blur(12px);
+
+    font-size: 8px;
+
+    letter-spacing: 1.4px;
+
+    color: rgba(165,243,252,.65);
+}
+
+
+/* =========================================================
+   CENTRAL CORE
+   ========================================================= */
+
+.core {
+    position: relative;
+
+    width: min(76vw, 310px);
+    height: min(76vw, 310px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   OUTER ENERGY RINGS
+   ========================================================= */
+
+.ring {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0,229,255,.16);
+
+    box-shadow:
+        0 0 18px rgba(0,229,255,.05),
+        inset 0 0 18px rgba(168,85,247,.04);
+}
+
+.ring.one {
+    width: 100%;
+    height: 100%;
+
+    animation:
+        ringRotate 14s linear infinite;
+}
+
+.ring.two {
+    width: 86%;
+    height: 86%;
+
+    border-color:
+        rgba(168,85,247,.20);
+
+    border-style: dashed;
+
+    animation:
+        ringRotateReverse 18s linear infinite;
+}
+
+.ring.three {
+    width: 70%;
+    height: 70%;
+
+    border-color:
+        rgba(0,229,255,.20);
+
+    animation:
+        ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes ringRotate {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ringRotateReverse {
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        transform: scale(.94);
+        opacity: .45;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   ORBIT DOTS
+   ========================================================= */
+
+.orbit {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    animation:
+        orbit 9s linear infinite;
+}
+
+.orbit::before,
+.orbit::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #00e5ff;
+
+    box-shadow:
+        0 0 14px rgba(0,229,255,.9);
+}
+
+.orbit::before {
+    top: 0;
+    left: 50%;
+}
+
+.orbit::after {
+    bottom: 0;
+    right: 50%;
+
+    background: #d946ef;
+
+    box-shadow:
+        0 0 14px rgba(217,70,239,.9);
+}
+
+@keyframes orbit {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   LOGO WINDOW
+   ========================================================= */
+
+.logo-window {
+    position: relative;
+
+    width: 45%;
+    height: 45%;
+
+    border-radius: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14,28,55,.92),
+            rgba(8,10,25,.95)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.55),
+        0 0 40px rgba(0,229,255,.08),
+        inset 0 1px 0 rgba(255,255,255,.12);
+
+    backdrop-filter: blur(20px);
+
+    animation:
+        logoWindowIn 1.3s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+
+    opacity: 0;
+}
+
+@keyframes logoWindowIn {
+
+    0% {
+        transform:
+            scale(.5)
+            rotate(-12deg);
+
+        opacity: 0;
+    }
+
+    70% {
+        transform:
+            scale(1.08)
+            rotate(2deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(1)
+            rotate(0);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   LOGO IMAGE
+   ========================================================= */
+
+.logo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    transform: scale(1.42);
+
+    filter:
+        drop-shadow(
+            0 0 20px rgba(0,229,255,.28)
+        )
+        drop-shadow(
+            0 0 25px rgba(168,85,247,.18)
+        );
+
+    animation:
+        logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+
+    0%,
+    100% {
+        filter:
+            drop-shadow(
+                0 0 15px rgba(0,229,255,.20)
+            );
+    }
+
+    50% {
+        filter:
+            drop-shadow(
+                0 0 28px rgba(0,229,255,.40)
+            )
+            drop-shadow(
+                0 0 22px rgba(168,85,247,.28)
+            );
+    }
+}
+
+
+/* =========================================================
+   SCANNER
+   ========================================================= */
+
+.scanner {
+    position: absolute;
+
+    left: 8%;
+    right: 8%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00e5ff,
+            #ffffff,
+            #a855f7,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(0,229,255,.8);
+
+    opacity: .7;
+
+    animation:
+        scan 3s ease-in-out infinite;
+}
+
+@keyframes scan {
+
+    0% {
+        top: 5%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    85% {
+        opacity: .8;
+    }
+
+    100% {
+        top: 95%;
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   BRAND AREA
+   ========================================================= */
+
+.brand {
+    text-align: center;
+
+    margin-top: -2px;
+
+    opacity: 0;
+
+    animation:
+        brandReveal 1s ease .8s forwards;
+}
+
+@keyframes brandReveal {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(22px)
+            scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.brand h1 {
+
+    font-size:
+        clamp(38px, 11vw, 60px);
+
+    font-weight: 850;
+
+    letter-spacing: -2.8px;
+
+    line-height: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff 0%,
+            #60a5fa 38%,
+            #a855f7 70%,
+            #f0abfc 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.tagline {
+
+    margin-top: 11px;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(226,232,240,.58);
+}
+
+
+/* =========================================================
+   BOOT PANEL
+   ========================================================= */
+
+.boot-panel {
+
+    position: absolute;
+
+    bottom: 55px;
+
+    width: calc(100% - 40px);
+    max-width: 420px;
+
+    opacity: 0;
+
+    animation:
+        fadeIn .8s ease 1.2s forwards;
+}
+
+.boot-head {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 9px;
+}
+
+.boot-label {
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(148,163,184,.58);
+}
+
+.percent {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #a5f3fc;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress {
+
+    width: 100%;
+
+    height: 4px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255,255,255,.035);
+}
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #38bdf8,
+            #8b5cf6,
+            #d946ef
+        );
+
+    box-shadow:
+        0 0 16px rgba(0,229,255,.45);
+
+    animation:
+        progress 6.8s
+        cubic-bezier(.12,.8,.2,1)
+        forwards;
+}
+
+@keyframes progress {
+
+    0% {
+        width: 0%;
+    }
+
+    18% {
+        width: 16%;
+    }
+
+    35% {
+        width: 32%;
+    }
+
+    52% {
+        width: 55%;
+    }
+
+    70% {
+        width: 71%;
+    }
+
+    86% {
+        width: 88%;
+    }
+
+    96% {
+        width: 97%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   BOOT MESSAGE
+   ========================================================= */
+
+.boot-message {
+
+    margin-top: 10px;
+
+    min-height: 15px;
+
+    text-align: center;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(165,243,252,.55);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(100,116,139,.38);
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FADE
+   ========================================================= */
+
+.fade-out {
+
+    animation:
+        exit .75s ease forwards;
+}
+
+@keyframes exit {
+
+    to {
+        opacity: 0;
+        transform: scale(1.035);
+        filter: blur(8px);
+    }
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   SMALL SCREEN
+   ========================================================= */
+
+@media (max-height: 650px) {
+
+    .core {
+        width: 220px;
+        height: 220px;
+    }
+
+    .logo-window {
+        border-radius: 24px;
+    }
+
+    .brand h1 {
+        font-size: 39px;
+    }
+
+    .tagline {
+        font-size: 8px;
+        margin-top: 7px;
+    }
+
+    .boot-panel {
+        bottom: 35px;
+    }
+
+    .footer {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+   ========================================================= */
+
+@media (min-width: 700px) {
+
+    .core {
+        width: 340px;
+        height: 340px;
+    }
+
+    .boot-panel {
+        bottom: 65px;
+    }
+
+    .brand h1 {
+        font-size: 62px;
+    }
+
+    .tagline {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<main class="splash" id="splash">
+
+    <!-- Background -->
+    <div class="grid"></div>
+
+    <div class="atmosphere"></div>
+
+    <div class="beam"></div>
+    <div class="beam"></div>
+
+
+    <!-- Particles -->
+    <div class="particles">
+
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+
+    </div>
+
+
+    <!-- Top system information -->
+    <div class="top-status">
+
+        <div class="system-name">
+
+            <span class="status-dot"></span>
+
+            CODEVAULT CORE
+
+        </div>
+
+        <div class="secure">
+            SYSTEM ONLINE
+        </div>
+
+    </div>
+
+
+    <!-- Central visual -->
+    <section class="core">
+
+        <div class="ring one"></div>
+
+        <div class="ring two"></div>
+
+        <div class="ring three"></div>
+
+        <div class="orbit"></div>
+
+
+        <div class="logo-window">
+
+            <img
+                src="logo.png"
+                class="logo"
+                alt="CodeVault"
+            >
+
+            <div class="scanner"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Brand -->
+    <section class="brand">
+
+        <h1>
+            CodeVault
+        </h1>
+
+        <p class="tagline">
+            Discover Your Device
+        </p>
+
+    </section>
+
+
+    <!-- Boot process -->
+    <section class="boot-panel">
+
+        <div class="boot-head">
+
+            <span class="boot-label" id="bootLabel">
+                Initializing Core
+            </span>
+
+            <span class="percent" id="percent">
+                0%
+            </span>
+
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                class="progress-fill"
+                id="progressFill"
+            ></div>
+
+        </div>
+
+
+        <div
+            class="boot-message"
+            id="bootMessage"
+        >
+            Establishing secure environment...
+        </div>
+
+    </section>
+
+
+    <div class="footer">
+        CV // DEVICE INTELLIGENCE PLATFORM // v1.0
+    </div>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   CODEVAULT BOOT ENGINE
+   ========================================================= */
+
+const splash = document.getElementById("splash");
+
+const percent = document.getElementById("percent");
+
+const bootLabel = document.getElementById("bootLabel");
+
+const bootMessage =
+    document.getElementById("bootMessage");
+
+
+/*
+    Total splash duration:
+    6.8 seconds
+
+    This gives the interface enough time
+    to feel like a real product initialization
+    rather than a simple loading screen.
+*/
+
+const duration = 6800;
+
+const startTime = performance.now();
+
+
+/* Boot stages */
+
+const stages = [
+
+    {
+        at: 0,
+        label: "Initializing Core",
+        message: "Establishing secure environment..."
+    },
+
+    {
+        at: 900,
+        label: "Loading Intelligence",
+        message: "Preparing device knowledge engine..."
+    },
+
+    {
+        at: 1900,
+        label: "Indexing Knowledge",
+        message: "Loading codes, tools and diagnostics..."
+    },
+
+    {
+        at: 3000,
+        label: "Synchronizing Vault",
+        message: "Organizing device intelligence..."
+    },
+
+    {
+        at: 4300,
+        label: "Verifying Systems",
+        message: "Checking application modules..."
+    },
+
+    {
+        at: 5400,
+        label: "Almost Ready",
+        message: "Preparing your CodeVault experience..."
+    },
+
+    {
+        at: 6400,
+        label: "Vault Ready",
+        message: "Launching CodeVault..."
+    }
+
+];
+
+
+function updateBootStage(elapsed) {
+
+    let current = stages[0];
+
+    for (const stage of stages) {
+
+        if (elapsed >= stage.at) {
+            current = stage;
+        }
+
+    }
+
+    bootLabel.textContent =
+        current.label;
+
+    bootMessage.textContent =
+        current.message;
+}
+
+
+/* Smooth percentage */
+
+function animateBoot(now) {
+
+    const elapsed =
+        now - startTime;
+
+    const progress =
+        Math.min(
+            elapsed / duration,
+            1
+        );
+
+    const value =
+        Math.floor(progress * 100);
+
+    percent.textContent =
+        value + "%";
+
+    updateBootStage(elapsed);
+
+
+    if (progress < 1) {
+
+        requestAnimationFrame(
+            animateBoot
+        );
+
+    } else {
+
+        launchApplication();
+
+    }
+
+}
+
+
+requestAnimationFrame(
+    animateBoot
+);
+
+
+/* =========================================================
+   APPLICATION LAUNCH
+   ========================================================= */
+
+function launchApplication() {
+
+    splash.classList.add("fade-out");
+
+    setTimeout(() => {
+
+        window.location.href =
+            "home.html";
+
+    }, 700);
+
+}
+
+
+/* =========================================================
+   BACK-FORWARD CACHE PROTECTION
+   ========================================================= */
+
+window.addEventListener(
+    "pageshow",
+    event => {
+
+        if (event.persisted) {
+
+            window.location.reload();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

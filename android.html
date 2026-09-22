@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#020617">
+<meta name="description" content="CodeVault Android Vault — professional database of Android secret codes">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<title>Android Vault • CodeVault</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg:#020617;--bg2:#070f22;--panel:rgba(15,23,42,.86);--panel2:rgba(15,23,42,.64);--panel3:rgba(30,41,59,.7);--border:rgba(148,163,184,.13);--border2:rgba(148,163,184,.22);--text:#f8fafc;--text2:#cbd5e1;--muted:#94a3b8;--muted2:#64748b;--accent:#00f5ff;--accentSoft:rgba(0,245,255,.10);--accentBorder:rgba(0,245,255,.32);--shadow:0 20px 60px rgba(0,0,0,.26);--r:20px}
+body[data-tone="cyan"]{--bg:#020617;--bg2:#070f22;--panel:rgba(15,23,42,.86);--accent:#00f5ff;--accentSoft:rgba(0,245,255,.10);--accentBorder:rgba(0,245,255,.32)}
+body[data-tone="violet"]{--bg:#09051a;--bg2:#130a2f;--panel:rgba(24,12,44,.9);--accent:#a78bfa;--accentSoft:rgba(167,139,250,.12);--accentBorder:rgba(167,139,250,.32)}
+body[data-tone="emerald"]{--bg:#02110b;--bg2:#0a1a14;--panel:rgba(4,36,25,.9);--accent:#34d399;--accentSoft:rgba(52,211,153,.11);--accentBorder:rgba(52,211,153,.30)}
+body[data-tone="amber"]{--bg:#120b02;--bg2:#1e1605;--panel:rgba(37,23,5,.92);--accent:#fbbf24;--accentSoft:rgba(251,191,36,.11);--accentBorder:rgba(251,191,36,.32)}
+body[data-tone="rose"]{--bg:#16030a;--bg2:#240a14;--panel:rgba(42,7,20,.92);--accent:#fb7185;--accentSoft:rgba(251,113,133,.11);--accentBorder:rgba(251,113,133,.32)}
+body[data-tone="blue"]{--bg:#020b1c;--bg2:#071a35;--panel:rgba(7,26,53,.92);--accent:#60a5fa;--accentSoft:rgba(96,165,250,.11);--accentBorder:rgba(96,165,250,.32)}
+body[data-tone="white"]{--bg:#f8fafc;--bg2:#eef2f7;--panel:rgba(255,255,255,.94);--panel2:rgba(255,255,255,.82);--panel3:rgba(15,23,42,.06);--border:rgba(15,23,42,.08);--border2:rgba(15,23,42,.14);--text:#0f172a;--text2:#334155;--muted:#475569;--muted2:#64748b;--accent:#0f172a;--accentSoft:rgba(15,23,42,.06);--accentBorder:rgba(15,23,42,.14)}
+body[data-tone="red"]{--bg:#170204;--bg2:#2a070b;--panel:rgba(55,8,14,.92);--accent:#ff4d5a;--accentSoft:rgba(255,77,90,.11);--accentBorder:rgba(255,77,90,.34)}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--bg);scroll-behavior:smooth}body{min-height:100vh;font-family:Inter,system-ui,sans-serif;color:var(--text);background:radial-gradient(900px 500px at 12% -10%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--bg),var(--bg2) 60%,var(--bg));transition:background.35s,color.35s;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* TOPBAR - ONLY WHAT YOU ASKED */
+.topbar{position:sticky;top:0;z-index:60;backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);background:linear-gradient(180deg,rgba(2,6,23,.88),rgba(2,6,23,.66));border-bottom:1px solid var(--border)}
+body[data-tone="white"].topbar{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.76))}
+.topbar-inner{max-width:1320px;margin:0 auto;min-height:72px;padding:0 20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px}
+@media(max-width:600px){.topbar-inner{padding:0 14px;min-height:64px;gap:10px}}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--panel2);color:var(--muted);font-size:13px;font-weight:600;transition:.2s}
+.back-btn:hover{color:var(--text);border-color:var(--border2);background:var(--panel3)}
+.brand{display:inline-flex;align-items:center;gap:12px;min-width:0;justify-self:center}
+.brand-logo{width:44px;height:44px;border-radius:14px;object-fit:cover;border:1px solid var(--accentBorder);box-shadow:0 0 24px var(--accentSoft),0 8px 20px rgba(0,0,0,.18)}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:Orbitron,sans-serif;font-size:15px;font-weight:800;letter-spacing:-.02em}
+.brand-page{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-top:3px}
+.tone-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--accentBorder);background:var(--accentSoft);color:var(--accent);display:grid;place-items:center;transition:.2s}
+.tone-btn:hover{background:var(--accent);color:#00131a;transform:translateY(-1px)}
+
+/* Main */
+main{max-width:1320px;margin:0 auto;padding:28px 20px 90px}
+@media(max-width:600px){main{padding:20px 14px 90px}}
+.hero{padding:28px 0 18px}
+.kicker{color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin-top:12px;font-family:Orbitron,sans-serif;font-size:clamp(2rem,5vw,3.6rem);line-height:.96;letter-spacing:-.05em;font-weight:800}
+.hero h1 span{color:var(--accent)}
+.hero p{margin-top:14px;max-width:680px;color:var(--muted);font-size:14px;line-height:1.7}
+.stats-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.s-badge{display:inline-flex;gap:6px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:var(--panel);font-size:11px;color:var(--text2);font-weight:600}
+
+/* Search */
+.search-section{position:sticky;top:72px;z-index:30;padding:12px 0;background:linear-gradient(180deg,var(--bg) 70%,transparent);backdrop-filter:blur(10px)}
+@media(max-width:600px){.search-section{top:64px}}
+.search-box{display:grid;grid-template-columns:36px 1fr auto;gap:8px;align-items:center;min-height:64px;padding:6px 8px 6px 16px;border-radius:18px;border:1px solid var(--border2);background:linear-gradient(180deg,var(--panel),var(--bg2));box-shadow:0 14px 40px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.04);transition:.2s}
+.search-box:focus-within{border-color:var(--accentBorder);box-shadow:0 0 0 4px var(--accentSoft),0 14px 40px rgba(0,0,0,.2)}
+.search-box input{width:100%;background:transparent;border:0;outline:0;color:var(--text);font-size:15px}
+.search-box input::placeholder{color:var(--muted2)}
+.btn-search{min-height:46px;padding:0 18px;border-radius:12px;background:var(--accent);border:1px solid var(--accentBorder);color:#00131a;font-weight:800;font-size:11px;letter-spacing:.06em}
+.hints{margin-top:8px;font-size:11px;color:var(--muted2);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.hints button{color:var(--accent);text-decoration:underline;text-underline-offset:2px;font-weight:600}
+
+/* Brands */
+.brand-section{margin-top:26px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}
+.sec-head h2{margin-top:6px;font-family:Orbitron,sans-serif;font-size:19px;font-weight:700;letter-spacing:-.02em}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:inline-flex;gap:8px;align-items:center;min-height:42px;padding:0 14px;border-radius:999px;border:1px solid var(--border);background:var(--panel);color:var(--text2);font-size:13px;font-weight:600;white-space:nowrap;transition:.2s}
+.chip.active{border-color:var(--accentBorder);background:var(--accentSoft);color:var(--text);box-shadow:0 0 0 3px var(--accentSoft)}
+.chip-ic{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--border);display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--accent)}
+
+/* Workspace */
+.workspace{display:grid;grid-template-columns:300px 1fr;gap:18px;margin-top:16px;align-items:start}
+@media(max-width:900px){.workspace{grid-template-columns:1fr}}
+.filters{position:sticky;top:154px}
+@media(max-width:900px){.filters{position:fixed;inset:0;z-index:80;display:none;padding:14px;background:rgba(2,6,23,.72);backdrop-filter:blur(16px);overflow:auto}.filters.open{display:block}}
+.filter-card{padding:18px;border-radius:20px;border:1px solid var(--border);background:linear-gradient(180deg,var(--panel),var(--bg2));box-shadow:var(--shadow)}
+.f-head{display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:12px}
+.f-head h3{font-family:Orbitron,sans-serif;font-size:16px}
+.label{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px;display:block}
+.select{width:100%;min-height:44px;padding:0 12px;border-radius:11px;border:1px solid var(--border);background:#070f22;color:var(--text);font-size:13px}
+body[data-tone="white"].select{background:#fff}
+.note{margin-top:16px;padding:11px;border-radius:12px;border:1px solid rgba(251,191,36,.18);background:rgba(251,191,36,.06);display:grid;grid-template-columns:auto 1fr;gap:8px;font-size:11px;line-height:1.5;color:var(--text2)}
+
+/* Content */
+.content{min-width:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:14px;border-radius:16px;border:1px solid var(--border);background:var(--panel);display:flex;gap:10px;align-items:center}
+.stat i{width:34px;height:34px;border-radius:10px;background:var(--accentSoft);border:1px solid var(--accentBorder);color:var(--accent);display:grid;place-items:center}
+.stat strong{font-size:19px;display:block}.stat span{font-size:9px;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.toolbar{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:26px 0 12px;flex-wrap:wrap}
+.toolbar h2{font-family:Orbitron,sans-serif;font-size:22px;margin-top:6px}
+.pill{padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--panel2);font-size:10px;color:var(--muted)}
+.pill.accent{border-color:var(--accentBorder);background:var(--accentSoft);color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.code-card{position:relative;padding:15px;border-radius:18px;border:1px solid var(--border);background:radial-gradient(400px 180px at 100% 0%,rgba(124,58,237,.08),transparent 60%),linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:0 10px 28px rgba(0,0,0,.14);transition:.22s;cursor:pointer}
+.code-card:hover{transform:translateY(-2px);border-color:var(--border2)}
+.code-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--accent),transparent 70%);opacity:.5}
+.card-top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.badge-sm{padding:4px 8px;border-radius:999px;font-size:8px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--border);display:inline-flex;gap:4px}
+.b-brand{background:rgba(148,163,184,.08);color:#cbd5e1}.b-cat{background:rgba(124,58,237,.12);color:#c4b5fd;border-color:rgba(124,58,237,.2)}
+.r-low{color:#6ee7b7;background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.16)}.r-med{color:#fcd34d;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.16)}.r-high{color:#fda4af;background:rgba(244,63,94,.08);border-color:rgba(244,63,94,.16)}
+.title{margin:11px 0 6px;font-size:16px;font-weight:700;line-height:1.25}
+.codebox{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:10px 11px;border-radius:12px;background:linear-gradient(180deg,#030914,#050d1f);border:1px solid rgba(0,0,0,.4);margin-top:8px}
+body[data-tone="white"].codebox{background:linear-gradient(180deg,#0f172a,#020617)}
+.codebox code{font-family:JetBrains Mono,monospace;font-size:13px;font-weight:700;color:#e2e8f0;overflow:auto;white-space:pre}
+.icon-sm{width:34px;height:34px;border-radius:9px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--accent);display:grid;place-items:center;transition:.2s}.icon-sm:hover{background:var(--accent);color:#00131a}
+.desc{margin:9px 0 0;color:var(--text2);font-size:12.5px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:40px}
+.meta{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px 10px;color:var(--muted2);font-size:9.5px;font-weight:600}
+.actions{display:flex;gap:8px;margin-top:11px}.btn{flex:1;min-height:38px;border-radius:10px;font-size:9.5px;font-weight:800;letter-spacing:.06em;display:inline-flex;gap:6px;align-items:center;justify-content:center;border:1px solid var(--border);transition:.2s}.btn-p{background:var(--accent);border-color:var(--accentBorder);color:#00131a}.btn-s{background:rgba(255,255,255,.04);color:var(--text2)}.btn:hover{transform:translateY(-1px)}
+.state{margin-top:16px;padding:40px 20px;text-align:center;border:1px solid var(--border);border-radius:18px;background:var(--panel)}.spinner{width:42px;height:42px;margin:0 auto 12px;border:3px solid rgba(148,163,184,.14);border-top-color:var(--accent);border-radius:50%;animation:spin.8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.modal[hidden]{display:none}.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:14px}.backdrop{position:absolute;inset:0;background:rgba(2,6,23,.7);backdrop-filter:blur(14px)}.panel{position:relative;width:min(760px,100%);max-height:92vh;overflow:auto;padding:22px;border-radius:26px;border:1px solid var(--border2);background:radial-gradient(600px 300px at 100% 0%,var(--accentSoft),transparent 60%),linear-gradient(180deg,#0a1226,#070f22);box-shadow:0 30px 100px rgba(0,0,0,.55)}body[data-tone="white"].panel{background:linear-gradient(180deg,#fff,#f8fafc)}
+.m-head{display:flex;justify-content:space-between;gap:12px}.m-close{width:40px;height:40px;border-radius:11px;border:1px solid var(--border);background:rgba(255,255,255,.05);color:var(--muted);font-size:20px;display:grid;place-items:center}
+.detail{margin-top:16px}.d-lab{color:var(--accent);font-size:9px;font-weight:900;letter-spacing:.12em;display:block;margin-bottom:6px}.detail p{color:#b6c1d1;font-size:13px;line-height:1.7;margin:0}
+.instr{margin:0;padding-left:18px;color:#b6c1d1;font-size:13px;line-height:1.7}.instr li{margin-bottom:5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.tag{padding:5px 9px;border-radius:999px;background:rgba(99,102,241,.11);border:1px solid rgba(99,102,241,.18);color:#a5b4fc;font-size:11px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,130%);opacity:0;transition:.28s;padding:11px 14px;border-radius:12px;border:1px solid var(--accentBorder);background:rgba(7,16,33,.96);color:var(--text);font-size:12px;z-index:200;pointer-events:none;max-width:min(92vw,420px)}.toast.show{transform:translate(-50%,0);opacity:1}
+.install{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;display:none;gap:10px;align-items:center;padding:11px;border-radius:16px;border:1px solid var(--accentBorder);background:linear-gradient(135deg,rgba(11,19,40,.96),rgba(0,245,255,.10));backdrop-filter:blur(16px)}.install.show{display:flex}.install-ic{width:46px;height:46px;border-radius:12px;overflow:hidden;border:1px solid var(--accentBorder)}.install-ic img{width:100%;height:100%;object-fit:cover}
+.sheet{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.52);backdrop-filter:blur(10px)}.sheet.open{display:flex}.sheet-card{width:100%;max-width:640px;padding:18px;border:1px solid var(--border);border-bottom:0;border-radius:26px 26px 0 0;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.tone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.tone{padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--panel2);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;font-weight:700}.tone.active{border-color:var(--accent);box-shadow:0 0 0 3px var(--accentSoft)}.tone-dot{width:24px;height:24px;border-radius:50%}
+</style>
+</head>
+<body data-tone="cyan">
+<!-- TOPBAR - ONLY 4 ELEMENTS AS YOU ASKED -->
+<header class="topbar">
+<div class="topbar-inner">
+<button class="back-btn" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+<a class="brand" href="home.html">
+<img src="logo.png" alt="CodeVault" class="brand-logo">
+<span class="brand-text"><span class="brand-name">CODEVAULT</span><span class="brand-page">ANDROID VAULT</span></span>
+</a>
+<button class="tone-btn" id="toneBtn" title="Change tone"><i class="fa-solid fa-palette"></i></button>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<span class="kicker">ANDROID VAULT • SCHEMA V2.0</span>
+<h1>Explore what your <span>Android device</span> can tell you.</h1>
+<p>Professional database of diagnostics, hardware, network and system codes with clear instructions, results and device scope. Built for presentation and learning.</p>
+<div class="stats-row"><span class="s-badge"><i class="fa-solid fa-layer-group" style="color:var(--accent)"></i> <span id="badgeBrands">0</span> brands</span><span class="s-badge"><i class="fa-solid fa-database" style="color:var(--accent)"></i> <span id="badgeCount">0</span> records</span><span class="s-badge"><i class="fa-solid fa-shield-halved"></i> Safe filtered</span><span class="s-badge"><i class="fa-solid fa-mobile-screen"></i> Offline PWA</span></div>
+</section>
+
+<section class="search-section">
+<div class="search-box">
+<span style="color:var(--accent)"><i class="fa-solid fa-magnifying-glass"></i></span>
+<input id="searchInput" type="search" autocomplete="off" spellcheck="false" placeholder="Search IMEI, Samsung, Wi-Fi, battery, *#06#…">
+<button id="searchBtn" class="btn-search">SEARCH</button>
+</div>
+<div class="hints"><span>Try:</span> <button data-hint="IMEI">IMEI</button> <button data-hint="Samsung">Samsung</button> <button data-hint="Wi-Fi">Wi-Fi</button> <button data-hint="battery">battery</button> <button data-hint="*#06#">*#06#</button></div>
+</section>
+
+<section class="brand-section">
+<div class="sec-head"><div><span class="kicker">BROWSE BY BRAND</span><h2>Choose a family</h2></div><button id="mobileFilterBtn" class="back-btn" style="display:none"><i class="fa-solid fa-sliders"></i> Filters</button></div>
+<div id="brandChips" class="chips"></div>
+</section>
+
+<section class="workspace">
+<aside id="filtersPanel" class="filters">
+<div class="filter-card">
+<div class="f-head"><div><span class="kicker">REFINE</span><h3>Filters</h3></div><button id="resetBtn" style="color:var(--accent);font-size:11px;font-weight:800"><i class="fa-solid fa-rotate-left"></i> Reset</button></div>
+<label class="label">Brand</label><select id="brandSelect" class="select"><option value="all">All brands</option></select>
+<label class="label">Category</label><select id="catSelect" class="select"><option value="all">All categories</option></select>
+<label class="label">Risk</label><select id="riskSelect" class="select"><option value="all">All risk</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select>
+<label class="label">Availability</label><select id="availSelect" class="select"><option value="all">All availability</option></select>
+<label class="label">Sort</label><select id="sortSelect" class="select"><option value="relevance">Relevance</option><option value="title">Title A–Z</option><option value="brand">Brand A–Z</option></select>
+<div class="note"><i class="fa-solid fa-circle-info" style="color:#fbbf24"></i><p>Support varies by manufacturer, model, firmware and dialer. Destructive codes excluded. Source is your JSON file.</p></div>
+</div>
+</aside>
+
+<section id="contentState" class="content" hidden>
+<div class="stats">
+<div class="stat"><i class="fa-solid fa-mobile-screen"></i><div><strong id="statBrands">0</strong><span>Brands</span></div></div>
+<div class="stat"><i class="fa-solid fa-hashtag"></i><div><strong id="statRecords">0</strong><span>Records</span></div></div>
+<div class="stat"><i class="fa-solid fa-layer-group"></i><div><strong id="statCats">0</strong><span>Categories</span></div></div>
+<div class="stat"><i class="fa-solid fa-fingerprint"></i><div><strong id="statUnique">0</strong><span>Unique codes</span></div></div>
+</div>
+<div class="toolbar"><div><span class="kicker">KNOWLEDGE INDEX</span><h2 id="resTitle">Android codes</h2><p id="resMeta" style="color:var(--muted);font-size:11px;margin-top:4px">0 results</p></div><span class="pill accent" id="dbFile">android_secret_codes.json</span></div>
+<div id="results" class="grid"></div>
+<div id="emptyState" class="state" hidden><h2>Nothing found</h2><p style="color:var(--muted);margin-top:6px;font-size:12px">Try IMEI, Samsung, Wi-Fi, battery or clear filters.</p><button id="emptyReset" class="btn-search" style="margin-top:14px;padding:10px 16px">CLEAR FILTERS</button></div>
+</section>
+</section>
+
+<section id="loadingState" class="state"><div class="spinner"></div><h2>Loading vault</h2><p style="color:var(--muted);margin-top:6px;font-size:12px">Reading android_secret_codes.json…</p></section>
+<section id="errorState" class="state" hidden><h2>Database error</h2><p id="errorMsg" style="color:var(--muted);margin-top:6px;font-size:12px"></p><button id="retryBtn" class="btn-search" style="margin-top:14px;padding:10px 16px">TRY AGAIN</button></section>
+</main>
+
+<div id="modal" class="modal" hidden><div id="backdrop" class="backdrop"></div><div class="panel">
+<div class="m-head"><div><span class="kicker">ANDROID RECORD • V2.0</span><div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap"><span id="mBrand" class="badge-sm b-brand">Brand</span><span id="mCat" class="badge-sm b-cat">Category</span><span id="mRisk" class="badge-sm r-low">LOW</span><span id="mAvail" class="badge-sm" style="background:rgba(251,191,36,.1);color:#fde68a">AVAIL</span></div></div><button id="mClose" class="m-close">×</button></div>
+<h2 id="mTitle" style="margin-top:16px;font-family:Orbitron,sans-serif;font-size:26px;line-height:1.1">Title</h2>
+<div class="codebox" style="margin-top:14px"><code id="mCode">*#06#</code><button id="mCopy" class="icon-sm"><i class="fa-solid fa-copy"></i></button></div>
+<div class="detail"><span class="d-lab">DESCRIPTION</span><p id="mDesc"></p></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px"><div class="detail"><span class="d-lab">RESULT</span><p id="mResult"></p></div><div class="detail"><span class="d-lab">DEVICE SCOPE</span><p id="mScope"></p></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px"><div class="detail"><span class="d-lab">AVAILABILITY</span><p id="mAvailText"></p></div><div class="detail"><span class="d-lab">REQUIRES</span><p id="mRequires"></p></div></div>
+<div class="detail"><span class="d-lab">HOW TO USE</span><ol id="mInstr" class="instr"></ol></div>
+<div class="detail"><span class="d-lab">TAGS</span><div id="mTags" class="tags"></div></div>
+<div style="display:flex;gap:8px;margin-top:20px"><button id="mDial" class="btn btn-p" style="flex:1.2"><i class="fa-solid fa-phone"></i> OPEN IN DIALER</button><button id="mShare" class="btn btn-s" style="flex:1"><i class="fa-solid fa-share-nodes"></i> SHARE</button></div>
+</div></div>
+
+<div id="toast" class="toast"></div>
+<div class="install" id="installBanner"><div class="install-ic"><img src="logo.png" alt="logo"></div><div style="flex:1;min-width:0"><strong style="font-size:12px;font-family:Orbitron,sans-serif">Install Android Vault</strong><br><span style="font-size:9px;color:var(--muted)">Offline PWA with your logo</span></div><button id="installBtn" class="btn-search" style="min-height:40px">INSTALL</button><button id="installDismiss" style="width:40px;height:40px;border-radius:11px;border:1px solid var(--border);display:grid;place-items:center">×</button></div>
+
+<div class="sheet" id="toneSheet"><div class="sheet-card"><div style="display:flex;justify-content:space-between;align-items:center"><div><h3 style="font-family:Orbitron,sans-serif;font-size:14px">Choose tone</h3><p style="color:var(--muted);font-size:10px;margin-top:4px">Syncs with home.html — same key: codevault_theme_tone</p></div><button id="toneClose" style="width:40px;height:40px;border-radius:11px;border:1px solid var(--border)">×</button></div><div class="tone-grid"><button class="tone active" data-tone="cyan"><span class="tone-dot" style="background:#00f5ff"></span>Cyan</button><button class="tone" data-tone="violet"><span class="tone-dot" style="background:#a78bfa"></span>Violet</button><button class="tone" data-tone="emerald"><span class="tone-dot" style="background:#34d399"></span>Emerald</button><button class="tone" data-tone="amber"><span class="tone-dot" style="background:#fbbf24"></span>Amber</button><button class="tone" data-tone="rose"><span class="tone-dot" style="background:#fb7185"></span>Rose</button><button class="tone" data-tone="blue"><span class="tone-dot" style="background:#60a5fa"></span>Blue</button><button class="tone" data-tone="white"><span class="tone-dot" style="background:#fff;border:1px solid #ddd"></span>White</button><button class="tone" data-tone="red"><span class="tone-dot" style="background:#ff4d5a"></span>Red</button></div></div></div>
+
+<script>
+const THEME_KEY="codevault_theme_tone";
+const FILES=["android_secret_codes.json","android_secret_codes_grouped.json"];
+const APP_URL="https://egyirprince609-oss.github.io/CODE-VAULT-/";
+const state={records:[],brands:[],cats:[],avails:[],curBrand:"all",curCat:"all",curRisk:"all",curAvail:"all",curSort:"relevance",query:"",selected:null,file:""};
+let deferred=null;
+
+document.addEventListener("DOMContentLoaded",async()=>{
+  const $=id=>document.getElementById(id);
+  const applyTheme=t=>{
+    const v=["cyan","violet","emerald","amber","rose","blue","white","red"];
+    if(!v.includes(t)) t="cyan";
+    document.body.dataset.tone=t;
+    localStorage.setItem(THEME_KEY,t);
+    const colors={cyan:"#020617",violet:"#09051a",emerald:"#02110b",amber:"#120b02",rose:"#16030a",blue:"#020b1c",white:"#ffffff",red:"#170204"};
+    document.querySelector('meta[name="theme-color"]').content=colors[t];
+    document.querySelectorAll(".tone").forEach(x=>x.classList.toggle("active",x.dataset.tone===t));
+  };
+  applyTheme(localStorage.getItem(THEME_KEY)||"cyan");
+
+  $("backBtn").onclick=()=>history.length>1?history.back():location.href="home.html";
+  $("toneBtn").onclick=()=>$("toneSheet").classList.add("open");
+  $("toneClose").onclick=()=>$("toneSheet").classList.remove("open");
+  $("toneSheet").onclick=e=>{if(e.target===$("toneSheet")) $("toneSheet").classList.remove("open")};
+  document.querySelectorAll("[data-tone]").forEach(b=>b.onclick=()=>{applyTheme(b.dataset.tone);$("toneSheet").classList.remove("open");toast("Theme: "+b.dataset.tone);});
+  $("mobileFilterBtn").onclick=()=>$("filtersPanel").classList.toggle("open");
+  window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;if(!localStorage.getItem("codevault_install_dismissed_v1")) setTimeout(()=>$("installBanner").classList.add("show"),1200)});
+  $("installBtn").onclick=async()=>{if(!deferred){toast("Use browser menu → Add to Home Screen");return;}deferred.prompt();const {outcome}=await deferred.userChoice;toast(outcome==="accepted"?"Installing":"Dismissed");deferred=null;$("installBanner").classList.remove("show")};
+  $("installDismiss").onclick=()=>{$("installBanner").classList.remove("show");localStorage.setItem("codevault_install_dismissed_v1",Date.now())};
+  if("serviceWorker" in navigator) addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+
+  async function loadDB(){for(const f of FILES){try{const r=await fetch(f,{cache:"no-store"});if(!r.ok)continue;const d=await r.json();return{file:f,data:d}}catch{}}throw Error("Put android_secret_codes.json next to android.html");}
+
+  function normalize(db){
+    const out=[];
+    (db.brands||[]).forEach(b=>{
+      (b.codes||[]).forEach(c=>{
+        out.push({
+          id:c.id,brand:b.brand,brand_id:b.brand_id,aliases:b.aliases||[],
+          code:c.code,value:c.code,title:c.title,category:c.category,
+          description:c.description,instructions:c.instructions||[],result:c.result||"",
+          risk:(c.risk||"low").toLowerCase(),availability:c.availability||"",device_scope:c.device_scope||"",
+          reversible:c.reversible,requires_dialer:c.requires_dialer,tags:c.tags||[],
+          _search:[c.title,c.code,c.category,c.description,c.result,c.device_scope,b.brand,...(b.aliases||[]),...(c.tags||[]),c.availability,(c.instructions||[]).join(" ")].join(" ").toLowerCase()
+        });
+      });
+    });
+    return out;
+  }
+
+  try{
+    const loaded=await loadDB();
+    state.file=loaded.file;
+    state.records=normalize(loaded.data);
+    state.brands=[...new Set(state.records.map(r=>r.brand))].sort();
+    state.cats=[...new Set(state.records.map(r=>r.category))].sort();
+    state.avails=[...new Set(state.records.map(r=>r.availability))].sort();
+
+    $("brandSelect").innerHTML='<option value="all">All brands</option>'+state.brands.map(b=>`<option>${b}</option>`).join("");
+    $("catSelect").innerHTML='<option value="all">All categories</option>'+state.cats.map(c=>`<option>${c}</option>`).join("");
+    $("availSelect").innerHTML='<option value="all">All availability</option>'+state.avails.map(a=>`<option value="${a}">${a.replace(/_/g," ")}</option>`).join("");
+
+    function renderChips(){
+      const chips=[{brand:"All",id:"all",count:state.records.length,icon:"A"}].concat(state.brands.map(b=>({brand:b,id:b,count:state.records.filter(r=>r.brand===b).length,icon:b.charAt(0).toUpperCase()})));
+      $("brandChips").innerHTML=chips.map(c=>`<button class="chip ${state.curBrand===c.id?"active":""}" data-b="${c.id}"><span class="chip-ic">${c.icon}</span>${c.brand} • ${c.count}</button>`).join("");
+      $("brandChips").querySelectorAll(".chip").forEach(btn=>btn.onclick=()=>{state.curBrand=btn.dataset.b;$("brandSelect").value=state.curBrand;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x.dataset.b===state.curBrand));render();});
+    }
+
+    function getFiltered(){
+      let list=[...state.records];
+      const q=state.query.toLowerCase().trim();
+      if(state.curBrand!=="all") list=list.filter(r=>r.brand===state.curBrand);
+      if(state.curCat!=="all") list=list.filter(r=>r.category===state.curCat);
+      if(state.curRisk!=="all") list=list.filter(r=>r.risk===state.curRisk);
+      if(state.curAvail!=="all") list=list.filter(r=>r.availability===state.curAvail);
+      if(q){ list=list.filter(r=>r._search.includes(q)).map(r=>({...r,_score:(r.title.toLowerCase().includes(q)?15:0)+(r.code.toLowerCase().includes(q)?20:0)})).sort((a,b)=>b._score-a._score); }
+      if(state.curSort==="title") list.sort((a,b)=>a.title.localeCompare(b.title));
+      else if(state.curSort==="brand") list.sort((a,b)=>a.brand.localeCompare(b.brand));
+      else if(state.curSort==="risk"){const o={low:0,medium:1,high:2};list.sort((a,b)=>(o[a.risk]??9)-(o[b.risk]??9));}
+      return list;
+    }
+
+    function render(){
+      const list=getFiltered();
+      $("resTitle").textContent=state.curBrand!=="all"?state.curBrand+" codes":"Android codes";
+      $("resMeta").textContent=`${list.length} results${state.query?` for "${state.query}"`:""}`;
+      if(!list.length){$("results").innerHTML="";$("emptyState").hidden=false;return;}
+      $("emptyState").hidden=true;
+      $("results").innerHTML=list.map(r=>`
+        <article class="code-card" data-id="${r.id}">
+          <div class="card-top"><span class="badge-sm b-brand">${r.brand}</span><span class="badge-sm b-cat">${r.category}</span><span class="badge-sm r-${r.risk==='medium'?'med':r.risk}">${r.risk}</span></div>
+          <h3 class="title">${r.title}</h3>
+          <div class="codebox"><code>${r.code}</code><button class="icon-sm" data-copy="${r.code}"><i class="fa-solid fa-copy"></i></button></div>
+          <p class="desc">${r.description}</p>
+          <div class="meta"><span>${r.availability.replace(/_/g," ")}</span><span>•</span><span>${r.device_scope}</span></div>
+          <div class="actions"><button class="btn btn-p" data-open="${r.id}"><i class="fa-solid fa-eye"></i> VIEW DETAILS</button><button class="btn btn-s" data-copy="${r.code}"><i class="fa-solid fa-copy"></i> COPY</button></div>
+        </article>
+      `).join("");
+      $("results").querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();navigator.clipboard.writeText(b.dataset.copy);toast("Copied "+b.dataset.copy);}));
+      $("results").querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();openModal(state.records.find(x=>x.id===b.dataset.open))}));
+      $("results").querySelectorAll(".code-card").forEach(c=>c.addEventListener("click",e=>{if(e.target.closest("button"))return;openModal(state.records.find(x=>x.id===c.dataset.id))}));
+    }
+
+    function openModal(rec){
+      if(!rec) return; state.selected=rec;
+      $("mBrand").textContent=rec.brand; $("mCat").textContent=rec.category; $("mRisk").textContent=rec.risk.toUpperCase(); $("mRisk").className="badge-sm r-"+(rec.risk==='medium'?'med':rec.risk); $("mAvail").textContent=rec.availability.replace(/_/g," ").toUpperCase();
+      $("mTitle").textContent=rec.title; $("mCode").textContent=rec.code; $("mDesc").textContent=rec.description; $("mResult").textContent=rec.result||"See description"; $("mScope").textContent=rec.device_scope; $("mAvailText").textContent=rec.availability.replace(/_/g," ")+" • "+rec.device_scope; $("mRequires").textContent=(rec.requires_dialer?"Requires Phone dialer":"")+(rec.reversible?" • Reversible":""); $("mInstr").innerHTML=(rec.instructions||[]).map(i=>`<li>${i}</li>`).join(""); $("mTags").innerHTML=(rec.tags||[]).map(t=>`<span class="tag">#${t}</span>`).join("");
+      $("modal").hidden=false; document.body.style.overflow="hidden";
+    }
+    window.closeModal=()=>{$("modal").hidden=true;document.body.style.overflow="";};
+    $("mClose").onclick=closeModal; $("backdrop").onclick=closeModal;
+    $("mCopy").onclick=()=>{if(state.selected){navigator.clipboard.writeText(state.selected.code);toast("Copied "+state.selected.code);}};
+    $("mDial").onclick=()=>{if(state.selected) location.href="tel:"+encodeURIComponent(state.selected.code);};
+    $("mShare").onclick=async()=>{if(!state.selected)return;try{const blob=await(await fetch("logo.png")).blob();const f=new File([blob],"logo.png",{type:blob.type});const d={title:state.selected.title+" • CodeVault",text:`${state.selected.title}\n${state.selected.code}\n${state.selected.description}\n${APP_URL}`,url:APP_URL};if(navigator.canShare&&navigator.canShare({files:[f]}))d.files=[f];await navigator.share(d);}catch{}};
+
+    $("searchInput").addEventListener("input",()=>{state.query=$("searchInput").value.trim();render();});
+    $("searchBtn").addEventListener("click",()=>{state.query=$("searchInput").value.trim();render();});
+    document.querySelectorAll("[data-hint]").forEach(b=>b.onclick=()=>{$("searchInput").value=b.dataset.hint;state.query=b.dataset.hint;render();});
+    ["brandSelect","catSelect","riskSelect","availSelect","sortSelect"].forEach(id=>{$(id).addEventListener("change",e=>{const m={brandSelect:"curBrand",catSelect:"curCat",riskSelect:"curRisk",availSelect:"curAvail",sortSelect:"curSort"};state[m[id]]=e.target.value;if(id==="brandSelect"){document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x.dataset.b===state.curBrand));}render();})});
+    $("resetBtn").onclick=()=>{state.curBrand="all";state.curCat="all";state.curRisk="all";state.curAvail="all";state.curSort="relevance";state.query="";$("searchInput").value="";["brandSelect","catSelect","riskSelect","availSelect","sortSelect"].forEach(id=>{const el=$(id);if(el)el.value="all"});renderChips();render();};
+    $("emptyReset").onclick=()=>$("resetBtn").click();
+    $("retryBtn").onclick=()=>location.reload();
+    document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("modal").hidden)closeModal();});
+
+    $("statBrands").textContent=state.brands.length; $("statRecords").textContent=state.records.length; $("statCats").textContent=state.cats.length; $("statUnique").textContent=[...new Set(state.records.map(r=>r.code))].length;
+    $("badgeBrands").textContent=state.brands.length; $("badgeCount").textContent=state.records.length;
+    $("dbFile").textContent=state.file;
+
+    renderChips(); render();
+    $("loadingState").hidden=true; $("contentState").hidden=false;
+  }catch(e){
+    $("loadingState").hidden=true; $("errorState").hidden=false; $("errorMsg").textContent=e.message;
+  }
+
+  window.toast=m=>{const t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2500);};
+});
+</script>
+</body>
+</html>
