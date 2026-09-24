@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#02040b" id="themeMeta">
+<meta name="description" content="CodeVault — Discover Your Device | Device Intelligence Platform">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CodeVault">
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Orbitron:wght@700;800;900&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<title>CodeVault | Device Intelligence</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;overflow:hidden}
+:root{--accent:#00e5ff;--accent2:#a855f7;--bg:#02040b}
+body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 50% 38%,#0e183a 0%,#080d1d 28%,#03050d 62%,#010207 100%);color:#fff}
+body[data-tone="violet"]{--accent:#a78bfa;--accent2:#c084fc}
+body[data-tone="emerald"]{--accent:#34d399;--accent2:#10b981}
+body[data-tone="amber"]{--accent:#fbbf24;--accent2:#f59e0b}
+body[data-tone="rose"]{--accent:#fb7185;--accent2:#f43f5e}
+body[data-tone="blue"]{--accent:#60a5fa;--accent2:#3b82f6}
+body[data-tone="white"]{--accent:#e2e8f0;--accent2:#94a3b8}
+body[data-tone="red"]{--accent:#ff4d5a;--accent2:#ef4444}
+
+.splash{position:relative;width:100%;height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;isolation:isolate;overflow:hidden}
+/* GRID */
+.grid{position:absolute;inset:-35%;background-image:linear-gradient(rgba(0,229,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(168,85,247,.06) 1px,transparent 1px);background-size:42px 42px;transform:perspective(700px) rotateX(64deg) translateY(15%);transform-origin:center bottom;animation:gridMove 7s linear infinite;opacity:.7;mask-image:linear-gradient(to top,black 0%,rgba(0,0,0,.75) 35%,transparent 82%);z-index:-6}
+@keyframes gridMove{from{transform:perspective(700px) rotateX(64deg) translateY(0)}to{transform:perspective(700px) rotateX(64deg) translateY(42px)}}
+/* ATMOSPHERE + BLOOM */
+.atmosphere{position:absolute;width:min(78vw,560px);height:min(78vw,560px);border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.16),rgba(87,54,255,.11) 35%,rgba(168,85,247,.05) 58%,transparent 74%);filter:blur(10px);animation:atmo 4s ease-in-out infinite;z-index:-5}
+@keyframes atmo{0%,100%{transform:scale(.9);opacity:.6}50%{transform:scale(1.14);opacity:1}}
+.bloom{position:absolute;width:92vw;height:92vw;max-width:900px;max-height:900px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.12),transparent 65%);filter:blur(30px);z-index:-5;opacity:.5}
+/* BEAMS */
+.beam{position:absolute;width:1px;height:75%;top:-10%;background:linear-gradient(transparent,rgba(0,229,255,.45),transparent);filter:blur(.6px);opacity:.55;animation:beam 6.5s linear infinite;z-index:-4}
+.beam.two{background:linear-gradient(transparent,rgba(168,85,247,.45),transparent);animation-delay:-2.2s}
+.beam.one{left:22%;transform:rotate(22deg)}.beam.two{right:22%;transform:rotate(-22deg)}
+@keyframes beam{from{transform:translateY(-40%) rotate(22deg)}to{transform:translateY(160%) rotate(22deg)}}
+/* PARTICLES */
+.particles{position:absolute;inset:0;pointer-events:none;z-index:-3}
+.particle{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:float linear infinite}
+.particle:nth-child(1){left:14%;top:28%;animation-duration:5.2s}.particle:nth-child(2){left:80%;top:18%;animation-duration:7s}.particle:nth-child(3){left:88%;top:62%;animation-duration:6s}.particle:nth-child(4){left:18%;top:74%;animation-duration:8s}.particle:nth-child(5){left:48%;top:12%;animation-duration:5.5s}.particle:nth-child(6){left:66%;top:82%;animation-duration:7.5s}.particle:nth-child(7){left:32%;top:50%;animation-duration:6.6s}.particle:nth-child(8){left:92%;top:36%;animation-duration:5.9s}
+@keyframes float{0%{transform:translateY(30px) scale(.4);opacity:0}30%{opacity:1}70%{opacity:.9}100%{transform:translateY(-100px) scale(1.4);opacity:0}}
+
+/* TOP */
+.top-status{position:absolute;top:20px;width:calc(100% - 32px);max-width:520px;display:flex;justify-content:space-between;align-items:center;opacity:0;animation:fadeIn.8s ease.2s forwards}
+.system-name{display:flex;align-items:center;gap:9px;font-size:9px;letter-spacing:2.4px;color:rgba(203,213,225,.62);font-weight:700}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:dot 1.2s ease-in-out infinite}
+@keyframes dot{0%,100%{opacity:.45}50%{opacity:1}}
+.secure{padding:7px 11px;border:1px solid rgba(0,229,255,.16);border-radius:999px;background:rgba(8,14,32,.55);backdrop-filter:blur(14px);font-size:8px;letter-spacing:1.5px;color:rgba(165,243,252,.7);font-family:JetBrains Mono,monospace}
+
+/* CORE */
+.core{position:relative;width:min(78vw,320px);height:min(78vw,320px);display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(0,229,255,.18);box-shadow:0 0 20px rgba(0,229,255,.06),inset 0 0 20px rgba(168,85,247,.04)}
+.ring.one{width:100%;height:100%;animation:rot 14s linear infinite}
+.ring.two{width:87%;height:87%;border-color:rgba(168,85,247,.22);border-style:dashed;animation:rotRev 18s linear infinite}
+.ring.three{width:71%;height:71%;border-color:rgba(0,229,255,.24);animation:pulse 3s ease-in-out infinite}
+@keyframes rot{to{transform:rotate(360deg)}}@keyframes rotRev{to{transform:rotate(-360deg)}}@keyframes pulse{0%,100%{transform:scale(.93);opacity:.5}50%{transform:scale(1.06);opacity:1}}
+.orbit{position:absolute;width:100%;height:100%;animation:rot 9s linear infinite}
+.orbit::before,.orbit::after{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+.orbit::before{top:0;left:50%}.orbit::after{bottom:0;right:50%;background:var(--accent2);box-shadow:0 0 14px var(--accent2)}
+
+/* LOGO WINDOW */
+.logo-window{position:relative;width:46%;height:46%;border-radius:26px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(145deg,rgba(16,30,60,.92),rgba(8,10,25,.96));border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 42px rgba(0,229,255,.09),inset 0 1px 0 rgba(255,255,255,.14);backdrop-filter:blur(22px);animation:winIn 1.3s cubic-bezier(.2,.8,.2,1) forwards;opacity:0}
+@keyframes winIn{0%{transform:scale(.5) rotate(-12deg);opacity:0}70%{transform:scale(1.08) rotate(2deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+.logo{width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(1.42);filter:drop-shadow(0 0 22px rgba(0,229,255,.32));animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 16px rgba(0,229,255,.22))}50%{filter:drop-shadow(0 0 30px rgba(0,229,255,.45)) drop-shadow(0 0 22px rgba(168,85,247,.32))}}
+.scanner{position:absolute;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),#fff,var(--accent2),transparent);box-shadow:0 0 12px var(--accent);opacity:.75;animation:scan 3s ease-in-out infinite}
+@keyframes scan{0%{top:5%;opacity:0}15%,85%{opacity:.9}100%{top:95%;opacity:0}}
+
+/* BRAND */
+.brand{text-align:center;margin-top:-2px;opacity:0;animation:brandIn 1s ease.8s forwards}
+@keyframes brandIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.brand h1{font-family:Orbitron,sans-serif;font-size:clamp(40px,11vw,62px);font-weight:900;letter-spacing:-2.8px;line-height:.95;background:linear-gradient(90deg,var(--accent) 0%,#60a5fa 38%,var(--accent2) 70%,#f0abfc 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tagline{margin-top:10px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(226,232,240,.6);font-weight:700}
+
+/* BOOT */
+.boot-panel{position:absolute;bottom:58px;width:calc(100% - 40px);max-width:440px;opacity:0;animation:fadeIn.8s ease 1.2s forwards}
+.boot-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.boot-label{font-size:8px;letter-spacing:2.2px;text-transform:uppercase;color:rgba(148,163,184,.62);font-weight:700}
+.percent{font-family:JetBrains Mono,monospace;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--accent)}
+.progress{width:100%;height:5px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;border:1px solid rgba(255,255,255,.04)}
+.progress-fill{width:0%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--accent),#38bdf8,#8b5cf6,var(--accent2));box-shadow:0 0 18px rgba(0,229,255,.5);transition:width.12s linear}
+.boot-message{margin-top:10px;min-height:14px;text-align:center;font-family:JetBrains Mono,monospace;font-size:9px;letter-spacing:1px;color:rgba(165,243,252,.6)}
+.footer{position:absolute;bottom:16px;font-family:JetBrains Mono,monospace;font-size:7px;letter-spacing:2px;color:rgba(100,116,139,.42);text-transform:uppercase}
+.fade-out{animation:exit.7s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes exit{to{opacity:0;transform:scale(1.04);filter:blur(10px)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-height:650px){.core{width:220px;height:220px}.boot-panel{bottom:34px}.footer{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<main class="splash" id="splash">
+<div class="grid"></div><div class="atmosphere"></div><div class="bloom"></div>
+<div class="beam one"></div><div class="beam two"></div>
+<div class="particles"><span class="particle"></span><span class="particle"></span><span class="particle"></span><span class="particle"></span><span class="particle"></span><span class="particle"></span><span class="particle"></span><span class="particle"></span></div>
+
+<div class="top-status"><div class="system-name"><span class="status-dot"></span>CODEVAULT CORE • PWA ACTIVE</div><div class="secure" id="secureState">SECURE • OFFLINE READY</div></div>
+
+<section class="core">
+<div class="ring one"></div><div class="ring two"></div><div class="ring three"></div><div class="orbit"></div>
+<div class="logo-window"><img src="logo.png" class="logo" alt="CodeVault" decoding="async" fetchpriority="high"><div class="scanner"></div></div>
+</section>
+
+<section class="brand"><h1>CodeVault</h1><p class="tagline">Discover Your Device • v2.1</p></section>
+
+<section class="boot-panel">
+<div class="boot-head"><span class="boot-label" id="bootLabel">Initializing Core</span><span class="percent" id="percent">0%</span></div>
+<div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+<div class="boot-message" id="bootMessage">Establishing secure environment…</div>
+</section>
+
+<div class="footer">CV // DEVICE INTELLIGENCE • ANDROID • iOS • PC • PWA • <span id="toneName">CYAN</span> • v2.1</div>
+</main>
+
+<script>
+// THEME SYNC - same key as all vaults
+const THEME_KEY="codevault_theme_tone";
+const VALID=["cyan","violet","emerald","amber","rose","blue","white","red"];
+const COLORS={cyan:"#02040b",violet:"#09051a",emerald:"#02110b",amber:"#120b02",rose:"#16030a",blue:"#020b1c",white:"#ffffff",red:"#170204"};
+function applyTone(){
+  const t=localStorage.getItem(THEME_KEY)||"cyan";
+  const tone=VALID.includes(t)?t:"cyan";
+  document.body.dataset.tone=tone;
+  const meta=document.getElementById("themeMeta");
+  if(meta) meta.content=COLORS[tone];
+  document.getElementById("toneName").textContent=tone.toUpperCase();
+}
+applyTone();
+
+// PWA ACTIVATION - REAL
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js',{scope:'./'}).then(reg=>{
+      console.log('SW registered',reg.scope);
+      document.getElementById('secureState').textContent='PWA • CACHED • OFFLINE READY';
+    }).catch(err=>{
+      console.warn('SW fail',err);
+      document.getElementById('secureState').textContent='PWA • READY';
+    });
+  });
+}
+// Detect standalone
+if(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone){
+  document.getElementById('secureState').textContent='APP • STANDALONE • SECURE';
+}
+
+// BOOT ENGINE - PRO VERSION - SYNCS PERCENT WITH PROGRESS BAR
+const splash=document.getElementById('splash');
+const percentEl=document.getElementById('percent');
+const bootLabel=document.getElementById('bootLabel');
+const bootMessage=document.getElementById('bootMessage');
+const progressFill=document.getElementById('progressFill');
+const duration=6200; // faster, more powerful feel
+const startTime=performance.now();
+
+const stages=[
+  {at:0, label:"Initializing Core", message:"Establishing secure environment…"},
+  {at:700, label:"Loading Vault Index", message:"Reading android_secret_codes.json…"},
+  {at:1600, label:"Indexing iOS Engine", message:"Parsing ios_secret_codes.json • GSM/MMI aware…"},
+  {at:2600, label:"Linking PC Commands", message:"Loading pc_commands.json • CMD / PowerShell / Run…"},
+  {at:3600, label:"Syncing Tone", message:`Theme sync • key: ${THEME_KEY} • tone: ${localStorage.getItem(THEME_KEY)||'cyan'}`},
+  {at:4500, label:"Verifying PWA", message:"Caching logo.png • manifest.json • offline shell…"},
+  {at:5400, label:"Vault Ready", message:"Launching CodeVault • Discover Your Device…"}
+];
+
+let currentStage=stages[0];
+function updateStage(elapsed){
+  let cur=stages[0];
+  for(const s of stages){ if(elapsed>=s.at) cur=s; }
+  if(cur!==currentStage){
+    currentStage=cur;
+    bootLabel.textContent=cur.label;
+    bootMessage.textContent=cur.message;
+    bootLabel.animate([{opacity:0,transform:'translateY(4px)'},{opacity:1,transform:'translateY(0)'}],{duration:220,easing:'ease-out'});
+  }
+}
+
+function animateBoot(now){
+  const elapsed=now-startTime;
+  const progress=Math.min(elapsed/duration,1);
+  // Eased progress for power feel - cubic
+  const eased=1-Math.pow(1-progress,3);
+  const value=Math.floor(eased*100);
+  percentEl.textContent=value+'%';
+  progressFill.style.width=(eased*100)+'%';
+  updateStage(elapsed);
+  if(progress<1){
+    requestAnimationFrame(animateBoot);
+  } else {
+    launch();
+  }
+}
+requestAnimationFrame(animateBoot);
+
+function launch(){
+  splash.classList.add('fade-out');
+  setTimeout(()=>{ window.location.href="home.html"; },680);
+}
+
+// BFCache protection
+window.addEventListener('pageshow',e=>{ if(e.persisted) window.location.reload(); });
+
+// Preload home.html for instant transition
+const link=document.createElement('link'); link.rel='prefetch'; link.href='home.html'; document.head.appendChild(link);
+</script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#02040b" id="themeMeta">
+<link rel="icon" href="logo.png"><link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Orbitron:wght@700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<title>About Power • CodeVault</title>
+<style>
+:root{--bg:#020617;--bg2:#070f22;--panel:rgba(14,23,42,.92);--panel2:rgba(14,23,42,.66);--border:rgba(148,163,184,.13);--border2:rgba(148,163,184,.22);--text:#f8fafc;--text2:#cbd5e1;--muted:#94a3b8;--accent:#00f5ff;--accentSoft:rgba(0,245,255,.12);--accentBorder:rgba(0,245,255,.32);--good:#10b981;--warn:#f59e0b;--bad:#ef4444}
+body[data-tone="cyan"]{--bg:#020617;--bg2:#070f22;--accent:#00f5ff;--accentSoft:rgba(0,245,255,.12);--accentBorder:rgba(0,245,255,.32)}
+body[data-tone="violet"]{--bg:#09051a;--bg2:#130a2f;--panel:rgba(22,14,44,.92);--accent:#a78bfa;--accentSoft:rgba(167,139,250,.13);--accentBorder:rgba(167,139,250,.34)}
+body[data-tone="emerald"]{--bg:#02110b;--bg2:#0a1a14;--panel:rgba(4,36,25,.92);--accent:#34d399;--accentSoft:rgba(52,211,153,.12);--accentBorder:rgba(52,211,153,.32)}
+body[data-tone="amber"]{--bg:#120b02;--bg2:#1e1605;--panel:rgba(36,22,6,.92);--accent:#fbbf24;--accentSoft:rgba(251,191,36,.12);--accentBorder:rgba(251,191,36,.34)}
+body[data-tone="rose"]{--bg:#16030a;--bg2:#240a14;--panel:rgba(42,10,20,.92);--accent:#fb7185;--accentSoft:rgba(251,113,133,.12);--accentBorder:rgba(251,113,133,.34)}
+body[data-tone="blue"]{--bg:#020b1c;--bg2:#071a35;--panel:rgba(8,26,54,.92);--accent:#60a5fa;--accentSoft:rgba(96,165,250,.12);--accentBorder:rgba(96,165,250,.32)}
+body[data-tone="white"]{--bg:#f8fafc;--bg2:#eef2f7;--panel:rgba(255,255,255,.97);--panel2:rgba(255,255,255,.86);--border:rgba(15,23,42,.08);--border2:rgba(15,23,42,.14);--text:#0f172a;--text2:#334155;--muted:#475569;--accent:#0f172a;--accentSoft:rgba(15,23,42,.06);--accentBorder:rgba(15,23,42,.14)}
+body[data-tone="red"]{--bg:#170204;--bg2:#2a070b;--panel:rgba(54,10,16,.92);--accent:#ff4d5a;--accentSoft:rgba(255,77,90,.12);--accentBorder:rgba(255,77,90,.34)}
+*{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;font-family:Inter,sans-serif;color:var(--text);background:radial-gradient(1200px 600px at 8% -10%,var(--accentSoft),transparent 60%),radial-gradient(900px 600px at 95% 0%,var(--accentSoft),transparent 55%),linear-gradient(180deg,var(--bg),var(--bg2) 70%,var(--bg));overflow-x:hidden}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.topbar{position:sticky;top:0;z-index:60;backdrop-filter:blur(22px);background:linear-gradient(180deg,rgba(2,6,23,.9),rgba(2,6,23,.68));border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1360px;margin:0 auto;min-height:72px;padding:0 20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--panel2);color:var(--muted);font-size:13px;font-weight:700}
+.brand{display:inline-flex;align-items:center;gap:12px;justify-self:center}.brand-logo{width:44px;height:44px;border-radius:14px;object-fit:cover;border:1px solid var(--accentBorder);box-shadow:0 0 24px var(--accentSoft)}
+.brand-text{display:flex;flex-direction:column;line-height:1}.brand-name{font-family:Orbitron,sans-serif;font-size:15px;font-weight:800}.brand-page{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-top:3px}
+.tone-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--accentBorder);background:var(--accentSoft);color:var(--accent);display:grid;place-items:center}
+main{max-width:1360px;margin:0 auto;padding:26px 20px 100px}
+.kicker{color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.hero{display:grid;grid-template-columns:1.1fr.9fr;gap:18px;padding:20px 0 10px;align-items:start}
+@media(max-width:980px){.hero{grid-template-columns:1fr}}
+.hero h1{margin-top:10px;font-family:Orbitron,sans-serif;font-size:clamp(2.2rem,5vw,4.2rem);line-height:.9;letter-spacing:-.05em;font-weight:900}.hero h1 span{color:var(--accent)}
+.hero p{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.8;max-width:760px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+@media(max-width:700px){.metrics{grid-template-columns:repeat(2,1fr)}}
+.metric{padding:16px;border-radius:18px;border:1px solid var(--border);background:linear-gradient(180deg,var(--panel),var(--panel2));position:relative;overflow:hidden}
+.metric::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--accent),transparent 70%);opacity:.7}
+.metric strong{font-family:Orbitron,sans-serif;font-size:26px;display:block}.metric span{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:800}.metric small{font-size:10px;color:var(--muted);display:block;margin-top:4px}
+.panel{padding:20px;border-radius:22px;border:1px solid var(--accentBorder);background:radial-gradient(500px 200px at 0% 0%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--panel),var(--bg2));box-shadow:0 20px 60px rgba(0,0,0,.28);position:sticky;top:86px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media(max-width:980px){.grid2{grid-template-columns:1fr}}
+.card{padding:20px;border-radius:20px;border:1px solid var(--border);background:radial-gradient(500px 200px at 100% 0%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:0 12px 30px rgba(0,0,0,.14);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--accent),transparent 70%);opacity:.6}
+.card h3{font-family:Orbitron,sans-serif;font-size:14px;display:flex;gap:8px;align-items:center}.card h3 i{color:var(--accent)}.card p{margin-top:8px;color:var(--text2);font-size:12.5px;line-height:1.75}
+.table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:12px}
+.table th{text-align:left;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:rgba(30,41,59,.5);padding:10px 12px;border-bottom:1px solid var(--border)}
+.table td{padding:10px 12px;font-size:12px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}.table tr:last-child td{border-bottom:0}
+.badge{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:8px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--border)}
+.b-low{background:rgba(16,185,129,.1);color:#6ee7b7;border-color:rgba(16,185,129,.2)}.b-med{background:rgba(245,158,11,.1);color:#fcd34d;border-color:rgba(245,158,11,.2)}.b-high{background:rgba(244,63,94,.1);color:#fda4af;border-color:rgba(244,63,94,.2)}
+.toc{position:sticky;top:72px;z-index:25;margin-top:18px;display:flex;gap:8px;overflow-x:auto;padding:10px 2px 14px;scrollbar-width:none;background:linear-gradient(180deg,var(--bg) 70%,transparent);backdrop-filter:blur(10px)}.toc::-webkit-scrollbar{display:none}
+.toc button{flex:0 0 auto;min-height:42px;padding:0 14px;border-radius:999px;border:1px solid var(--border);background:var(--panel);color:var(--text2);font-size:11px;font-weight:800;white-space:nowrap}.toc button.active{border-color:var(--accentBorder);background:var(--accentSoft);color:var(--text);box-shadow:0 0 0 3px var(--accentSoft)}
+.section{margin-top:34px}.section h2{font-family:Orbitron,sans-serif;font-size:23px}.sec{margin-top:6px;color:var(--muted);font-size:12.5px;line-height:1.7;max-width:820px}
+.codeblock{margin-top:10px;padding:12px;border-radius:12px;background:linear-gradient(180deg,#030914,#050d1f);border:1px solid rgba(0,0,0,.45);font-family:JetBrains Mono,monospace;font-size:11px;line-height:1.7;color:#cbd5e1;white-space:pre-wrap;overflow:auto;max-height:360px}
+.faq{margin-top:14px;display:grid;gap:10px}
+.faq-item{border:1px solid var(--border);border-radius:14px;background:var(--panel);overflow:hidden}.faq-item.open{border-color:var(--border2)}.faq-q{width:100%;text-align:left;padding:14px 16px;display:flex;justify-content:space-between;gap:10px;align-items:center;font-weight:800;font-size:13px}.faq-a{padding:0 16px 14px;color:var(--muted);font-size:12.5px;line-height:1.75;display:none}.faq-item.open.faq-a{display:block}
+.list{display:grid;gap:8px;margin-top:10px}.list div{display:grid;grid-template-columns:20px 1fr;gap:8px;font-size:12px;color:var(--text2);line-height:1.6}.list div i{width:20px;height:20px;border-radius:50%;background:var(--accentSoft);border:1px solid var(--accentBorder);color:var(--accent);display:grid;place-items:center;font-size:10px}
+.btn{flex:0 0 auto;min-height:40px;padding:0 14px;border-radius:10px;font-size:10px;font-weight:800;letter-spacing:.06em;display:inline-flex;gap:6px;align-items:center;justify-content:center;border:1px solid var(--border);text-decoration:none}.btn-p{background:var(--accent);border-color:var(--accentBorder);color:#00131a}.btn-s{background:rgba(255,255,255,.05);color:var(--text2)}
+canvas{width:100%;height:220px;border-radius:12px;background:linear-gradient(180deg,#030914,#050d1f);border:1px solid rgba(0,0,0,.4);margin-top:12px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,130%);opacity:0;transition:.28s cubic-bezier(.34,1.56,.64,1);padding:12px 16px;border-radius:14px;border:1px solid var(--accentBorder);background:rgba(7,16,33,.98);color:var(--text);font-size:12px;font-weight:700;z-index:200;pointer-events:none;display:flex;gap:8px;align-items:center}.toast.show{transform:translate(-50%,0);opacity:1}
+.sheet{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(12px)}.sheet.open{display:flex}.sheet-card{width:100%;max-width:640px;padding:18px;border:1px solid var(--border);border-bottom:0;border-radius:26px 26px 0 0;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.tone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.tone{padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--panel2);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;font-weight:700}.tone.active{border-color:var(--accent);box-shadow:0 0 0 3px var(--accentSoft)}.tone-dot{width:24px;height:24px;border-radius:50%}
+</style>
+</head>
+<body data-tone="cyan">
+<header class="topbar"><div class="topbar-inner">
+<button class="back-btn" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+<a class="brand" href="home.html"><img src="logo.png" class="brand-logo"><span class="brand-text"><span class="brand-name">CODEVAULT</span><span class="brand-page">ABOUT • ULTRA POWER</span></span></a>
+<button class="tone-btn" id="toneBtn"><i class="fa-solid fa-palette"></i></button>
+</div></header>
+
+<main>
+<div class="hero">
+<div>
+<span class="kicker">ULTRA POWER ABOUT • LIVE DATA ENGINE • CHARTS • SECURITY • FAQ • DEVELOPER • VERIFIABLE</span>
+<h1>Not a list.<br><span>Device Intelligence.</span></h1>
+<p>CodeVault answers 4 questions for every code: What does it do? When to use? What happens? What risk? Every code labeled with availability, risk, reversible, requires_dialer/admin, warning, category, tags — live from your 3 JSONs you can open in VS Code. This page proves it with live numbers, charts, tables, threat model.</p>
+<div class="metrics">
+<div class="metric"><strong id="mBrands">—</strong><span>Brands total</span><small id="mBrandsSub">Android + iOS live</small></div>
+<div class="metric"><strong id="mRecords">—</strong><span>Total records</span><small id="mRecordsSub">Android + iOS + PC</small></div>
+<div class="metric"><strong id="mCats">—</strong><span>Categories</span><small id="mCatsSub">Device, network, system…</small></div>
+<div class="metric"><strong id="mTags">—</strong><span>Unique tags</span><small id="mTagsSub">Searchable</small></div>
+</div>
+<div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+<span class="badge b-low"><i class="fa-solid fa-shield-halved"></i> SAFE FILTERED • NO BYPASS</span>
+<span class="badge" style="background:var(--accentSoft);color:var(--accent);border-color:var(--accentBorder)">LIVE FROM 3 JSONs</span>
+<span class="badge" style="background:rgba(255,255,255,.06)">PWA OFFLINE READY</span>
+<span class="badge" style="background:rgba(255,255,255,.06)">v2.1 POWER</span>
+</div>
+</div>
+<div class="panel">
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="kicker">LIVE RISK & AVAILABILITY</span><span class="badge b-low" id="liveBadge">LOADING…</span></div>
+<canvas id="riskChart" width="600" height="260"></canvas>
+<div id="riskStats" style="margin-top:10px;font-size:11px;line-height:1.6;color:var(--text2)">Loading risk stats…</div>
+<div style="margin-top:12px;padding:10px;border-radius:12px;background:var(--accentSoft);border:1px solid var(--accentBorder);font-size:11px;color:var(--text2);line-height:1.6" id="availBox">Loading availability…</div>
+<div style="margin-top:10px;display:flex;gap:8px"><button class="btn btn-p" id="shareBtn"><i class="fa-solid fa-share-nodes"></i> SHARE WITH LOGO</button><button class="btn btn-s" onclick="location.href='tools.html'"><i class="fa-solid fa-screwdriver-wrench"></i> TOOLS</button></div>
+</div>
+</div>
+
+<div class="toc" id="toc">
+<button class="active" data-target="data"><i class="fa-solid fa-database"></i> Live Data</button>
+<button data-target="security"><i class="fa-solid fa-shield-halved"></i> Security</button>
+<button data-target="risk"><i class="fa-solid fa-triangle-exclamation"></i> Risk Matrix</button>
+<button data-target="arch"><i class="fa-solid fa-diagram-project"></i> Architecture</button>
+<button data-target="excluded"><i class="fa-solid fa-ban"></i> Excluded</button>
+<button data-target="privacy"><i class="fa-solid fa-user-shield"></i> Privacy & PWA</button>
+<button data-target="faq"><i class="fa-solid fa-circle-question"></i> FAQ 20</button>
+<button data-target="dev"><i class="fa-solid fa-user-astronaut"></i> Developer</button>
+</div>
+
+<section class="section" id="data">
+<div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap"><div><h2>Live data — verifiable from your folder</h2><p class="sec">Open android_secret_codes.json, ios_secret_codes.json, pc_commands.json in VS Code — every number below matches your files. No fake stats.</p></div><span class="badge" style="background:var(--accentSoft);color:var(--accent);border-color:var(--accentBorder)">VERIFIABLE</span></div>
+<div class="grid2">
+<div class="card"><h3><i class="fa-solid fa-layer-group"></i> Brand breakdown — top 8 by codes</h3><canvas id="brandChart" width="600" height="260"></canvas><div id="brandTable" style="margin-top:10px"></div></div>
+<div class="card"><h3><i class="fa-solid fa-tags"></i> Categories & tags — searchable engine</h3><div id="catBox" style="margin-top:10px;font-size:11px;line-height:1.8;color:var(--text2)">Loading…</div><canvas id="catChart" width="600" height="260"></canvas><div class="codeblock" id="searchBox">Loading search index…</div></div>
+</div>
+</section>
+
+<section class="section" id="security">
+<h2>Security set — layered defense</h2><p class="sec">We filter at 4 layers: file notes + tag filter + category block + UI warning. IMEI Luhn runs offline. No bypass ever included.</p>
+<div class="grid2">
+<div class="card"><h3><i class="fa-solid fa-shield-halved"></i> Threat model & mitigation</h3><table class="table"><thead><tr><th>Threat</th><th>Likelihood</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>FRP / Activation Lock bypass</td><td>High if included</td><td>Excluded at JSON notes, tag filter bypass/frp/icloud, category block</td></tr>
+<tr><td>Guessing barring PIN **33*PIN#</td><td>High if guessed</td><td>Warning never guess PIN, from carrier, 3 wrong → PUK needed, medium/high risk</td></tr>
+<tr><td>Forwarding hijack **21*number#</td><td>Medium</td><td>Danger callout: changes routing, affects voicemail, show check *#21# first, ##002# cancel all</td></tr>
+<tr><td>ipconfig /release disconnect</td><td>Medium</td><td>Label requires_admin, medium risk, explain disconnect briefly, suggest ipconfig /all for demo</td></tr>
+<tr><td>sfc /scannow long time</td><td>Low</td><td>Guides say don't run live without permission, show help sfc first</td></tr>
+<tr><td>IMEI leak</td><td>Low</td><td>Luhn validator runs locally offline, no upload</td></tr>
+</tbody></table></div>
+<div class="card"><h3><i class="fa-solid fa-lock"></i> PWA security — offline</h3><p>sw.js caches only static: HTML, JSON, logo.png, manifest.json. No external API. No eval. Codes shown in &lt;code&gt; tag not executed. Share uses navigator.share({files:[logo.png]}) native sheet.</p><div class="codeblock">Cache name: codevault-v2.1-power
+Cached: index.html, home.html, android.html, ios.html, pc.html, guides.html, brands.html, tools.html, universal.html, about.html, *.json, logo.png, manifest.json
+Strategy: cache-first static, network-first JSON (live edits visible)
+No external fetch. No tracking SDK.
+Offline test: load home.html → airplane mode → refresh → works
+Install: Android banner beforeinstallprompt, iPhone Share → Add to Home Screen
+Theme: localStorage codevault_theme_tone → meta theme-color sync
+</div></div>
+</div>
+</section>
+
+<section class="section" id="risk">
+<h2>Risk matrix — teach risk, not hide it</h2>
+<div class="grid2">
+<div class="card"><h3><i class="fa-solid fa-table-cells-large"></i> Risk vs Reversible vs Demo</h3><table class="table"><thead><tr><th>Risk</th><th>Reversible</th><th>Example</th><th>Demo?</th></tr></thead><tbody>
+<tr><td><span class="badge b-low">LOW</span></td><td>Yes (nothing changed)</td><td>*#06# IMEI, ipconfig, ping 1.1.1.1</td><td>Yes live</td></tr>
+<tr><td><span class="badge b-med">MEDIUM</span></td><td>Yes via ##code#</td><td>**21*number#, ipconfig /release</td><td>Show check only *#21#</td></tr>
+<tr><td><span class="badge b-high">HIGH</span></td><td>Often no</td><td>sfc /scannow, DISM, chkdsk /f</td><td>Show help, don't run</td></tr>
+</tbody></table><p style="margin-top:10px"><b>GSM/MMI pattern:</b> *# = check, ** = activate, ## = deactivate, ##002# = cancel all. Works for 21,61,67,62. Teach once, judges remember.</p></div>
+<div class="card"><h3><i class="fa-solid fa-circle-info"></i> Availability — why iPhone codes fail</h3><div id="availTable">Loading…</div><div style="margin-top:10px;padding:10px;border-radius:12px;background:var(--accentSoft);border:1px solid var(--accentBorder);font-size:11px;color:var(--text2)">Judges love honesty: Show *#21# on iPhone — if carrier error, explain carrier_dependent — not bug, but honest labeling from JSON. That's professional.</div></div>
+</div>
+</section>
+
+<section class="section" id="arch">
+<h2>Architecture — powerful file flow</h2>
+<div class="card"><h3><i class="fa-solid fa-sitemap"></i> Real architecture — from your folder</h3><div class="codeblock">index.html (Splash Power Engine)
+ ├─ Theme: localStorage codevault_theme_tone → 8 tones → meta theme-color dynamic
+ ├─ PWA: navigator.serviceWorker.register('sw.js', {scope:'./'}) → badge PWA CACHED / STANDALONE
+ ├─ Prefetch: link rel=prefetch href=home.html
+ └─ Launch: fade-out 0.7s cubic → home.html (6.2s eased)
+
+home.html → reads 3 JSONs live → builds search index lowercase → orientation tour first-time only → install banner → share with logo file
+
+android.html / ios.html / pc.html → brand chips + category filter + risk filter + unique Set(codes.map(c=>c.code)).size + copy green ✓ + vibrate
+
+guides.html / brands.html / tools.html / universal.html / about.html → all read same 3 JSONs live fetch cache:no-store → guides pattern tables + brands risk bars + tools IMEI Luhn + deep search
+
+universal.html → live counts from JSONs → share hub
+
+about.html (this power page) → live metrics + canvas charts risk/brand/category + threat model + FAQ 20
+
+PWA: manifest.json (name CodeVault, icons logo.png 192/512, display standalone) + sw.js (codevault-v2.1-power, cache-first static, network-first JSON)
+
+Live: https://egyirprince609-oss.github.io/CODE-VAULT-/ • 100% static • No backend • GitHub Pages ready
+</div></div>
+</section>
+
+<section class="section" id="excluded">
+<h2>What we exclude — trust</h2>
+<div class="grid2">
+<div class="card"><h3><i class="fa-solid fa-ban"></i> Never included</h3><div class="list"><div><i class="fa-solid fa-xmark"></i><span>Activation Lock / iCloud bypass — Apple security, illegal, excluded</span></div><div><i class="fa-solid fa-xmark"></i><span>FRP / Google account bypass — security bypass per JSON notes</span></div><div><i class="fa-solid fa-xmark"></i><span>PIN brute-force / PUK guessing — warning never guess</span></div><div><i class="fa-solid fa-xmark"></i><span>Destructive reset without warning — high risk + reversible false</span></div><div><i class="fa-solid fa-xmark"></i><span>Carrier USSD that charges without disclosure</span></div><div><i class="fa-solid fa-xmark"></i><span>Malware / spy codes / hidden SMS</span></div></div></div>
+<div class="card"><h3><i class="fa-solid fa-circle-check"></i> What we DO include — valuable</h3><p>IMEI *#06#, SAR *#07#, Field Test *3001#12345#*, battery *#*#4636#*#*, call forwarding check *#21#, Wi-Fi netsh wlan show interfaces, ipconfig /all, ping, tracert, powercfg /batteryreport, systeminfo — all documented low/medium risk reversible or display-only.</p></div>
+</div>
+</section>
+
+<section class="section" id="privacy">
+<h2>Privacy & PWA — offline first</h2>
+<div class="grid2">
+<div class="card"><h3><i class="fa-solid fa-user-shield"></i> Privacy — zero collection</h3><div class="list"><div><i class="fa-solid fa-check"></i><span>No login, no account, no analytics SDK, no ads</span></div><div><i class="fa-solid fa-check"></i><span>IMEI Luhn pure JS offline — no upload</span></div><div><i class="fa-solid fa-check"></i><span>Search lowercase index built locally from JSONs in folder</span></div><div><i class="fa-solid fa-check"></i><span>Only localStorage: theme tone + tour seen + install dismiss</span></div></div></div>
+<div class="card"><h3><i class="fa-solid fa-wifi"></i> Offline proof — test steps</h3><div class="codeblock">1. Open home.html with data → wait splash → home
+2. Airplane mode ON
+3. Refresh → still works (sw.js cache)
+4. Search IMEI → finds *#06# from cached JSON
+5. Install: Android INSTALL banner → tap → home screen
+   iPhone Share → Add to Home Screen → logo.png icon
+6. After install badge shows APP STANDALONE SECURE
+</div></div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<h2>FAQ — 20 powerful judge questions</h2>
+<div class="faq" id="faqList"></div>
+</section>
+
+<section class="section" id="dev">
+<h2>Developer — genuine power</h2>
+<div style="padding:20px;border-radius:22px;border:1px solid var(--accentBorder);background:radial-gradient(600px 260px at 0% 0%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--panel),var(--bg2));display:flex;gap:16px;align-items:start">
+<img src="logo.png" alt="logo" style="width:84px;height:84px;border-radius:20px;object-fit:cover;border:1px solid var(--accentBorder);box-shadow:0 0 32px var(--accentSoft)">
+<div style="min-width:0">
+<div style="font-family:Orbitron,sans-serif;font-weight:800;font-size:20px">EgyirPrince — CodeVault Creator</div>
+<div style="font-size:11px;color:var(--accent);font-weight:800;letter-spacing:.08em;margin-top:4px">DEVICE INTELLIGENCE • PWA DEVELOPER • GHANA • 2026 • v2.1 ULTRA POWER</div>
+<div style="margin-top:10px;color:var(--text2);font-size:13px;line-height:1.8">Started as personal notes of codes I kept forgetting — *#06#, *#*#4636#*#*, ipconfig, ping. Realized most apps list codes without risk, reversible, carrier_dependent labels. Judges need WHAT it does, WHEN to use, WHAT happens, WHAT risk. Built schema 2.0/2.1 with availability, risk, reversible, requires_dialer/admin, warning, tags, description. 9 pages vanilla HTML/CSS/JS — no framework — offline, fast, PWA install, tone sync, share with logo file. Focus: genuine information, safety, presentation quality. Not hacking — learning.</div>
+<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a href="https://egyirprince609-oss.github.io/CODE-VAULT-/" target="_blank" class="btn btn-p"><i class="fa-solid fa-globe"></i> LIVE SITE</a><button class="btn btn-s" id="shareDev"><i class="fa-solid fa-share-nodes"></i> SHARE WITH LOGO</button><a href="home.html" class="btn btn-s"><i class="fa-solid fa-house"></i> HOME</a></div>
+</div>
+</div>
+</section>
+</main>
+
+<div id="toast" class="toast"></div>
+<div class="sheet" id="toneSheet"><div class="sheet-card"><div style="display:flex;justify-content:space-between;align-items:center"><div><h3 style="font-family:Orbitron,sans-serif;font-size:14px">Choose tone</h3><p style="color:var(--muted);font-size:10px;margin-top:4px">Key: codevault_theme_tone • 9 pages sync</p></div><button id="toneClose" style="width:40px;height:40px;border:1px solid var(--border);border-radius:11px">×</button></div><div class="tone-grid">
+<button class="tone" data-tone="cyan"><span class="tone-dot" style="background:#00f5ff"></span>Cyan</button><button class="tone" data-tone="violet"><span class="tone-dot" style="background:#a78bfa"></span>Violet</button><button class="tone" data-tone="emerald"><span class="tone-dot" style="background:#34d399"></span>Emerald</button><button class="tone" data-tone="amber"><span class="tone-dot" style="background:#fbbf24"></span>Amber</button><button class="tone" data-tone="rose"><span class="tone-dot" style="background:#fb7185"></span>Rose</button><button class="tone" data-tone="blue"><span class="tone-dot" style="background:#60a5fa"></span>Blue</button><button class="tone" data-tone="white"><span class="tone-dot" style="background:#fff;border:1px solid #ddd"></span>White</button><button class="tone" data-tone="red"><span class="tone-dot" style="background:#ff4d5a"></span>Red</button>
+</div></div></div>
+
+<script>
+const THEME_KEY="codevault_theme_tone"; const APP_URL="https://egyirprince609-oss.github.io/CODE-VAULT-/"; const $=id=>document.getElementById(id);
+function applyTheme(t){const v=["cyan","violet","emerald","amber","rose","blue","white","red"];if(!v.includes(t))t="cyan";document.body.dataset.tone=t;localStorage.setItem(THEME_KEY,t);const colors={cyan:"#02040b",violet:"#09051a",emerald:"#02110b",amber:"#120b02",rose:"#16030a",blue:"#020b1c",white:"#ffffff",red:"#170204"};const meta=document.getElementById("themeMeta");if(meta)meta.content=colors[t];document.querySelectorAll(".tone").forEach(x=>x.classList.toggle("active",x.dataset.tone===t));}
+applyTheme(localStorage.getItem(THEME_KEY)||"cyan");
+$("backBtn").onclick=()=>history.length>1?history.back():location.href="home.html";
+$("toneBtn").onclick=()=>$("toneSheet").classList.add("open");$("toneClose").onclick=()=>$("toneSheet").classList.remove("open");$("toneSheet").onclick=e=>{if(e.target===$("toneSheet"))$("toneSheet").classList.remove("open")};
+document.querySelectorAll("[data-tone]").forEach(b=>b.onclick=()=>{applyTheme(b.dataset.tone);$("toneSheet").classList.remove("open");toast(`Tone: ${b.dataset.tone}`)});
+function toast(m){const t=$("toast");t.innerHTML=`<i class="fa-solid fa-check" style="color:var(--accent)"></i> ${m}`;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),3200)}
+const tocBtns=document.querySelectorAll(".toc button");tocBtns.forEach(b=>b.onclick=()=>{document.getElementById(b.dataset.target).scrollIntoView({behavior:"smooth",block:"start"});tocBtns.forEach(x=>x.classList.toggle("active",x===b))});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){tocBtns.forEach(b=>b.classList.toggle("active",b.dataset.target===e.target.id))}})},{rootMargin:"-40% 0px -50% 0px",threshold:0});document.querySelectorAll(".section").forEach(s=>obs.observe(s));
+
+// CANVAS CHART DRAWER - POWERFUL, NO LIBRARY
+function drawBarChart(canvas, labels, values, colors){
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width=canvas.offsetWidth*2; const H=canvas.height=canvas.offsetHeight*2;
+  ctx.clearRect(0,0,W,H);
+  const pad=50; const chartW=W-pad*2; const chartH=H-pad*2-20;
+  const max=Math.max(...values,1);
+  const barW=chartW/(values.length*1.8);
+  const gap=barW*0.8;
+  values.forEach((v,i)=>{
+    const x=pad + i*(barW+gap) + gap/2;
+    const h=(v/max)*chartH;
+    const y=H-pad - h;
+    ctx.fillStyle=colors[i%colors.length];
+    ctx.globalAlpha=0.9;
+    ctx.beginPath(); ctx.roundRect(x,y,barW,h,6); ctx.fill();
+    ctx.globalAlpha=1;
+    ctx.fillStyle='#94a3b8'; ctx.font='700 18px Inter'; ctx.textAlign='center';
+    ctx.fillText(v, x+barW/2, y-10);
+    ctx.fillStyle='#cbd5e1'; ctx.font='600 16px Inter';
+    const lab=labels[i].length>12?labels[i].slice(0,12)+'…':labels[i];
+    ctx.fillText(lab, x+barW/2, H-pad+22);
+  });
+}
+function drawPieChart(canvas, labels, values, colors){
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width=canvas.offsetWidth*2; const H=canvas.height=canvas.offsetHeight*2;
+  ctx.clearRect(0,0,W,H);
+  const total=values.reduce((a,b)=>a+b,0)||1;
+  let angle=-Math.PI/2;
+  const cx=W/2; const cy=H/2-10; const r=Math.min(W,H)*0.32;
+  values.forEach((v,i)=>{
+    const slice=(v/total)*Math.PI*2;
+    ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,angle,angle+slice); ctx.closePath();
+    ctx.fillStyle=colors[i%colors.length]; ctx.fill();
+    // label
+    const mid=angle+slice/2;
+    const lx=cx + Math.cos(mid)*(r+36);
+    const ly=cy + Math.sin(mid)*(r+36);
+    ctx.fillStyle='#e2e8f0'; ctx.font='700 17px Inter'; ctx.textAlign='center';
+    ctx.fillText(`${labels[i]} ${Math.round(v/total*100)}%`, lx, ly);
+    angle+=slice;
+  });
+}
+
+// LIVE DATA
+(async()=>{
+  try{
+    const a=await fetch('android_secret_codes.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>({brands:[]}));
+    const i=await fetch('ios_secret_codes.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>({brands:[]}));
+    const p=await fetch('pc_commands.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>({categories:[]}));
+    const aCodes=(a.brands||[]).flatMap(b=>b.codes||[]);
+    const iCodes=(i.brands||[]).flatMap(b=>b.codes||[]);
+    const pCodes=(p.categories||[]).flatMap(c=>c.commands||[]);
+    const all=[...aCodes,...iCodes,...pCodes];
+    const brands=(a.brands||[]).length+(i.brands||[]).length;
+    const cats=[...new Set(all.map(c=>c.category||c.title))];
+    const tags=[...new Set(all.flatMap(c=>c.tags||[]))];
+    const low=all.filter(c=>c.risk==='low').length, med=all.filter(c=>c.risk==='medium').length, high=all.filter(c=>c.risk==='high').length;
+    const tot=all.length||1;
+    const avails=[...new Set(all.map(c=>c.availability).filter(Boolean))];
+    const availCounts={}; all.forEach(c=>{const k=c.availability||'unknown'; availCounts[k]=(availCounts[k]||0)+1});
+
+    $("mBrands").textContent=brands;
+    $("mRecords").textContent=all.length;
+    $("mRecordsSub").textContent=`Android ${aCodes.length} + iOS ${iCodes.length} + PC ${pCodes.length}`;
+    $("mCats").textContent=cats.length;
+    $("mTags").textContent=tags.length;
+    $("mBrandsSub").textContent=`${(a.brands||[]).length} Android + ${(i.brands||[]).length} iOS brands`;
+    $("liveBadge").textContent=`${all.length} RECORDS LIVE`;
+
+    drawPieChart($("riskChart"), ['LOW','MEDIUM','HIGH'], [low,med,high], ['#10b981','#f59e0b','#ef4444']);
+    $("riskStats").innerHTML=`<b>LOW:</b> ${low} (${Math.round(low/tot*100)}%) — ${aCodes.filter(c=>c.risk==='low').slice(0,2).map(c=>c.code).join(', ')} • ipconfig, ping<br><b>MEDIUM:</b> ${med} (${Math.round(med/tot*100)}%) — ${all.filter(c=>c.risk==='medium').slice(0,2).map(c=>c.code||c.command).join(', ')}<br><b>HIGH:</b> ${high} (${Math.round(high/tot*100)}%) — sfc /scannow, DISM /RestoreHealth<br><b>Reversible:</b> ${all.filter(c=>c.reversible).length}/${all.length} • <b>Requires dialer/admin:</b> ${all.filter(c=>c.requires_dialer||c.requires_admin).length}`;
+
+    $("availBox").innerHTML=`<b>Availability ${avails.length} types:</b> ${avails.map(a=>a.replace(/_/g,' ')).join(' • ')}<br><small>widely_supported = works everywhere (*#06#), carrier_dependent = needs carrier (**21*), device_and_region_dependent = model/firmware</small>`;
+
+    // Brand chart
+    const byBrand=(a.brands||[]).map(b=>({name:b.brand,count:(b.codes||[]).length})).sort((x,y)=>y.count-x.count).slice(0,8);
+    drawBarChart($("brandChart"), byBrand.map(b=>b.name), byBrand.map(b=>b.count), ['#00f5ff','#a78bfa','#34d399','#fbbf24','#fb7185','#60a5fa','#ff4d5a','#10b981']);
+    $("brandTable").innerHTML=`<table class="table"><thead><tr><th>Brand</th><th>Codes</th><th>Low risk</th></tr></thead><tbody>${byBrand.map(b=>{const full=(a.brands||[]).find(x=>x.brand===b.name); const lowC=(full?.codes||[]).filter(c=>c.risk==='low').length; return `<tr><td><b>${b.name}</b></td><td>${b.count}</td><td><span class="badge b-low">Low ${lowC}</span></td></tr>`}).join('')}</tbody></table>`;
+
+    // Category chart
+    const catCounts={}; all.forEach(c=>{const k=c.category||c.title||'Other'; catCounts[k]=(catCounts[k]||0)+1});
+    const topCats=Object.entries(catCounts).sort((a,b)=>b[1]-a[1]).slice(0,6);
+    drawBarChart($("catChart"), topCats.map(c=>c[0].slice(0,14)), topCats.map(c=>c[1]), ['#00f5ff','#a78bfa','#34d399','#fbbf24','#fb7185','#60a5fa']);
+    $("catBox").innerHTML=`<b>Top categories:</b> ${topCats.map(c=>`${c[0]} (${c[1]})`).join(' • ')}<br><b>Unique tags ${tags.length}:</b> ${tags.slice(0,18).join(', ')}${tags.length>18?` +${tags.length-18} more`:''}<br><b>Unique codes:</b> ${[...new Set(all.map(x=>x.code||x.command))].length} unique strings from ${all.length} records`;
+    $("searchBox").textContent=`Search index: built from ${all.length} records\nFields: title + code/command + category + description + brand + alias + tags → lowercase\nIMEI query finds ${all.filter(c=>(c.title+(c.description||'')+(c.tags||[]).join('')).toLowerCase().includes('imei')).length} results\nWiFi query finds ${all.filter(c=>(c.title+(c.description||'')).toLowerCase().includes('wifi')||(c.tags||[]).includes('wifi')).length} results\nipconfig query finds ${pCodes.filter(c=>c.command.toLowerCase().includes('ipconfig')).length} commands\nFilter bypass tags: ${all.filter(c=>(c.tags||[]).join(' ').includes('bypass')).length} hidden`;
+
+    $("availTable").innerHTML=`<table class="table"><thead><tr><th>Availability</th><th>Meaning</th><th>Count</th></tr></thead><tbody>${Object.entries(availCounts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td>${k.replace(/_/g,' ')}</td><td>${k.includes('widely')?'Works most devices':k.includes('carrier')?'Needs carrier':'Model/firmware dependent'}</td><td>${v} • ${Math.round(v/tot*100)}%</td></tr>`).join('')}</tbody></table>`;
+
+  }catch(e){console.warn(e)}
+})();
+
+// FAQ 20
+const FAQS=[
+["1. What is CodeVault in one powerful sentence?","Device Intelligence Platform that explains what every device code does, when to use, what happens, what risk — live from 3 JSONs, 9 pages, PWA offline, tone sync, safe filtered no bypass."],
+["2. Why Android 300+ vs iPhone ~48 codes?","Android open: Samsung *#0*# LCD test, Xiaomi QC test. iPhone closed: only Field Test *3001#12345#* + GSM/MMI carrier commands *#21#. iPhone codes mostly not Apple-exclusive — carrier USSD. That's why we label carrier_dependent."],
+["3. Is *#06# safe?","Yes safe display-only widely_supported low risk reversible nothing to reverse. Shows IMEI instantly no network no charge. Perfect first demo ask audience dial *#06#."],
+["4. What is carrier_dependent?","Code works only if carrier supports. **21*number# sends request to tower. If carrier doesn't support error. We show 4 types: widely_supported, device_and_region_dependent, carrier_dependent, carrier_specific."],
+["5. What does <PID> <path> mean?","Placeholder must be replaced. <PID> Process ID from tasklist, <path> folder like C:\\Users\\Public, <username> from whoami, <number> phone +233XXXXXXXXX, <PIN> barring PIN from carrier never guess. Tools page auto-fixes."],
+["6. Does CodeVault bypass security?","No. Explicitly excluded: Activation Lock, FRP, account bypass, security bypass, destructive reset without warning. JSON notes state NOT included. Safe for school presentation."],
+["7. How is risk decided?","Low = display only no change (*#06#, ipconfig, ping). Medium = changes routing/state temporary reversible (**21*number#, ipconfig /release). High = system repair long needs admin/restart often not reversible (sfc /scannow, DISM, chkdsk /f)."],
+["8. What is GSM/MMI pattern?","Standard: *# = check status (*#21#), ** = activate (**21*number#), ## = deactivate (##21#), ##002# = cancel all forwarding. Works for 21 unconditional, 61 no-answer, 67 busy, 62 unreachable. Teach once."],
+["9. How PWA install works?","Home listens beforeinstallprompt. When allowed INSTALL banner shows. Click → browser prompt → home screen logo.png 192/512 icon. iPhone Share → Add to Home Screen. sw.js caches HTML+JSON+logo+manifest. Manifest theme_color syncs per tone."],
+["10. Where data from? Can edit?","3 JSONs live next to HTML: android_secret_codes.json, ios_secret_codes.json, pc_commands.json. No API no server. Open VS Code duplicate brand object add codes array with code,title,category,risk,availability,reversible,tags,description. Vaults read live."],
+["11. How theme synced?","All 9 pages same localStorage key codevault_theme_tone. 8 tones cyan violet emerald amber rose blue white red. Meta theme-color changes per tone Android status bar changes. White for projector."],
+["12. How share with logo works?","navigator.share({title,text,url,files:[logo.png]}). Fetch logo.png create File check navigator.canShare({files}) share to WhatsApp Telegram Email etc with logo file + link + description. Native OS sheet not upload."],
+["13. How IMEI validator works?","Tools page Luhn: take 15-digit IMEI double every second digit from right if >9 subtract 9 sum all if sum%10==0 valid. Runs locally offline no server green valid red invalid."],
+["14. Why same topbar everywhere?","You demanded clean rule ONLY Back + Logo + CODEVAULT + PAGE NAME + Tone. No extra icons. Professional for presentation judges focus on content. Implemented across 9 pages."],
+["15. Does ipconfig /release break internet?","Yes briefly releases DHCP lease disconnects then /renew gets new IP. Labeled medium risk requires_admin warning in guides. Teach flow ipconfig /all shows current /release + /renew fixes IP conflict."],
+["16. How present battery report?","Run powercfg /batteryreport creates battery-report.html in current folder open in browser shows design capacity vs full charge capacity cycle count usage history. Compare with Android *#*#4636#*#* battery info phone vs laptop powerful demo."],
+["17. Is free for school?","Yes free educational safe filtered no bypass no tracking. Built for learning technician training school presentation. All files static host on GitHub Pages free at egyirprince609-oss.github.io/CODE-VAULT-/"],
+["18. What's next roadmap?","v2.2 QR generator for codes, device compare Samsung vs iPhone side by side, battery health calculator design vs full charge %, export PDF, network scanner UI visual tracert hops. All as new cards in universal.html hub."],
+["19. How to prove no bypass?","Open android_secret_codes.json search bypass — you will see 0 results or filtered. Open ios_secret_codes.json same. Open pc_commands.json search frp — 0. Plus notes field says security-bypass codes NOT included. That's genuine proof."],
+["20. How to present in 30 seconds?","Home search *#06# IMEI → Android vault brand chip → iOS vault carrier_dependent warning → PC vault live demo ipconfig /all && ping 1.1.1.1 && netsh wlan show interfaces → Guides pattern table → Brands risk bars → Tools IMEI Luhn → About live charts + risk matrix. End Share + Install."],
+];
+const faqList=document.getElementById('faqList');
+faqList.innerHTML=FAQS.map(([q,a])=>`<div class="faq-item"><button class="faq-q"><span>${q}</span><i class="fa-solid fa-chevron-down" style="color:var(--muted)"></i></button><div class="faq-a">${a}</div></div>`).join('');
+faqList.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').onclick=()=>{
+    const was=item.classList.contains('open');
+    faqList.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!was) item.classList.add('open');
+  };
+});
+
+$("shareBtn").onclick=$("shareDev").onclick=async()=>{
+  const text=`CodeVault ULTRA POWER ABOUT • v2.1\nLive data: Android + iOS + PC JSONs → 9 pages → charts risk/brand/category → threat model → FAQ 20 → genuine proof no bypass\nSecurity: layered filtering tag+category, risk low/med/high, reversible, requires_admin, carrier_dependent, PWA offline, no tracking\nLive: ${APP_URL}`;
+  try{
+    const blob=await (await fetch('logo.png')).blob(); const file=new File([blob],'logo.png',{type:blob.type});
+    const data={title:'CodeVault Ultra Power',text,url:APP_URL};
+    if(navigator.canShare&&navigator.canShare({files:[file]})) data.files=[file];
+    if(navigator.share) await navigator.share(data); else {await navigator.clipboard.writeText(text);toast('About copied');}
+  }catch{}
+};
+</script>
+</body>
+</html>

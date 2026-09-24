@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#020617">
+<link rel="icon" href="logo.png"><link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<title>Guides • CodeVault</title>
+<style>
+:root{--bg:#020617;--bg2:#070f22;--panel:rgba(15,23,42,.88);--panel2:rgba(15,23,42,.62);--panel3:rgba(30,41,59,.55);--border:rgba(148,163,184,.13);--border2:rgba(148,163,184,.22);--text:#f8fafc;--text2:#cbd5e1;--muted:#94a3b8;--muted2:#64748b;--accent:#00f5ff;--accentSoft:rgba(0,245,255,.11);--accentBorder:rgba(0,245,255,.34);--shadow:0 20px 60px rgba(0,0,0,.26);--r:22px}
+body[data-tone="cyan"]{--bg:#020617;--bg2:#070f22;--panel:rgba(15,23,42,.88);--accent:#00f5ff;--accentSoft:rgba(0,245,255,.11);--accentBorder:rgba(0,245,255,.34)}
+body[data-tone="violet"]{--bg:#09051a;--bg2:#130a2f;--panel:rgba(24,12,44,.92);--accent:#a78bfa;--accentSoft:rgba(167,139,250,.13);--accentBorder:rgba(167,139,250,.34)}
+body[data-tone="emerald"]{--bg:#02110b;--bg2:#0a1a14;--panel:rgba(4,36,25,.92);--accent:#34d399;--accentSoft:rgba(52,211,153,.12);--accentBorder:rgba(52,211,153,.32)}
+body[data-tone="amber"]{--bg:#120b02;--bg2:#1e1605;--panel:rgba(37,23,5,.92);--accent:#fbbf24;--accentSoft:rgba(251,191,36,.12);--accentBorder:rgba(251,191,36,.34)}
+body[data-tone="rose"]{--bg:#16030a;--bg2:#240a14;--panel:rgba(42,7,20,.92);--accent:#fb7185;--accentSoft:rgba(251,113,133,.12);--accentBorder:rgba(251,113,133,.34)}
+body[data-tone="blue"]{--bg:#020b1c;--bg2:#071a35;--panel:rgba(7,26,53,.92);--accent:#60a5fa;--accentSoft:rgba(96,165,250,.12);--accentBorder:rgba(96,165,250,.32)}
+body[data-tone="white"]{--bg:#f8fafc;--bg2:#eef2f7;--panel:rgba(255,255,255,.96);--panel2:rgba(255,255,255,.84);--panel3:rgba(15,23,42,.06);--border:rgba(15,23,42,.08);--border2:rgba(15,23,42,.14);--text:#0f172a;--text2:#334155;--muted:#475569;--muted2:#64748b;--accent:#0f172a;--accentSoft:rgba(15,23,42,.06);--accentBorder:rgba(15,23,42,.14)}
+body[data-tone="red"]{--bg:#170204;--bg2:#2a070b;--panel:rgba(55,8,14,.92);--accent:#ff4d5a;--accentSoft:rgba(255,77,90,.12);--accentBorder:rgba(255,77,90,.36)}
+*{box-sizing:border-box;margin:0;padding:0}html{background:var(--bg)}body{min-height:100vh;font-family:Inter,sans-serif;color:var(--text);background:radial-gradient(1100px 600px at 10% -12%,var(--accentSoft),transparent 60%),radial-gradient(800px 500px at 95% 10%,var(--accentSoft),transparent 50%),linear-gradient(180deg,var(--bg),var(--bg2) 70%,var(--bg));overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.topbar{position:sticky;top:0;z-index:60;backdrop-filter:blur(22px) saturate(1.2);background:linear-gradient(180deg,rgba(2,6,23,.88),rgba(2,6,23,.66));border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1320px;margin:0 auto;min-height:72px;padding:0 20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--panel2);color:var(--muted);font-size:13px;font-weight:600}
+.brand{display:inline-flex;align-items:center;gap:12px;justify-self:center}
+.brand-logo{width:44px;height:44px;border-radius:14px;object-fit:cover;border:1px solid var(--accentBorder);box-shadow:0 0 24px var(--accentSoft)}
+.brand-text{display:flex;flex-direction:column;line-height:1}.brand-name{font-family:Orbitron,sans-serif;font-size:15px;font-weight:800}.brand-page{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-top:3px}
+.tone-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--accentBorder);background:var(--accentSoft);color:var(--accent);display:grid;place-items:center}
+main{max-width:1320px;margin:0 auto;padding:28px 20px 90px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;padding:26px 0 12px;align-items:center}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.kicker{color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin-top:12px;font-family:Orbitron,sans-serif;font-size:clamp(2.2rem,5vw,4rem);line-height:.92;letter-spacing:-.05em;font-weight:900}.hero h1 span{color:var(--accent)}
+.hero p{margin-top:14px;max-width:680px;color:var(--muted);font-size:14px;line-height:1.8}
+.hero-visual{position:relative;padding:18px;border-radius:var(--r);border:1px solid var(--accentBorder);background:radial-gradient(400px 200px at 0% 0%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--panel),var(--bg2));box-shadow:var(--shadow);overflow:hidden}
+.hv-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.hv-chip{display:inline-flex;gap:6px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:var(--panel2);font-size:11px;font-weight:700;color:var(--text2)}
+.hv-chip.accent{border-color:var(--accentBorder);background:var(--accentSoft);color:var(--text)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+.step{padding:14px;border-radius:16px;border:1px solid var(--border);background:var(--panel);display:flex;gap:10px}
+.step i{width:36px;height:36px;border-radius:10px;background:var(--accentSoft);border:1px solid var(--accentBorder);color:var(--accent);display:grid;place-items:center;flex:0 0 auto}
+.step strong{font-size:12px;display:block}.step span{font-size:11px;color:var(--muted);line-height:1.5}
+
+.toc{position:sticky;top:84px;z-index:20;margin-top:28px;display:flex;gap:8px;overflow-x:auto;padding:8px 2px 12px;scrollbar-width:none}
+.toc::-webkit-scrollbar{display:none}
+.toc-btn{flex:0 0 auto;min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--border);background:var(--panel);color:var(--text2);font-size:12px;font-weight:700;white-space:nowrap;display:inline-flex;gap:8px;align-items:center;transition:.2s}
+.toc-btn.active{border-color:var(--accentBorder);background:var(--accentSoft);color:var(--text);box-shadow:0 0 0 3px var(--accentSoft)}
+.toc-btn i{color:var(--accent)}
+
+.section{margin-top:34px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.section-head h2{font-family:Orbitron,sans-serif;font-size:26px;letter-spacing:-.02em}
+.section-head p{color:var(--muted);font-size:12px;max-width:600px;line-height:1.6}
+
+.guide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:900px){.guide-grid{grid-template-columns:1fr}}
+.guide{position:relative;padding:20px;border-radius:20px;border:1px solid var(--border);background:radial-gradient(500px 200px at 100% 0%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:0 12px 30px rgba(0,0,0,.14);transition:.22s;overflow:hidden}
+.guide::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--accent),transparent 70%);opacity:.6}
+.guide:hover{transform:translateY(-2px);border-color:var(--border2)}
+.g-top{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge{padding:5px 9px;border-radius:999px;font-size:8px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--border);display:inline-flex;gap:5px;align-items:center}
+.b-cat{background:rgba(124,58,237,.12);color:#c4b5fd;border-color:rgba(124,58,237,.22)}
+.b-type{background:var(--accentSoft);color:var(--accent);border-color:var(--accentBorder)}
+.b-risk-low{color:#6ee7b7;background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.18)}
+.b-risk-med{color:#fcd34d;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.18)}
+.guide h3{margin:14px 0 8px;font-size:18px;font-weight:800;line-height:1.25;letter-spacing:-.01em}
+.guide p{color:var(--text2);font-size:13px;line-height:1.7}
+.codebox{margin-top:12px;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:11px 12px;border-radius:12px;background:linear-gradient(180deg,#030914,#050d1f);border:1px solid rgba(0,0,0,.45)}
+body[data-tone="white"] .codebox{background:linear-gradient(180deg,#0f172a,#020617)}
+.codebox code{font-family:JetBrains Mono,monospace;font-size:13px;font-weight:700;color:#e2e8f0;white-space:pre-wrap;word-break:break-all}
+.icon-sm{width:34px;height:34px;border-radius:9px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--accent);display:grid;place-items:center}
+.list{margin:12px 0 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.list li{display:grid;grid-template-columns:20px 1fr;gap:8px;font-size:12.5px;line-height:1.6;color:var(--text2)}
+.list li i{width:20px;height:20px;border-radius:50%;background:var(--accentSoft);border:1px solid var(--accentBorder);color:var(--accent);display:grid;place-items:center;font-size:10px;margin-top:1px}
+.callout{margin-top:12px;padding:10px 12px;border-radius:12px;border:1px solid rgba(251,191,36,.18);background:rgba(251,191,36,.07);display:flex;gap:8px;color:var(--text2);font-size:11.5px;line-height:1.6}
+.callout i{color:#fbbf24;margin-top:2px}
+.callout.danger{border-color:rgba(251,113,133,.18);background:rgba(251,113,133,.07)}.callout.danger i{color:#fb7185}
+.table{margin-top:12px;width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.table th{ text-align:left;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--panel3);padding:10px 12px;border-bottom:1px solid var(--border)}
+.table td{padding:10px 12px;font-size:12px;border-bottom:1px solid var(--border);color:var(--text2)}
+.table tr:last-child td{border-bottom:0}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,130%);opacity:0;transition:.28s cubic-bezier(.34,1.56,.64,1);padding:12px 16px;border-radius:14px;border:1px solid var(--accentBorder);background:linear-gradient(180deg,rgba(7,16,33,.98),rgba(7,16,33,.92));color:var(--text);font-size:12px;font-weight:700;z-index:200;pointer-events:none;max-width:min(92vw,420px);display:flex;gap:8px;align-items:center}.toast.show{transform:translate(-50%,0);opacity:1}
+.sheet{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.52);backdrop-filter:blur(10px)}.sheet.open{display:flex}.sheet-card{width:100%;max-width:640px;padding:18px;border:1px solid var(--border);border-bottom:0;border-radius:26px 26px 0 0;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.tone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.tone{padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--panel2);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;font-weight:700}.tone.active{border-color:var(--accent);box-shadow:0 0 0 3px var(--accentSoft)}.tone-dot{width:24px;height:24px;border-radius:50%}
+</style>
+</head>
+<body data-tone="cyan">
+<header class="topbar">
+<div class="topbar-inner">
+<button class="back-btn" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+<a class="brand" href="home.html"><img src="logo.png" alt="logo" class="brand-logo"><span class="brand-text"><span class="brand-name">CODEVAULT</span><span class="brand-page">GUIDES VAULT</span></span></a>
+<button class="tone-btn" id="toneBtn"><i class="fa-solid fa-palette"></i></button>
+</div>
+</header>
+
+<main>
+<div class="hero">
+<div>
+<span class="kicker">LEARNING • SAFETY • PRESENTATION READY</span>
+<h1>Understand what every <span>code really does.</span></h1>
+<p>CodeVault guides explain purpose, when to use, exact steps, expected result, risk level and reversibility. No bypasses, no destructive commands, no guessing. Written for students, technicians and presentation.</p>
+<div class="hv-row">
+<span class="hv-chip accent"><i class="fa-solid fa-shield-halved"></i> Safe filtered</span>
+<span class="hv-chip"><i class="fa-brands fa-android"></i> Android • 300+ codes</span>
+<span class="hv-chip"><i class="fa-brands fa-apple"></i> iPhone • GSM/MMI</span>
+<span class="hv-chip"><i class="fa-brands fa-windows"></i> Windows 10/11 • CMD/PowerShell</span>
+</div>
+<div class="steps">
+<div class="step"><i class="fa-solid fa-magnifying-glass"></i><div><strong>1. Search</strong><span>Find by IMEI, Wi-Fi, battery, ipconfig</span></div></div>
+<div class="step"><i class="fa-solid fa-book-open"></i><div><strong>2. Read guide</strong><span>Learn purpose & expected result</span></div></div>
+<div class="step"><i class="fa-solid fa-triangle-exclamation"></i><div><strong>3. Check risk</strong><span>Low / Medium / High + admin</span></div></div>
+<div class="step"><i class="fa-solid fa-rotate-left"></i><div><strong>4. Reverse if needed</strong><span>Most codes are reversible</span></div></div>
+</div>
+</div>
+<div class="hero-visual">
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="kicker">EXAMPLE FLOW</span><span style="font-size:9px;color:var(--muted2);font-weight:800;letter-spacing:.08em">PLATFORM → BRAND → SEARCH → DETAILS</span></div>
+<div style="margin-top:14px;padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--panel2)">
+<div style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--muted)">android_secret_codes.json → 0 brands → 0 records → unique codes</div>
+<div style="margin-top:8px;display:flex;gap:6px"><span class="hv-chip accent" style="font-size:10px">*#06# → IMEI</span><span class="hv-chip" style="font-size:10px">*3001#12345#* → Field Test</span></div>
+</div>
+<div style="margin-top:12px;padding:12px;border-radius:12px;background:linear-gradient(180deg,var(--accentSoft),transparent);border:1px solid var(--accentBorder)">
+<div style="font-size:10px;font-weight:800;letter-spacing:.08em;color:var(--accent)">SAFETY RULE</div><div style="margin-top:6px;font-size:12px;line-height:1.6;color:var(--text2)">Codes marked <b>carrier_dependent</b> are not guaranteed on every iPhone. Codes that change forwarding/barring are network-service commands. Obsolete, bypass and destructive reset codes are excluded.</div>
+</div>
+</div>
+</div>
+
+<div class="toc" id="toc">
+<button class="toc-btn active" data-target="android"><i class="fa-brands fa-android"></i> Android</button>
+<button class="toc-btn" data-target="iphone"><i class="fa-brands fa-apple"></i> iPhone</button>
+<button class="toc-btn" data-target="pc"><i class="fa-brands fa-windows"></i> PC & Networking</button>
+<button class="toc-btn" data-target="safety"><i class="fa-solid fa-shield-halved"></i> Safety & Risk</button>
+<button class="toc-btn" data-target="presentation"><i class="fa-solid fa-chalkboard-user"></i> Presentation Tips</button>
+</div>
+
+<section class="section" id="android">
+<div class="section-head"><div><span class="kicker">ANDROID VAULT • 10+ BRANDS</span><h2>Android secret codes — what they mean</h2></div><p>Android exposes engineering codes via dialer. Availability depends on manufacturer, model, firmware and dialer app. CodeVault filters destructive codes.</p></div>
+<div class="guide-grid">
+<div class="guide"><div class="g-top"><span class="badge b-cat">Device Information</span><span class="badge b-type">DEVICE CODE</span><span class="badge b-risk-low">LOW</span></div><h3>IMEI, IMEI2, MEID — *#06#</h3><p>The most universal code. Shows device identifiers. No network call, display only. Use to match box, check dual SIM.</p><div class="codebox"><code>*#06#</code><button class="icon-sm" data-copy="*#06#"><i class="fa-solid fa-copy"></i></button></div><ul class="list"><li><i class="fa-solid fa-check"></i><span>Open Phone → Keypad → Enter *#06# → info appears instantly</span></li><li><i class="fa-solid fa-check"></i><span>Widely supported, reversible, no admin</span></li></ul></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Diagnostics</span><span class="badge b-type">MANUFACTURER</span><span class="badge b-risk-low">LOW</span></div><h3>Battery & Usage — *#*#4636#*#*</h3><p>Opens testing menu: battery health, usage stats, Wi-Fi info. On some brands blocked. Great for demo — shows voltage, temperature.</p><div class="codebox"><code>*#*#4636#*#*</code><button class="icon-sm" data-copy="*#*#4636#*#*"><i class="fa-solid fa-copy"></i></button></div><ul class="list"><li><i class="fa-solid fa-check"></i><span>If not working, manufacturer removed menu — explain that in presentation</span></li><li><i class="fa-solid fa-check"></i><span>Safe: display only</span></li></ul><div class="callout"><i class="fa-solid fa-lightbulb"></i><span><b>Presentation tip:</b> Show this alongside PC <code>powercfg /batteryreport</code> to compare phone vs laptop battery diagnostics.</span></div></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Hardware Test</span><span class="badge b-type">SAMSUNG / XIAOMI</span><span class="badge b-risk-low">LOW</span></div><h3>Brand-specific test codes</h3><p>Samsung, Xiaomi, Tecno, Infinix have own hardware test codes. They open LCD test, vibration, sensor test. Availability = model dependent.</p><table class="table"><thead><tr><th>Brand</th><th>Example code</th><th>Result</th></tr></thead><tbody><tr><td>Samsung</td><td>*#0*#</td><td>LCD, touch, sensor test</td></tr><tr><td>Xiaomi</td><td>*#*#64663#*#*</td><td>QC test menu</td></tr><tr><td>Generic</td><td>*#*#2664#*#*</td><td>Touchscreen test</td></tr></tbody></table></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Wi-Fi & Network</span><span class="badge b-type">ANDROID</span><span class="badge b-risk-low">LOW</span></div><h3>Wi-Fi and Bluetooth diagnostics</h3><p>Codes for Wi-Fi MAC, Bluetooth test. For PC, equivalent is <code>netsh wlan show interfaces</code>. In guide, teach students to compare phone vs laptop.</p><div class="codebox"><code>netsh wlan show interfaces</code><button class="icon-sm" data-copy="netsh wlan show interfaces"><i class="fa-solid fa-copy"></i></button></div></div>
+</div>
+</section>
+
+<section class="section" id="iphone">
+<div class="section-head"><div><span class="kicker">iOS VAULT • SCHEMA 2.1 • GSM/MMI AWARE</span><h2>iPhone codes are small — carrier matters</h2></div><p>Apple does not expose large engineering system like Android. Most iPhone codes are GSM/MMI carrier commands or Apple Field Test. We label availability correctly.</p></div>
+<div class="guide-grid">
+<div class="guide"><div class="g-top"><span class="badge b-cat">Device Information</span><span class="badge b-type">DEVICE</span><span class="badge b-risk-low">LOW</span></div><h3>IMEI / MEID / EID — *#06# and *#07#</h3><p>*#06# shows IMEI on iPhone. *#07# shows legal/regulatory info (SAR) where supported. Both are display-only, widely supported.</p><div class="codebox"><code>*#06#  |  *#07#</code><button class="icon-sm" data-copy="*#06#"><i class="fa-solid fa-copy"></i></button></div></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Network Diagnostics</span><span class="badge b-type">APPLE CODE</span><span class="badge b-risk-low">LOW</span></div><h3>Field Test Mode — *3001#12345#*</h3><p>Apple's own cellular diagnostic. Shows LTE, 5G, signal, cell info. iOS version and carrier affect what you see. No network change.</p><div class="codebox"><code>*3001#12345#*</code><button class="icon-sm" data-copy="*3001#12345#*"><i class="fa-solid fa-copy"></i></button></div><ul class="list"><li><i class="fa-solid fa-check"></i><span>Open Phone → Keypad → Enter code → Tap Call if required</span></li><li><i class="fa-solid fa-check"></i><span>Model / iOS / carrier dependent</span></li></ul></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Call Forwarding</span><span class="badge b-type">GSM/MMI</span><span class="badge b-risk-med">MEDIUM</span></div><h3>Check vs Activate vs Deactivate forwarding</h3><p>Pattern is consistent — learn once, apply everywhere. Check codes start with *#, activate with **, deactivate with ##.</p><table class="table"><thead><tr><th>Type</th><th>Check</th><th>Activate</th><th>Deactivate</th></tr></thead><tbody><tr><td>Unconditional</td><td>*#21#</td><td>**21*number#</td><td>##21#</td></tr><tr><td>No-Answer</td><td>*#61#</td><td>**61*number#</td><td>##61#</td></tr><tr><td>Busy</td><td>*#67#</td><td>**67*number#</td><td>##67#</td></tr><tr><td>Unreachable</td><td>*#62#</td><td>**62*number#</td><td>##62#</td></tr><tr><td>All</td><td colspan="2">##002# — cancel all</td><td>Carrier response</td></tr></tbody></table><div class="callout danger"><i class="fa-solid fa-triangle-exclamation"></i><span><b>Warning:</b> **21*number# changes call routing. Always check first with *#21#. This can affect voicemail. Carrier_dependent — not guaranteed on every iPhone.</span></div></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Caller ID & Barring</span><span class="badge b-type">CARRIER</span><span class="badge b-risk-med">MEDIUM</span></div><h3>Caller ID hide — #31#number and barring *#33#</h3><p>Caller-ID suppression *67number and *82number are carrier-dependent, not universal iPhone. Barring uses PIN — never guess PIN. Teach students difference: Apple code vs GSM/MMI vs carrier USSD.</p><div class="codebox"><code>*#31#  → check outgoing Caller-ID
+#31#number → hide for one call
+*#33#  → check barring</code><button class="icon-sm" data-copy="*#31#"><i class="fa-solid fa-copy"></i></button></div></div>
+</div>
+</section>
+
+<section class="section" id="pc">
+<div class="section-head"><div><span class="kicker">PC VAULT • WINDOWS 10/11 • CMD / POWERSHELL / RUN</span><h2>PC commands — from basics to diagnostics</h2></div><p>CMD means Command Prompt. PowerShell commands are objects. Some need Administrator. Placeholders like &lt;PID&gt;, &lt;path&gt;, &lt;username&gt; must be replaced.</p></div>
+<div class="guide-grid">
+<div class="guide"><div class="g-top"><span class="badge b-cat">Command Line Basics</span><span class="badge b-type">CMD</span><span class="badge b-risk-low">LOW</span></div><h3>help, ver, whoami, hostname</h3><p>Start here. <code>help</code> lists commands. <code>help ipconfig</code> shows syntax. <code>ver</code> Windows version, <code>whoami</code> current user, <code>hostname</code> computer name. All low risk, reversible.</p><div class="codebox"><code>help
+help ipconfig
+ver
+whoami
+hostname</code><button class="icon-sm" data-copy="help"><i class="fa-solid fa-copy"></i></button></div></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Networking</span><span class="badge b-type">CMD • ADMIN FOR SOME</span><span class="badge b-risk-low">LOW/MED</span></div><h3>ipconfig family — your main demo</h3><p>Most used in presentation. Show difference between display and action.</p><table class="table"><thead><tr><th>Command</th><th>Risk</th><th>What it does</th></tr></thead><tbody><tr><td>ipconfig</td><td>Low</td><td>Basic IP</td></tr><tr><td>ipconfig /all</td><td>Low</td><td>Detailed DNS/DHCP</td></tr><tr><td>ipconfig /displaydns</td><td>Low</td><td>Show DNS cache</td></tr><tr><td>ipconfig /flushdns</td><td>Low • Admin</td><td>Clear cache</td></tr><tr><td>ipconfig /release /renew</td><td>Med • Admin</td><td>Release/renew DHCP lease — disconnects briefly</td></tr></tbody></table><div class="codebox"><code>ipconfig /all
+ipconfig /flushdns
+ipconfig > network.txt</code><button class="icon-sm" data-copy="ipconfig /all"><i class="fa-solid fa-copy"></i></button></div></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Internet Diagnostics</span><span class="badge b-type">CMD / POWERSHELL</span><span class="badge b-risk-low">LOW</span></div><h3>ping, tracert, pathping, nslookup</h3><p>Teach troubleshooting flow: ping 1.1.1.1 tests internet without DNS, ping example.com tests DNS, tracert shows hops, pathping shows packet loss, nslookup queries DNS, Test-NetConnection tests TCP port.</p><div class="codebox"><code>ping 1.1.1.1
+ping example.com
+tracert example.com
+pathping example.com
+nslookup example.com
+Test-NetConnection example.com -Port 443</code><button class="icon-sm" data-copy="ping 1.1.1.1"><i class="fa-solid fa-copy"></i></button></div><div class="callout"><i class="fa-solid fa-lightbulb"></i><span><b>Flow:</b> If ping IP works but ping hostname fails → DNS issue → use flushdns + displaydns.</span></div></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Wi-Fi & Power</span><span class="badge b-type">CMD</span><span class="badge b-risk-low">LOW</span></div><h3>Wi-Fi and battery — perfect for laptop demo</h3><p>Two commands impress audience: Wi-Fi signal + battery report.</p><div class="codebox"><code>netsh wlan show interfaces
+netsh wlan show profiles
+powercfg /batteryreport
+powercfg /energy
+powercfg /a</code><button class="icon-sm" data-copy="netsh wlan show interfaces"><i class="fa-solid fa-copy"></i></button></div><ul class="list"><li><i class="fa-solid fa-check"></i><span>batteryreport creates HTML file in current folder — open it in browser</span></li><li><i class="fa-solid fa-check"></i><span>Compare with Android *#*#4636#*#* battery info</span></li></ul></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">System Repair</span><span class="badge b-type">CMD • ADMIN</span><span class="badge b-risk-med">MEDIUM</span></div><h3>sfc and DISM — safe repair explanation</h3><p>Do not run in presentation without permission — but explain what they do. sfc /scannow scans protected system files. DISM checks component store. Show help first.</p><div class="codebox"><code>sfc /scannow
+DISM /Online /Cleanup-Image /CheckHealth
+DISM /Online /Cleanup-Image /ScanHealth
+DISM /Online /Cleanup-Image /RestoreHealth</code><button class="icon-sm" data-copy="sfc /scannow"><i class="fa-solid fa-copy"></i></button></div><div class="callout danger"><i class="fa-solid fa-triangle-exclamation"></i><span>Medium risk — can take long, may need restart. Only run if you understand.</span></div></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Files & Operators</span><span class="badge b-type">CMD / PS</span><span class="badge b-risk-low">LOW</span></div><h3>Operators that save time — |  >  >>  &&</h3><p>Teach power of pipeline.</p><table class="table"><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td>|</td><td>Pipe output</td><td>ipconfig | findstr IPv4</td></tr><tr><td>&gt;</td><td>Save to file</td><td>ipconfig &gt; network.txt</td></tr><tr><td>&gt;&gt;</td><td>Append</td><td>echo Test &gt;&gt; log.txt</td></tr><tr><td>&&</td><td>Run 2nd only if 1st succeeds</td><td>ipconfig && ping 1.1.1.1</td></tr><tr><td>| more</td><td>Page output</td><td>driverquery | more</td></tr></tbody></table></div>
+</div>
+</section>
+
+<section class="section" id="safety">
+<div class="section-head"><div><span class="kicker">SAFETY • CODEVAULT RULES</span><h2>What we include, what we exclude</h2></div><p>To make your project safe for school presentation and professional.</p></div>
+<div class="guide-grid">
+<div class="guide"><div class="g-top"><span class="badge b-cat">Allowed</span><span class="badge b-risk-low">LOW</span></div><h3>Display-only codes are always safe</h3><p>*#06# IMEI, *#07# regulatory, ipconfig, ping, systeminfo, Get-ComputerInfo — they show info, change nothing.</p></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Caution</span><span class="badge b-risk-med">MEDIUM</span></div><h3>Carrier and network commands need warning</h3><p>Call forwarding **21*number#, call barring **33*PIN#, ipconfig /release, chkdsk /f, sfc /scannow — they change routing, file system or system state. Mark as medium/high, explain reversibility, never guess barring PIN.</p><div class="callout"><i class="fa-solid fa-circle-info"></i><span>Always show: carrier_dependent, requires_admin, reversible true/false, warning field from JSON.</span></div></div>
+<div class="guide"><div class="g-top"><span class="badge b-cat">Excluded</span><span class="badge b-risk-med">HIGH</span></div><h3>What CodeVault never includes</h3><p>Security-bypass, Activation Lock bypass, FRP bypass, account-bypass, destructive reset without warning, legacy commands that wipe data. Your JSON notes already state this — we respect it in UI.</p></div>
+</div>
+</section>
+
+<section class="section" id="presentation">
+<div class="section-head"><div><span class="kicker">PRESENTATION TIPS • HOW TO IMPRESS</span><h2>How to present CodeVault like a pro</h2></div></div>
+<div class="guide-grid">
+<div class="guide"><h3>1. Start with IMEI — everyone knows it</h3><p>Ask audience to dial *#06# on their phone. Instant engagement. Then show same code works on Android and iPhone — then explain why Android has more codes than iPhone (manufacturer engineering menus vs Apple closed system).</p></div>
+<div class="guide"><h3>2. Show carrier difference live</h3><p>Dial *#21# on iPhone — show carrier response. Explain GSM/MMI pattern **21* vs ##21#. Show availability labels from your JSON: widely_supported vs carrier_dependent vs model_ios_and_carrier_dependent.</p></div>
+<div class="guide"><h3>3. PC live demo — 30 seconds wow</h3><p>Open CMD and run:<br><code style="font-family:JetBrains Mono">ipconfig /all && ping 1.1.1.1 && netsh wlan show interfaces</code><br>This shows IP, tests internet, shows Wi-Fi SSID and signal — all in one line.</p></div>
+<div class="guide"><h3>4. End with safety & theme</h3><p>Show tone changer — same key <code>codevault_theme_tone</code> across Android, iOS, PC, Guides, Brands, Tools, My Apps. Show that destructive codes are filtered, risk labeled, reversible flagged. That's professional.</p></div>
+</div>
+</section>
+</main>
+
+<div id="toast" class="toast"></div>
+<div class="sheet" id="toneSheet"><div class="sheet-card"><div style="display:flex;justify-content:space-between;align-items:center"><div><h3 style="font-family:Orbitron,sans-serif;font-size:14px">Choose tone</h3><p style="color:var(--muted);font-size:10px;margin-top:4px">Syncs with all vaults — same key</p></div><button id="toneClose" style="width:40px;height:40px;border-radius:11px;border:1px solid var(--border)">×</button></div><div class="tone-grid">
+<button class="tone" data-tone="cyan"><span class="tone-dot" style="background:#00f5ff"></span>Cyan</button>
+<button class="tone" data-tone="violet"><span class="tone-dot" style="background:#a78bfa"></span>Violet</button>
+<button class="tone" data-tone="emerald"><span class="tone-dot" style="background:#34d399"></span>Emerald</button>
+<button class="tone" data-tone="amber"><span class="tone-dot" style="background:#fbbf24"></span>Amber</button>
+<button class="tone" data-tone="rose"><span class="tone-dot" style="background:#fb7185"></span>Rose</button>
+<button class="tone" data-tone="blue"><span class="tone-dot" style="background:#60a5fa"></span>Blue</button>
+<button class="tone" data-tone="white"><span class="tone-dot" style="background:#fff;border:1px solid #ddd"></span>White</button>
+<button class="tone" data-tone="red"><span class="tone-dot" style="background:#ff4d5a"></span>Red</button>
+</div></div></div>
+
+<script>
+const THEME_KEY="codevault_theme_tone";
+const $=id=>document.getElementById(id);
+function applyTheme(t){
+  const v=["cyan","violet","emerald","amber","rose","blue","white","red"]; if(!v.includes(t)) t="cyan";
+  document.body.dataset.tone=t; localStorage.setItem(THEME_KEY,t);
+  const colors={cyan:"#020617",violet:"#09051a",emerald:"#02110b",amber:"#120b02",rose:"#16030a",blue:"#020b1c",white:"#ffffff",red:"#170204"};
+  const meta=document.querySelector('meta[name="theme-color"]'); if(meta) meta.content=colors[t];
+  document.querySelectorAll(".tone").forEach(x=>x.classList.toggle("active",x.dataset.tone===t));
+}
+applyTheme(localStorage.getItem(THEME_KEY)||"cyan");
+$("backBtn").onclick=()=>history.length>1?history.back():location.href="home.html";
+$("toneBtn").onclick=()=>$("toneSheet").classList.add("open");
+$("toneClose").onclick=()=>$("toneSheet").classList.remove("open");
+$("toneSheet").onclick=e=>{if(e.target===$("toneSheet")) $("toneSheet").classList.remove("open")};
+document.querySelectorAll("[data-tone]").forEach(b=>b.onclick=()=>{applyTheme(b.dataset.tone);$("toneSheet").classList.remove("open");toast(`Theme: ${b.dataset.tone}`)});
+
+// TOC scroll spy
+const tocBtns=document.querySelectorAll(".toc-btn");
+tocBtns.forEach(btn=>{btn.onclick=()=>{document.getElementById(btn.dataset.target).scrollIntoView({behavior:"smooth",block:"start"});tocBtns.forEach(x=>x.classList.toggle("active",x===btn))}});
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){tocBtns.forEach(b=>b.classList.toggle("active",b.dataset.target===e.target.id))}})},{rootMargin:"-40% 0px -50% 0px",threshold:0});
+document.querySelectorAll(".section").forEach(s=>observer.observe(s));
+
+// copy with great feedback
+document.querySelectorAll("[data-copy]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    navigator.clipboard.writeText(btn.dataset.copy).then(()=>{
+      const old=btn.innerHTML; btn.innerHTML='<i class="fa-solid fa-check"></i>'; btn.style.background="#10b981"; btn.style.color="#fff";
+      toast(`Copied ${btn.dataset.copy} • Ready to paste`); if(navigator.vibrate) navigator.vibrate(40);
+      setTimeout(()=>{btn.innerHTML=old; btn.style.background=""; btn.style.color="";},1300);
+    });
+  });
+});
+function toast(m){
+  const t=$("toast"); t.innerHTML=`<i class="fa-solid fa-check" style="color:var(--accent)"></i> ${m}`;
+  t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),3000);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#020617">
+<link rel="icon" href="logo.png"><link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<title>Tools • CodeVault</title>
+<style>
+:root{--bg:#020617;--bg2:#070f22;--panel:rgba(15,23,42,.88);--panel2:rgba(15,23,42,.64);--panel3:rgba(30,41,59,.55);--border:rgba(148,163,184,.13);--border2:rgba(148,163,184,.22);--text:#f8fafc;--text2:#cbd5e1;--muted:#94a3b8;--muted2:#64748b;--accent:#00f5ff;--accentSoft:rgba(0,245,255,.11);--accentBorder:rgba(0,245,255,.34);--shadow:0 20px 60px rgba(0,0,0,.26)}
+body[data-tone="cyan"]{--bg:#020617;--bg2:#070f22;--accent:#00f5ff;--accentSoft:rgba(0,245,255,.11);--accentBorder:rgba(0,245,255,.34)}
+body[data-tone="violet"]{--bg:#09051a;--bg2:#130a2f;--panel:rgba(24,12,44,.92);--accent:#a78bfa;--accentSoft:rgba(167,139,250,.13);--accentBorder:rgba(167,139,250,.34)}
+body[data-tone="emerald"]{--bg:#02110b;--bg2:#0a1a14;--panel:rgba(4,36,25,.92);--accent:#34d399;--accentSoft:rgba(52,211,153,.12);--accentBorder:rgba(52,211,153,.32)}
+body[data-tone="amber"]{--bg:#120b02;--bg2:#1e1605;--panel:rgba(37,23,5,.92);--accent:#fbbf24;--accentSoft:rgba(251,191,36,.12);--accentBorder:rgba(251,191,36,.34)}
+body[data-tone="rose"]{--bg:#16030a;--bg2:#240a14;--panel:rgba(42,7,20,.92);--accent:#fb7185;--accentSoft:rgba(251,113,133,.12);--accentBorder:rgba(251,113,133,.34)}
+body[data-tone="blue"]{--bg:#020b1c;--bg2:#071a35;--panel:rgba(7,26,53,.92);--accent:#60a5fa;--accentSoft:rgba(96,165,250,.12);--accentBorder:rgba(96,165,250,.32)}
+body[data-tone="white"]{--bg:#f8fafc;--bg2:#eef2f7;--panel:rgba(255,255,255,.96);--panel2:rgba(255,255,255,.86);--panel3:rgba(15,23,42,.06);--border:rgba(15,23,42,.08);--border2:rgba(15,23,42,.14);--text:#0f172a;--text2:#334155;--muted:#475569;--muted2:#64748b;--accent:#0f172a;--accentSoft:rgba(15,23,42,.06);--accentBorder:rgba(15,23,42,.14)}
+body[data-tone="red"]{--bg:#170204;--bg2:#2a070b;--panel:rgba(55,8,14,.92);--accent:#ff4d5a;--accentSoft:rgba(255,77,90,.12);--accentBorder:rgba(255,77,90,.36)}
+*{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;font-family:Inter,sans-serif;color:var(--text);background:radial-gradient(1100px 600px at 10% -12%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--bg),var(--bg2) 70%,var(--bg));overflow-x:hidden}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.topbar{position:sticky;top:0;z-index:60;backdrop-filter:blur(22px) saturate(1.2);background:linear-gradient(180deg,rgba(2,6,23,.88),rgba(2,6,23,.66));border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1320px;margin:0 auto;min-height:72px;padding:0 20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--panel2);color:var(--muted);font-size:13px;font-weight:600}
+.brand{display:inline-flex;align-items:center;gap:12px;justify-self:center}.brand-logo{width:44px;height:44px;border-radius:14px;object-fit:cover;border:1px solid var(--accentBorder);box-shadow:0 0 24px var(--accentSoft)}
+.brand-text{display:flex;flex-direction:column;line-height:1}.brand-name{font-family:Orbitron,sans-serif;font-size:15px;font-weight:800}.brand-page{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-top:3px}
+.tone-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--accentBorder);background:var(--accentSoft);color:var(--accent);display:grid;place-items:center}
+main{max-width:1320px;margin:0 auto;padding:28px 20px 90px}
+.hero{display:grid;grid-template-columns:1.15fr.85fr;gap:18px;padding:20px 0 12px;align-items:start}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.kicker{color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin-top:10px;font-family:Orbitron,sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);line-height:.92;letter-spacing:-.05em;font-weight:900}.hero h1 span{color:var(--accent)}
+.hero p{margin-top:12px;color:var(--muted);font-size:13.5px;line-height:1.7;max-width:640px}
+.search-deep{position:sticky;top:72px;z-index:30;margin-top:18px;padding:10px 0;background:linear-gradient(180deg,var(--bg) 70%,transparent);backdrop-filter:blur(10px)}
+.search-box{display:grid;grid-template-columns:36px 1fr auto;gap:8px;align-items:center;min-height:58px;padding:6px 8px 6px 14px;border-radius:16px;border:1px solid var(--border2);background:linear-gradient(180deg,var(--panel),var(--bg2));box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.search-box:focus-within{border-color:var(--accentBorder);box-shadow:0 0 0 4px var(--accentSoft)}
+.search-box input{width:100%;background:transparent;border:0;outline:0;color:var(--text);font-size:14px}
+.btn-search{min-height:42px;padding:0 16px;border-radius:10px;background:var(--accent);border:1px solid var(--accentBorder);color:#00131a;font-weight:800;font-size:11px}
+.hints{margin-top:8px;font-size:11px;color:var(--muted2);display:flex;gap:6px;flex-wrap:wrap}.hints button{color:var(--accent);text-decoration:underline;font-weight:600}
+.tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
+@media(max-width:900px){.tools-grid{grid-template-columns:1fr}}
+.tool{position:relative;padding:18px;border-radius:20px;border:1px solid var(--border);background:radial-gradient(500px 200px at 100% 0%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:0 10px 28px rgba(0,0,0,.14);overflow:hidden}
+.tool::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--accent),transparent 70%);opacity:.6}
+.tool h3{font-family:Orbitron,sans-serif;font-size:14px;display:flex;gap:8px;align-items:center}
+.tool p{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.6}
+.input{width:100%;min-height:46px;padding:0 14px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-family:JetBrains Mono,monospace;font-size:12.5px;margin-top:10px}
+.input:focus{border-color:var(--accentBorder);outline:none;box-shadow:0 0 0 3px var(--accentSoft)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{flex:0 0 auto;min-height:40px;padding:0 14px;border-radius:10px;font-size:10px;font-weight:800;letter-spacing:.06em;display:inline-flex;gap:6px;align-items:center;justify-content:center;border:1px solid var(--border);transition:.2s}
+.btn-p{background:var(--accent);border-color:var(--accentBorder);color:#00131a}.btn-s{background:rgba(255,255,255,.04);color:var(--text2)}
+.result{margin-top:12px;padding:12px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg,#030914,#050d1f);font-family:JetBrains Mono,monospace;font-size:11.5px;line-height:1.7;color:#cbd5e1;white-space:pre-wrap;word-break:break-all;max-height:280px;overflow:auto}
+body[data-tone="white"].result{background:linear-gradient(180deg,#0f172a,#020617)}
+.result.ok{border-color:rgba(16,185,129,.25);background:linear-gradient(180deg,rgba(16,185,129,.08),#050d1f)}
+.result.err{border-color:rgba(244,63,94,.25);background:linear-gradient(180deg,rgba(244,63,94,.08),#050d1f)}
+.deep-results{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:900px){.deep-results{grid-template-columns:1fr}}
+.res-card{padding:12px;border-radius:14px;border:1px solid var(--border);background:var(--panel);display:flex;gap:10px;cursor:pointer}
+.res-card:hover{border-color:var(--border2);transform:translateY(-1px)}
+.res-ic{width:36px;height:36px;border-radius:10px;background:var(--accentSoft);border:1px solid var(--accentBorder);color:var(--accent);display:grid;place-items:center;flex:0 0 auto;font-weight:800}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,130%);opacity:0;transition:.28s cubic-bezier(.34,1.56,.64,1);padding:12px 16px;border-radius:14px;border:1px solid var(--accentBorder);background:rgba(7,16,33,.98);color:var(--text);font-size:12px;font-weight:700;z-index:200;pointer-events:none;display:flex;gap:8px;align-items:center}.toast.show{transform:translate(-50%,0);opacity:1}
+.sheet{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.52);backdrop-filter:blur(10px)}.sheet.open{display:flex}.sheet-card{width:100%;max-width:640px;padding:18px;border:1px solid var(--border);border-bottom:0;border-radius:26px 26px 0 0;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.tone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.tone{padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--panel2);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;font-weight:700}.tone.active{border-color:var(--accent);box-shadow:0 0 0 3px var(--accentSoft)}.tone-dot{width:24px;height:24px;border-radius:50%}
+</style>
+</head>
+<body data-tone="cyan">
+<header class="topbar"><div class="topbar-inner">
+<button class="back-btn" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+<a class="brand" href="home.html"><img src="logo.png" class="brand-logo"><span class="brand-text"><span class="brand-name">CODEVAULT</span><span class="brand-page">TOOLS VAULT</span></span></a>
+<button class="tone-btn" id="toneBtn"><i class="fa-solid fa-palette"></i></button>
+</div></header>
+
+<main>
+<div class="hero">
+<div>
+<span class="kicker">TOOLS • LIVE FROM YOUR JSON • OFFLINE SAFE</span>
+<h1>Deep <span>tools</span> for every code.</h1>
+<p>Validate IMEI with Luhn, build correct ping/tracert/nslookup, generate Wi-Fi commands, parse batteryreport, explain placeholders like &lt;PID&gt; and &lt;path&gt;, and deep-search across Android, iOS, PC vaults in one place. No data leaves your device.</p>
+</div>
+<div style="padding:16px;border-radius:20px;border:1px solid var(--accentBorder);background:radial-gradient(400px 200px at 0% 0%,var(--accentSoft),transparent 60%),linear-gradient(180deg,var(--panel),var(--bg2));box-shadow:var(--shadow)">
+<span class="kicker">WHAT THIS PAGE DOES</span>
+<h3 style="margin-top:8px;font-family:Orbitron,sans-serif;font-size:14px">Presentation toolkit</h3>
+<div style="margin-top:10px;display:grid;gap:8px;font-size:11px;color:var(--text2);line-height:1.6">
+<div><i class="fa-solid fa-check" style="color:var(--accent)"></i> IMEI Luhn checksum — from *#06#</div>
+<div><i class="fa-solid fa-check" style="color:var(--accent)"></i> IP / DNS / Ping builder — avoids typing errors</div>
+<div><i class="fa-solid fa-check" style="color:var(--accent)"></i> Wi-Fi, Battery, System commands — one-click copy</div>
+<div><i class="fa-solid fa-check" style="color:var(--accent)"></i> Placeholder explainer — &lt;PID&gt;, &lt;path&gt;, &lt;username&gt;</div>
+<div><i class="fa-solid fa-check" style="color:var(--accent)"></i> Deep search — reads android_secret_codes.json + ios_secret_codes.json + pc_commands.json live</div>
+</div>
+</div>
+</div>
+
+<div class="search-deep">
+<div class="search-box">
+<i class="fa-solid fa-magnifying-glass" style="color:var(--accent)"></i>
+<input id="deepInput" placeholder="Deep search: IMEI, Field Test, call forwarding, ipconfig, wifi, battery, tasklist…">
+<button id="deepBtn" class="btn-search">DEEP SEARCH</button>
+</div>
+<div class="hints"><span>Try:</span> <button data-q="IMEI">IMEI</button> <button data-q="*#06#">*#06#</button> <button data-q="call forwarding">call forwarding</button> <button data-q="ipconfig">ipconfig</button> <button data-q="wifi">wifi</button> <button data-q="battery">battery</button></div>
+<div id="deepOut" class="deep-results"></div>
+<div id="deepMeta" style="margin-top:8px;font-size:11px;color:var(--muted2)"></div>
+</div>
+
+<div class="tools-grid">
+<!-- IMEI TOOL -->
+<div class="tool"><h3><i class="fa-solid fa-mobile-screen" style="color:var(--accent)"></i> IMEI Luhn Validator — from *#06#</h3><p>Paste 15-digit IMEI shown by *#06#. We validate checksum locally using Luhn algorithm. Safe — offline, no server.</p><input id="imei" class="input" placeholder="35xxxxxxxxxxxxxxx" maxlength="17"><div class="row"><button class="btn btn-p" id="checkImei"><i class="fa-solid fa-check"></i> VALIDATE IMEI</button><button class="btn btn-s" id="clearImei"><i class="fa-solid fa-eraser"></i> CLEAR</button></div><div id="imeiRes" class="result" style="display:none"></div>
+<div style="margin-top:10px;padding:8px;border-radius:10px;background:var(--accentSoft);border:1px solid var(--accentBorder);font-size:10px;color:var(--text2)"><b style="color:var(--accent)">How it works:</b> IMEI last digit is check digit. Double every second digit from right, subtract 9 if >9, sum. If sum %10==0 → valid.</div></div>
+
+<!-- NETWORK BUILDER -->
+<div class="tool"><h3><i class="fa-solid fa-network-wired" style="color:var(--accent)"></i> Network Command Builder — ping / tracert / nslookup</h3><p>Build correct Windows commands without typo. Shows difference between testing internet (IP) vs DNS (hostname).</p><input id="host" class="input" placeholder="example.com or 1.1.1.1"><div class="row"><button class="btn btn-p" data-build="ping"><i class="fa-solid fa-satellite-dish"></i> PING</button><button class="btn btn-s" data-build="tracert"><i class="fa-solid fa-route"></i> TRACERT</button><button class="btn btn-s" data-build="pathping"><i class="fa-solid fa-diagram-project"></i> PATHPING</button><button class="btn btn-s" data-build="nslookup"><i class="fa-solid fa-magnifying-glass"></i> NSLOOKUP</button><button class="btn btn-s" data-build="tcp"><i class="fa-solid fa-plug"></i> TCP 443</button></div><div id="netRes" class="result" style="display:none"></div>
+<div style="margin-top:10px;font-size:10px;color:var(--muted2);line-height:1.6"><b>Flow:</b> ping 1.1.1.1 = internet OK? If fails → no internet. If IP works but ping example.com fails → DNS issue → ipconfig /flushdns</div></div>
+
+<!-- WIFI TOOL -->
+<div class="tool"><h3><i class="fa-solid fa-wifi" style="color:var(--accent)"></i> Wi-Fi Diagnostics — netsh wlan</h3><p>One-click commands for Wi-Fi signal, saved profiles, driver capabilities. Perfect for laptop demo.</p><div class="row"><button class="btn btn-p" data-wifi="interfaces"><i class="fa-solid fa-signal"></i> SHOW INTERFACES</button><button class="btn btn-s" data-wifi="profiles">SHOW PROFILES</button><button class="btn btn-s" data-wifi="drivers">SHOW DRIVERS</button></div><div id="wifiRes" class="result" style="display:none"></div>
+<div style="margin-top:10px;padding:8px;border-radius:10px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.18);font-size:10px;color:var(--text2)"><b style="color:#fbbf24">Tip:</b> On Windows, run CMD as Administrator if profiles show empty. Compare with Android Wi-Fi MAC in *#*#4636#*#*.</div></div>
+
+<!-- BATTERY & SYSTEM -->
+<div class="tool"><h3><i class="fa-solid fa-battery-three-quarters" style="color:var(--accent)"></i> Battery & System — powercfg / systeminfo</h3><p>Generate battery report HTML, energy report, sleep states. Great to compare phone battery health vs laptop.</p><div class="row"><button class="btn btn-p" data-power="battery"><i class="fa-solid fa-file-lines"></i> BATTERY REPORT</button><button class="btn btn-s" data-power="energy">ENERGY REPORT</button><button class="btn btn-s" data-power="sleep">SLEEP STATES</button><button class="btn btn-s" data-power="sys">SYSTEMINFO</button></div><div id="powerRes" class="result" style="display:none"></div>
+<div style="margin-top:10px;font-size:10px;color:var(--muted2)">batteryreport creates <code>battery-report.html</code> in current folder — open in browser. Shows design capacity vs full charge capacity.</div></div>
+
+<!-- PLACEHOLDER EXPLAINER -->
+<div class="tool"><h3><i class="fa-solid fa-code" style="color:var(--accent)"></i> Placeholder Explainer — &lt;PID&gt; &lt;path&gt; &lt;username&gt;</h3><p>Your JSON uses placeholders. This tool explains what to replace and gives real example. Critical for presentation.</p>
+<div style="margin-top:10px;display:grid;gap:6px">
+<div style="display:flex;justify-content:space-between;padding:8px;border-radius:10px;border:1px solid var(--border);background:var(--panel2);font-size:11px"><span><code style="color:#fbbf24">&lt;PID&gt;</code> Process ID</span><span style="color:var(--muted2)">tasklist → 1234</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px;border-radius:10px;border:1px solid var(--border);background:var(--panel2);font-size:11px"><span><code style="color:#fbbf24">&lt;path&gt;</code> Folder path</span><span style="color:var(--muted2)">C:\Users\Public</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px;border-radius:10px;border:1px solid var(--border);background:var(--panel2);font-size:11px"><span><code style="color:#fbbf24">&lt;username&gt;</code> Account name</span><span style="color:var(--muted2)">whoami to see</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px;border-radius:10px;border:1px solid var(--border);background:var(--panel2);font-size:11px"><span><code style="color:#fbbf24">&lt;number&gt;</code> Phone number</span><span style="color:var(--muted2)">+233XXXXXXXXX</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px;border-radius:10px;border:1px solid var(--border);background:var(--panel2);font-size:11px"><span><code style="color:#fbbf24">&lt;PIN&gt;</code> Barring PIN</span><span style="color:var(--muted2)">From carrier — never guess</span></div>
+</div>
+<input id="phInput" class="input" placeholder="Paste command with placeholder, e.g. taskkill /PID <PID> /F"><div class="row"><button class="btn btn-p" id="phExplain"><i class="fa-solid fa-wand-magic-sparkles"></i> EXPLAIN & FIX</button></div><div id="phRes" class="result" style="display:none"></div></div>
+
+<!-- IPCONFIG QUICK -->
+<div class="tool"><h3><i class="fa-solid fa-ethernet" style="color:var(--accent)"></i> IP Config Quick Pack — most used in presentation</h3><p>Copy-paste pack for live demo. Shows difference between display-only vs action that needs admin.</p><div class="row">
+<button class="btn btn-p" data-ip="all">ipconfig /all</button>
+<button class="btn btn-s" data-ip="flush">ipconfig /flushdns</button>
+<button class="btn btn-s" data-ip="display">ipconfig /displaydns</button>
+<button class="btn btn-s" data-ip="netstat">netstat -ano</button>
+<button class="btn btn-s" data-ip="save">ipconfig > network.txt</button>
+</div><div id="ipRes" class="result" style="display:none"></div>
+<div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:10px">
+<div style="padding:6px;border-radius:8px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.18)">Low risk: display only</div>
+<div style="padding:6px;border-radius:8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.18)">Medium: /release /renew need admin, disconnects briefly</div>
+</div></div>
+</div>
+</main>
+
+<div id="toast" class="toast"></div>
+<div class="sheet" id="toneSheet"><div class="sheet-card"><div style="display:flex;justify-content:space-between;align-items:center"><div><h3 style="font-family:Orbitron,sans-serif;font-size:14px">Choose tone</h3><p style="color:var(--muted);font-size:10px;margin-top:4px">Syncs with all vaults — key: codevault_theme_tone</p></div><button id="toneClose" style="width:40px;height:40px;border:1px solid var(--border);border-radius:11px">×</button></div><div class="tone-grid">
+<button class="tone" data-tone="cyan"><span class="tone-dot" style="background:#00f5ff"></span>Cyan</button><button class="tone" data-tone="violet"><span class="tone-dot" style="background:#a78bfa"></span>Violet</button><button class="tone" data-tone="emerald"><span class="tone-dot" style="background:#34d399"></span>Emerald</button><button class="tone" data-tone="amber"><span class="tone-dot" style="background:#fbbf24"></span>Amber</button><button class="tone" data-tone="rose"><span class="tone-dot" style="background:#fb7185"></span>Rose</button><button class="tone" data-tone="blue"><span class="tone-dot" style="background:#60a5fa"></span>Blue</button><button class="tone" data-tone="white"><span class="tone-dot" style="background:#fff;border:1px solid #ddd"></span>White</button><button class="tone" data-tone="red"><span class="tone-dot" style="background:#ff4d5a"></span>Red</button>
+</div></div></div>
+
+<script>
+const THEME_KEY="codevault_theme_tone"; const $=id=>document.getElementById(id);
+function applyTheme(t){const v=["cyan","violet","emerald","amber","rose","blue","white","red"];if(!v.includes(t))t="cyan";document.body.dataset.tone=t;localStorage.setItem(THEME_KEY,t);document.querySelectorAll(".tone").forEach(x=>x.classList.toggle("active",x.dataset.tone===t));}
+applyTheme(localStorage.getItem(THEME_KEY)||"cyan");
+$("backBtn").onclick=()=>history.length>1?history.back():location.href="home.html";
+$("toneBtn").onclick=()=>$("toneSheet").classList.add("open");$("toneClose").onclick=()=>$("toneSheet").classList.remove("open");$("toneSheet").onclick=e=>{if(e.target===$("toneSheet"))$("toneSheet").classList.remove("open")};
+document.querySelectorAll("[data-tone]").forEach(b=>b.onclick=()=>{applyTheme(b.dataset.tone);$("toneSheet").classList.remove("open");toast(`Tone: ${b.dataset.tone}`)});
+
+function toast(m){const t=$("toast");t.innerHTML=`<i class="fa-solid fa-check" style="color:var(--accent)"></i> ${m}`;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),3000)}
+function copyText(txt,msg){navigator.clipboard.writeText(txt).then(()=>{toast(msg||`Copied • Ready to paste`); if(navigator.vibrate) navigator.vibrate(40);});}
+
+// IMEI
+$("checkImei").onclick=()=>{
+  const v=$("imei").value.trim().replace(/\D/g,""); const r=$("imeiRes"); r.style.display="block";
+  if(v.length<14){r.className="result err"; r.textContent="Enter 14 or 15 digits from *#06#."; return;}
+  const imei15=v.length===15?v:v+"0";
+  let sum=0; for(let i=0;i<15;i++){let d=parseInt(imei15[14-i]); if(i%2===1){d*=2; if(d>9)d-=9;} sum+=d;}
+  const valid=sum%10===0;
+  if(valid){r.className="result ok"; r.textContent=`✓ VALID IMEI (Luhn checksum passes)\n\nIMEI: ${v}\nSum: ${sum} % 10 = 0\n\nUse for:\n- Warranty check\n- Box matching\n- Device identity proof\n- Presentation demo of *#06#`;}
+  else {r.className="result err"; r.textContent=`✗ INVALID IMEI checksum\n\nIMEI: ${v}\nSum: ${sum} % 10 = ${sum%10} (should be 0)\n\nCheck typing. Get IMEI from dialing *#06# on phone.`;}
+};
+$("clearImei").onclick=()=>{$("imei").value="";$("imeiRes").style.display="none";};
+
+// Network builder
+document.querySelectorAll("[data-build]").forEach(btn=>{
+  btn.onclick=()=>{
+    const h=$("host").value.trim()||"example.com"; const r=$("netRes"); r.style.display="block";
+    let out="";
+    if(btn.dataset.build==="ping") out=`ping ${h}\n\n# With 4 packets:\nping ${h} -n 4\n\n# Continuous (Ctrl+C to stop):\nping ${h} -t\n\n# What it tests:\n- If h is IP (1.1.1.1): tests internet reachability\n- If h is hostname (example.com): tests DNS + internet`;
+    if(btn.dataset.build==="tracert") out=`tracert ${h}\n\n# Shows every hop between you and ${h}\n# High latency hop = bottleneck\n# * = timeout (router blocking ICMP)`;
+    if(btn.dataset.build==="pathping") out=`pathping ${h}\n\n# Combines tracert + ping over time\n# Shows packet loss % per hop\n# Takes ~5 minutes — best for detailed report`;
+    if(btn.dataset.build==="nslookup") out=`nslookup ${h}\n\n# Queries DNS server\n# Shows A record (IPv4), AAAA (IPv6)\n# With custom DNS:\nnslookup ${h} 1.1.1.1\nnslookup ${h} 8.8.8.8`;
+    if(btn.dataset.build==="tcp") out=`# PowerShell — Test TCP port 443 (HTTPS)\nTest-NetConnection ${h} -Port 443\n\n# Test port 80 (HTTP)\nTest-NetConnection ${h} -Port 80\n\n# Result: TcpTestSucceeded True = port open`;
+    r.textContent=out;
+    r.onclick=()=>copyText(out.split("\n")[0],`Copied ${out.split("\n")[0]}`);
+    r.style.cursor="pointer"; r.title="Click to copy first line";
+  };
+});
+
+// WiFi
+document.querySelectorAll("[data-wifi]").forEach(btn=>{
+  btn.onclick=()=>{
+    const r=$("wifiRes"); r.style.display="block";
+    let out="";
+    if(btn.dataset.wifi==="interfaces") out=`netsh wlan show interfaces\n\n# Shows:\n- SSID connected\n- Signal % (e.g. 85%)\n- Radio type (802.11n/ac/ax)\n- Channel\n- Receive/Transmit rate`;
+    if(btn.dataset.wifi==="profiles") out=`netsh wlan show profiles\n\n# Lists all saved Wi-Fi names\n# To show password (Admin CMD):\nnetsh wlan show profile name="YOUR_SSID" key=clear\n# Look for Key Content`;
+    if(btn.dataset.wifi==="drivers") out=`netsh wlan show drivers\n\n# Shows Wi-Fi driver capabilities\n# Check:\n- Radio types supported\n- Hosted network supported\n- Number of supported SSIDs`;
+    r.textContent=out;
+  };
+});
+
+// Power
+document.querySelectorAll("[data-power]").forEach(btn=>{
+  btn.onclick=()=>{
+    const r=$("powerRes"); r.style.display="block";
+    let out="";
+    if(btn.dataset.power==="battery") out=`powercfg /batteryreport\n\n# Creates battery-report.html in current folder\n# Open with: start battery-report.html\n# Shows:\n- Design Capacity vs Full Charge Capacity\n- Cycle count\n- Battery usage history\n\n# Tip: Run from Desktop folder for easy finding:\ncd %USERPROFILE%\\Desktop && powercfg /batteryreport`;
+    if(btn.dataset.power==="energy") out=`powercfg /energy\n\n# Needs Admin\n# Analyzes power efficiency\n# Creates energy-report.html\n# Shows errors/warnings affecting battery`;
+    if(btn.dataset.power==="sleep") out=`powercfg /a\n\n# Shows available sleep states:\n# Standby (S0/S3), Hibernate, Hybrid Sleep, Fast Startup\n# If S3 not available = Modern Standby device`;
+    if(btn.dataset.power==="sys") out=`systeminfo\n\n# Or PowerShell:\nGet-ComputerInfo\nGet-CimInstance Win32_OperatingSystem\n\n# Shows OS build, uptime, RAM, BIOS version`;
+    r.textContent=out;
+  };
+});
+
+// Placeholder explainer
+$("phExplain").onclick=()=>{
+  const v=$("phInput").value.trim(); const r=$("phRes"); r.style.display="block";
+  if(!v){r.textContent="Paste a command like: taskkill /PID <PID> /F"; return;}
+  let fixed=v;
+  const map={
+    "<PID>": "1234 (find with tasklist)",
+    "<path>": "C:\\Users\\Public",
+    "<username>": "Student (check whoami)",
+    "<number>": "+233XXXXXXXXX",
+    "<host>": "example.com",
+    "<source>": "report.txt",
+    "<destination>": "D:\\Backup\\",
+    "<folder>": "Projects",
+    "<file>": "notes.txt",
+    "<service>": "Spooler",
+    "<old>": "draft.txt",
+    "<new>": "final.txt",
+    "<term>": "vscode",
+    "<PIN>": "1234 (from carrier, never guess)",
+    "[number]": "destination number e.g. +233XXXXXXXXX",
+    "<destination number>": "+233XXXXXXXXX"
+  };
+  let explanation=`Original: ${v}\n\nReplace:\n`;
+  Object.keys(map).forEach(k=>{ if(v.includes(k)){ explanation+=` ${k} → ${map[k]}\n`; fixed=fixed.replaceAll(k, map[k].split(" (")[0]); }});
+  explanation+=`\nFixed example:\n${fixed}\n\n# Now copy and run\n# If still has < > you missed a placeholder`;
+  r.textContent=explanation;
+};
+
+// IP quick
+document.querySelectorAll("[data-ip]").forEach(btn=>{
+  btn.onclick=()=>{
+    const r=$("ipRes"); r.style.display="block";
+    const cmds={
+      all:`ipconfig /all\n\nShows:\n- IPv4, Subnet, Gateway\n- DHCP server, DNS servers\n- MAC address, DHCP lease time`,
+      flush:`ipconfig /flushdns\n\n# Requires Admin\n# Clears DNS resolver cache\n# Use when website shows old IP after DNS change`,
+      display:`ipconfig /displaydns\n\n# Shows current DNS cache entries\n# Good to show before and after flushdns`,
+      netstat:`netstat -ano\n\n# Shows:\n- Active TCP connections\n- Listening ports\n- PID (use tasklist to map PID to process)\n# Find port 80:\nnetstat -ano | findstr :80`,
+      save:`ipconfig > network.txt\nipconfig /all >> network.txt\n\n# Saves output to file\n# > overwrites, >> appends\n# Open with: type network.txt`
+    };
+    r.textContent=cmds[btn.dataset.ip];
+  };
+});
+
+// Deep search across 3 JSONs
+let db=[];
+async function loadDB(){
+  try{
+    const a=await fetch("android_secret_codes.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({brands:[]}));
+    const i=await fetch("ios_secret_codes.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({brands:[]}));
+    const p=await fetch("pc_commands.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({categories:[]}));
+    const all=[];
+    (a.brands||[]).forEach(b=>(b.codes||[]).forEach(c=>all.push({platform:"Android",brand:b.brand,code:c.code,title:c.title,cat:c.category,risk:c.risk,desc:c.description,search:[c.title,c.code,c.category,c.description,b.brand,...(c.tags||[])].join(" ").toLowerCase(),file:"android.html"})));
+    (i.brands||[]).forEach(b=>(b.codes||[]).forEach(c=>all.push({platform:"iOS",brand:b.brand,code:c.code,title:c.title,cat:c.category,risk:c.risk,desc:c.description,search:[c.title,c.code,c.category,c.description,b.brand,...(c.tags||[])].join(" ").toLowerCase(),file:"ios.html"})));
+    (p.categories||[]).forEach(cat=>(cat.commands||[]).forEach(c=>all.push({platform:"PC",brand:cat.name,code:c.command,title:c.title,cat:cat.name,risk:c.risk,desc:c.description,search:[c.title,c.command,cat.name,c.description,...(c.tags||[])].join(" ").toLowerCase(),file:"pc.html"})));
+    db=all;
+  }catch{}
+}
+loadDB();
+
+function doDeepSearch(q){
+  const query=q.toLowerCase().trim(); const out=$("deepOut"); const meta=$("deepMeta");
+  if(!query){out.innerHTML="";meta.textContent="";return;}
+  const res=db.filter(r=>r.search.includes(query)).slice(0,12);
+  meta.textContent=`${res.length} results for "${q}" across ${db.length} records (Android + iOS + PC) — click to open in vault`;
+  out.innerHTML=res.map(r=>`
+    <div class="res-card" onclick="location.href='${r.file}'">
+      <div class="res-ic">${r.platform.charAt(0)}</div>
+      <div style="min-width:0"><div style="font-weight:700;font-size:12px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">${r.title} <span style="font-size:8px;padding:2px 6px;border-radius:999px;border:1px solid var(--border);background:var(--accentSoft);color:var(--accent)">${r.platform}</span><span style="font-size:8px;padding:2px 6px;border-radius:999px;border:1px solid var(--border)">${r.risk}</span></div>
+      <div style="font-family:JetBrains Mono,monospace;font-size:11px;color:var(--accent);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.code}</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.cat} • ${r.desc.slice(0,80)}</div></div>
+    </div>
+  `).join("") || `<div style="padding:20px;text-align:center;color:var(--muted);border:1px solid var(--border);border-radius:14px;background:var(--panel)">No results for "${q}" — try IMEI, wifi, ipconfig, battery, Field Test</div>`;
+}
+
+$("deepBtn").onclick=()=>doDeepSearch($("deepInput").value);
+$("deepInput").addEventListener("keydown",e=>{if(e.key==="Enter") doDeepSearch($("deepInput").value);});
+$("deepInput").addEventListener("input",()=>{ if($("deepInput").value.trim().length>2) doDeepSearch($("deepInput").value); });
+document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{$("deepInput").value=b.dataset.q; doDeepSearch(b.dataset.q);});
+</script>
+</body>
+</html>
